@@ -1,2 +1,2 @@
 # setxo-cms
-Laravel CMS with Inertia.js
+Tailwind Component with Inertia.js and react 
