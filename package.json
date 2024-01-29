@@ -1,7 +1,7 @@
 {
   "name": "@amin-khadivar/setxo",
   "version": "1.0.0",
-  "description": "Is the string WDS?",
+  "description": "Setxo Components",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,8 +13,8 @@
   "keywords": [
     "WDS"
   ],
-  "author": "Web Dev Simplified",
-  "license": "ISC",
+  "author": "Amin Khadivar",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/aminkhadivar/Setxo-Components/issues"
   },
