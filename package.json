@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aminkhadivar/Setxo-Components.git"
+    "url": "git+https://github.com/aminkhadivar/setxo-components.git"
   },
   "keywords": [
     "Setxo Components"
@@ -16,7 +16,7 @@
   "author": "Amin Khadivar",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/aminkhadivar/Setxo-Components/issues"
+    "url": "https://github.com/aminkhadivar/setxo-components/issues"
   },
-  "homepage": "https://github.com/aminkhadivar/Setxo-Components#readme"
+  "homepage": "https://github.com/aminkhadivar/setxo-components#readme"
 }
