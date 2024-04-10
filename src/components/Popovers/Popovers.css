@@ -1,0 +1,29 @@
+/* ------------- Popovers ------------- */
+
+.popover {
+    @apply absolute min-w-max flex flex-wrap p-3 z-30 rounded-md
+}
+
+.popover-content {
+    @apply relative max-w-[18rem]
+}
+
+.popover-top {
+    @apply bottom-full mb-2 lg:left-1/2 lg:-translate-x-1/2 left-0 translate-x-0
+}
+
+.popover-right {
+    @apply left-full ml-2 top-1/2 -translate-y-1/2
+}
+
+.popover-bottom {
+    @apply top-full mt-2 lg:left-1/2 lg:-translate-x-1/2 left-0 translate-x-0
+}
+
+.popover-left {
+    @apply right-full mr-2 top-1/2 -translate-y-1/2
+}
+
+.popover-link {
+    @apply text-blue-500 hover:text-blue-600 font-medium duration-300 px-1
+}
