@@ -1,0 +1,89 @@
+/* ------------- Progress ------------- */
+
+.progress {
+    @apply flex items-center w-full bg-gray-100 dark:bg-gray-700
+}
+
+.progress-bar {
+    @apply flex items-center justify-center;
+}
+
+.progress-bar-striped {
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 100%, transparent 100%, transparent);
+    background-size: 3rem;
+}
+
+.progress-bar-animated {
+    animation: 1s linear infinite progress-bar-stripes;
+}
+
+.progress-lable {
+    @apply text-sm font-medium text-white dark:text-black
+}
+
+.progress-bar-light {
+    @apply bg-gray-300 dark:bg-gray-200
+}
+
+.progress-bar-gray {
+    @apply bg-gray-500 dark:bg-gray-400
+}
+
+.progress-bar-dark {
+    @apply bg-gray-700 dark:bg-gray-800
+}
+
+.progress-bar-primary {
+    @apply bg-blue-500 dark:bg-blue-400
+}
+
+.progress-bar-success {
+    @apply bg-green-500 dark:bg-green-400
+}
+
+.progress-bar-danger {
+    @apply bg-red-500 dark:bg-red-400
+}
+
+.progress-bar-warning {
+    @apply bg-amber-400 dark:bg-amber-400
+}
+
+.progress-bar-info {
+    @apply bg-cyan-500 dark:bg-cyan-400
+}
+
+.progress-bar-purple {
+    @apply bg-setxo-500 dark:bg-setxo-400
+}
+
+@keyframes progress-bar-stripes {
+    0% {
+        background-position-x: 0;
+    }
+
+    100% {
+        background-position-x: 3rem;
+    }
+}
+
+@keyframes progress-bar-indeterminate {
+    0% {
+        background-position-x: 0%;
+    }
+
+    50% {
+        background-position-x: -100%;
+    }
+    100% {
+        background-position-x: 0%;
+    }
+}
+
+.progress-indeterminate {
+    --progress-color: #3b82f6;
+    background-image: repeating-linear-gradient(90deg,var(--progress-color) -1%,var(--progress-color) 10%,transparent 10%,transparent 90%);
+    background-size: 200%;
+    background-position-x: 15%;
+    animation: progress-bar-indeterminate 5s ease-in-out infinite;
+  }
