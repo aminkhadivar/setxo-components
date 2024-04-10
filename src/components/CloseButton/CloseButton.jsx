@@ -1,4 +1,4 @@
-import { CloseIcon } from "@/Setxo/Icons/SetxoIcons"
+import { CloseIcon } from "../../../public/Icons"
 import './CloseButton.css'
 
 export default function CloseButton({ type = 'button', className = '', disabled = '', size = 'default', children, color = 'default', rounded = 'rounded', ...props }) {
