@@ -1,0 +1,24 @@
+/* ------------- Drawer ------------- */
+
+.setxo-drawer h4 {
+    @apply text-xl font-semibold text-zinc-900 dark:text-zinc-200;
+    letter-spacing: 0.01rem;
+}
+
+.backdrop-effect {
+    animation: zoom 350ms ease-in-out;
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
