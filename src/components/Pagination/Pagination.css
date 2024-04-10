@@ -1,0 +1,21 @@
+/* ------------- Pagination ------------- */
+
+.pagination {
+    @apply flex items-end gap-2
+}
+
+.page-item {
+    @apply flex items-center font-medium
+}
+
+.page-link {
+    @apply flex items-center bg-gray-100 dark:bg-gray-500 text-gray-600 dark:text-gray-200 hover:text-blue-600 dark:hover:text-gray-100 hover:bg-blue-100 dark:hover:bg-gray-600 duration-300
+}
+
+.page-item.active .page-link {
+    @apply bg-blue-500 text-white pointer-events-none
+}
+
+.page-item.disabled .page-link {
+    @apply bg-gray-200 dark:bg-gray-600 text-gray-400 pointer-events-none
+}
