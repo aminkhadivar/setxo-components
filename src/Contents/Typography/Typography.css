@@ -1,0 +1,53 @@
+/* ------------- Typography ------------- */
+
+h1 {
+    @apply text-4xl font-bold text-zinc-900 dark:text-zinc-200;
+}
+
+h2 {
+    @apply text-3xl font-bold text-zinc-900 dark:text-zinc-200;
+}
+
+h3 {
+    @apply text-2xl font-bold text-zinc-900 dark:text-zinc-200;
+}
+
+h4 {
+    @apply text-xl font-bold text-zinc-900 dark:text-zinc-200;
+}
+
+h5 {
+    @apply text-lg font-bold text-zinc-900 dark:text-zinc-200;
+}
+
+h6 {
+    @apply text-base font-bold text-zinc-900 dark:text-zinc-200;
+}
+
+.h1 {
+    @apply text-4xl font-bold text-zinc-900 dark:text-zinc-200;
+}
+
+.h2 {
+    @apply text-3xl font-bold text-zinc-900 dark:text-zinc-200;
+}
+
+.h3 {
+    @apply text-2xl font-bold text-zinc-900 dark:text-zinc-200;
+}
+
+.h4 {
+    @apply text-xl font-bold text-zinc-900 dark:text-zinc-200;
+}
+
+.h5 {
+    @apply text-lg font-bold text-zinc-900 dark:text-zinc-200;
+}
+
+.h6 {
+    @apply text-base font-bold text-zinc-900 dark:text-zinc-200;
+}
+
+.lead {
+    @apply text-xl font-medium text-zinc-900 dark:text-zinc-200;
+}
