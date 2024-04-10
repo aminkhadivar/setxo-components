@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react'
-import CloseButton from "./CloseButton/CloseButton"
+import CloseButton from "../CloseButton/CloseButton"
 import './Modal.css'
 
 export default function Modal({ content, title, footer, id, className = '', show = false, centered = '', bodyScrollable = '', contentScrollable = '', size = 'md', closeable = true, onClose = () => { }, ...props }) {
