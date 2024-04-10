@@ -1,0 +1,41 @@
+/* ------------- Dropdowns ------------- */
+
+.dropdown {
+    @apply absolute z-30 rounded-lg shadow-lg dark:shadow-none
+}
+
+.dropdown-content {
+    @apply relative rounded-lg
+}
+
+.dropdown-top {
+    @apply bottom-full mb-2
+}
+
+.dropdown-right {
+    @apply left-full ml-2 top-0 -translate-y-2
+}
+
+.dropdown-bottom {
+    @apply top-full mt-2
+}
+
+.dropdown-left {
+    @apply right-full mr-2 top-0 -translate-y-2
+}
+
+.dropdown-menu-end {
+    @apply origin-top-right right-0
+}
+
+.dropdown-menu-start {
+    @apply origin-top-left left-0
+}
+
+.dropdown-menu-center {
+    @apply sm:left-1/2 sm:-translate-x-1/2 left-0 translate-x-0
+}
+
+.dropdown-link {
+    @apply flex items-center w-full px-2 py-2 text-left text-sm leading-5 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-600 rounded cursor-pointer transition duration-300
+}
