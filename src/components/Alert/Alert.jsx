@@ -66,7 +66,7 @@ export default function Alert({ id, className = '', children, closeButton = 'lig
                 {dimissable
                     ?
                     <div className="alert-dismissible">
-                        <div class="flex-1">
+                        <div className="flex-1">
                             {children}
                         </div>
                         <CloseButton color={`${color}`} onClick={() => { setShow(false) }} />
