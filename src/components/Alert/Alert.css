@@ -1,0 +1,78 @@
+/* ------------- Alert ------------- */
+
+.alert {
+    @apply w-full items-center p-4 text-sm transition duration-300;
+}
+
+.alert-light {
+    @apply text-gray-800 bg-gray-100 dark:bg-gray-300 dark:text-gray-800 border-gray-200;
+}
+
+.alert-gray {
+    @apply text-gray-800 bg-gray-300 dark:bg-gray-500 dark:text-gray-200 border-gray-400;
+}
+
+.alert-dark {
+    @apply text-gray-100 bg-gray-500 dark:bg-gray-700 dark:text-gray-300 border-gray-900;
+}
+
+.alert-primary {
+    @apply text-blue-600 bg-blue-50 dark:bg-blue-950 dark:text-blue-200 border-blue-400;
+}
+
+
+.alert-success {
+    @apply text-green-600 bg-green-50 dark:bg-green-950 dark:text-green-200 border-green-400;
+}
+
+.alert-danger {
+    @apply text-red-600 bg-red-50 dark:bg-red-950 dark:text-red-200 border-red-400;
+}
+
+.alert-warning {
+    @apply text-yellow-600 bg-yellow-50 dark:bg-yellow-950 dark:text-yellow-200 border-yellow-400;
+}
+
+.alert-info {
+    @apply text-cyan-600 bg-cyan-50 dark:bg-cyan-950 dark:text-cyan-200 border-cyan-400;
+}
+
+.btn-alert-close {
+    @apply !h-6 w-6 !px-0 !rounded-full ml-auto;
+}
+
+.alert-outline-light {
+    @apply text-gray-500 border border-gray-200 dark:border-gray-500 dark:text-gray-200;
+}
+
+.alert-outline-gray {
+    @apply text-gray-600 border border-gray-400 dark:border-gray-600 dark:text-gray-200;
+}
+
+.alert-outline-dark {
+    @apply text-gray-900 border border-gray-800 dark:border-gray-700 dark:text-gray-400;
+}
+
+.alert-outline-primary {
+    @apply text-blue-600 border border-blue-300 dark:border-blue-800 dark:text-blue-400;
+}
+
+.alert-outline-success {
+    @apply text-green-600 border border-green-300 dark:border-green-800 dark:text-green-400;
+}
+
+.alert-outline-danger {
+    @apply text-red-600 border border-red-300 dark:border-red-900 dark:text-red-400;
+}
+
+.alert-outline-warning {
+    @apply text-yellow-600 border border-yellow-300 dark:border-yellow-700 dark:text-yellow-500;
+}
+
+.alert-outline-info {
+    @apply text-cyan-600 border border-cyan-300 dark:border-cyan-900 dark:text-cyan-300;
+}
+
+.alert-dismissible {
+    @apply flex justify-between items-center
+}
