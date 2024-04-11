@@ -97,5 +97,5 @@ button {
 }
 
 .btn-outline-purple {
-    @apply btn bg-transparent dark:bg-transparent hover:bg-setxo-500 dark:hover:bg-setxo-600 active:bg-setxo-600 focus:bg-setxo-600 text-setxo-500 dark:text-setxo-400 active:text-gray-100 focus:text-gray-100 hover:text-gray-100 dark:hover:text-white border border-setxo-500 hover:border-setxo-500 dark:border-setxo-500 dark:hover:border-setxo-600 stroke-setxo-500 hover:stroke-white;
+    @apply btn bg-transparent dark:bg-transparent hover:bg-setxo-600 dark:hover:bg-setxo-500 active:bg-setxo-700 focus:bg-setxo-700 text-setxo-600 dark:text-setxo-400 active:text-gray-100 focus:text-gray-100 hover:text-gray-100 dark:hover:text-white border border-setxo-600 hover:border-setxo-600 dark:border-setxo-500 dark:hover:border-setxo-500 stroke-setxo-600 hover:stroke-white;
 }
