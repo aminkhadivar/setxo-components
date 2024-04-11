@@ -49,7 +49,7 @@ button {
 }
 
 .btn-purple {
-    @apply bg-setxo-500 dark:bg-setxo-600 hover:bg-setxo-600 dark:hover:bg-setxo-700 active:bg-setxo-700 focus:bg-setxo-700 !text-white;
+    @apply btn bg-setxo-600 dark:bg-setxo-500 hover:bg-setxo-700 dark:hover:bg-setxo-600 active:bg-setxo-800 focus:bg-setxo-800 !text-white;
 }
 
 .btn-gradient {
