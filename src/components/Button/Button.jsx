@@ -86,7 +86,7 @@ export default function Button({ href, as = 'Link', type = 'button', className =
                         href={href}
                         role="button"
                         className={`${colorClass} px-2 ` + className + `${disabled && ' pointer-events-none opacity-50'
-                            }` + ` ${rounded && roundedClass}` + ` ${sizeClass}` + `${borderColor ? borderColorClass : ''}`}
+                            }` + ` ${rounded && roundedClass}` + ` ${shadow && color ? shodowClass : ''}` + ` ${(shadow && borderColor) ? shodowBorderClass : ''}` + ` ${sizeClass}` + `${borderColor ? borderColorClass : ''}`}
                     >
                         {children}
                     </Link>
@@ -100,7 +100,7 @@ export default function Button({ href, as = 'Link', type = 'button', className =
 
                         rel="noreferrer"
                         className={`${colorClass} px-2 ` + className + `${disabled && ' pointer-events-none opacity-50'
-                            }` + ` ${rounded && roundedClass}` + ` ${sizeClass}` + `${borderColor ? borderColorClass : ''}`}
+                            }` + ` ${rounded && roundedClass}` + ` ${shadow && color ? shodowClass : ''}` + ` ${(shadow && borderColor) ? shodowBorderClass : ''}` + ` ${sizeClass}` + `${borderColor ? borderColorClass : ''}`}
                     >
                         {children}
                     </a>
