@@ -5,7 +5,7 @@ button {
 }
 
 .btn {
-    @apply flex items-center justify-center hover:text-gray-800 dark:hover:text-gray-300 font-normal active:bg-transparent transition duration-300 tracking-wide
+    @apply flex items-center justify-center hover:text-gray-800 dark:hover:text-gray-300 font-medium active:bg-transparent transition duration-300 tracking-wide
 }
 
 .btn-icon {
