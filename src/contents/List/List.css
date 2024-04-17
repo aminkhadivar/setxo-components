@@ -1,0 +1,21 @@
+/* ------------- List ------------- */
+
+.list {
+    @apply grid
+}
+
+.list-item {
+    @apply flex items-center my-1
+}
+
+.list-item.active {
+    @apply text-gray-600 dark:text-gray-300
+}
+
+.list-link {
+    @apply font-medium text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-500 disabled:text-gray-500 border-b-transparent duration-300
+}
+
+.list-separator {
+    @apply flex items-center px-4 text-gray-400 dark:text-gray-500
+}
