@@ -1,0 +1,37 @@
+/* ------------- Links ------------- */
+
+.link-light {
+    @apply text-gray-400 hover:text-gray-500 dark:text-gray-300 dark:hover:text-gray-400 active:text-gray-600 focus:text-gray-600
+}
+
+.link-gray {
+    @apply text-gray-600 hover:text-gray-700 dark:text-gray-500 dark:hover:text-gray-600 active:text-gray-800 focus:text-gray-800
+}
+
+.link-dark {
+    @apply text-gray-800 hover:text-gray-900 dark:text-gray-600 dark:hover:text-gray-700 active:text-gray-950 focus:text-gray-950
+}
+
+.link-primary {
+    @apply text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-500 active:text-blue-800 focus:text-blue-800
+}
+
+.link-success {
+    @apply text-green-500 hover:text-green-600 dark:text-green-400 dark:hover:text-green-500 active:text-green-800 focus:text-green-800
+}
+
+.link-danger {
+    @apply text-red-500 hover:text-red-600 dark:text-red-400 dark:hover:text-red-500 active:text-red-800 focus:text-red-800
+}
+
+.link-warning {
+    @apply text-amber-500 hover:text-amber-600 dark:text-amber-400 dark:hover:text-amber-500 active:text-amber-800 focus:text-amber-800
+}
+
+.link-info {
+    @apply text-cyan-500 hover:text-cyan-600 dark:text-cyan-400 dark:hover:text-cyan-500 active:text-cyan-800 focus:text-cyan-800
+}
+
+.link-purple {
+    @apply text-setxo-500 hover:text-setxo-600 dark:text-setxo-400 dark:hover:text-setxo-500 active:text-setxo-800 focus:text-setxo-800
+}
