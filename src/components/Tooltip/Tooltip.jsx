@@ -50,7 +50,7 @@ export default function Tooltip({ content, className = '', children, placement =
     }[placement]
 
     return (
-        <div className="relative inline"
+        <div className="tooltip"
             onMouseEnter={showTooltip}
             onMouseLeave={hideTooltip}
         >

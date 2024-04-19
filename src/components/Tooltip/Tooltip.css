@@ -1,5 +1,9 @@
 /* ------------- Tooltip ------------- */
 
+.tooltip {
+    @apply relative inline
+}
+
 .tooltip-content {
     @apply absolute min-w-max flex flex-wrap p-2 z-50 pointer-events-none
 }
