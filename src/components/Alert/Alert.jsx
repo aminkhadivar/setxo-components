@@ -1,6 +1,6 @@
 import { useState, Fragment } from "react"
 import { Transition } from '@headlessui/react'
-import CloseButton from "@/Components/SetxoComponents/CloseButton"
+import CloseButton from "../CloseButton/CloseButton"
 import './Alert.css'
 
 export default function Alert({ id, className = '', children, closeButton = 'light', dimissable = '', rounded = 'md', color = '', borderColor = '', accentBorder = '', ...props }) {
@@ -63,18 +63,12 @@ export default function Alert({ id, className = '', children, closeButton = 'lig
                 }
                 role="alert"
             >
+                <div className="flex-1">
+                    {children}
+                </div>
                 {dimissable
-                    ?
-                    <div className="alert-dismissible">
-                        <div className="flex-1">
-                            {children}
-                        </div>
-                        <CloseButton color={`${color}`} onClick={() => { setShow(false) }} />
-                    </div>
-                    :
-                    <>
-                        {children}
-                    </>
+                    &&
+                    <CloseButton color={`${color}`} onClick={() => { setShow(false) }} />
                 }
             </div>
         </Transition>
