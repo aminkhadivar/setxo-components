@@ -37,9 +37,8 @@ export default function CloseButton({ type = 'button', className = '', disabled 
         <button
             {...props}
             type="button"
-            className={
-                className + `btn-close ${color && colorClass}` + `${disabled && ' pointer-events-none opacity-50'
-                }` + ` ${rounded && roundedClass}` + ` ${size && sizeClass}`
+            className={`btn-close ${color && colorClass}` + `${disabled && ' pointer-events-none opacity-50'
+                }` + ` ${rounded && roundedClass}` + ` ${size && sizeClass}` + `${className && ` ` + className}`
             }
             aria-label="Close">
             <CloseIcon />

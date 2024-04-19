@@ -68,7 +68,7 @@ export default function Alert({ id, className = '', children, closeButton = 'lig
                 </div>
                 {dimissable
                     &&
-                    <CloseButton color={`${color}`} onClick={() => { setShow(false) }} />
+                    <CloseButton className="ml-2" color={`${color}`} onClick={() => { setShow(false) }} />
                 }
             </div>
         </Transition>
