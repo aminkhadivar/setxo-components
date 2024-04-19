@@ -1,6 +1,6 @@
 import './Progress.css'
 
-export default function Progress({ className = '', disabled = '', height = '16', children, withLable = false, striped = false, animated = false, color = 'primary', rounded = 'full', value = '60', ...props }) {
+export default function Progress({ className = '', disabled = '', height = '16', children, withLable = false, striped = '', animated = '', color = 'primary', rounded = 'full', value = '60', ...props }) {
 
     const colorClass = {
         light: 'progress-bar-light',
