@@ -24,7 +24,7 @@ export default function Progress({ className = '', disabled = '', height = '16',
     }[rounded];
 
     return (
-        <div className={`progress ${value == null && 'progress-indeterminate'}` + ` ${roundedClass}`}
+        <div className={`progress ${value == null ? 'progress-indeterminate' : ''}` + ` ${roundedClass}`}
             style={{ height: `${height}px` }}
         >
             <div
