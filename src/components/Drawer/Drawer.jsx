@@ -1,6 +1,6 @@
 import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import CloseButton from "@/Components/SetxoComponents/CloseButton"
+import CloseButton from "../CloseButton/CloseButton"
 import './Drawer.css'
 
 export default function Drawer({ children, title, content, footer, show = false, width, placement, closeable = true, onClose = () => { }, ...props }) {
