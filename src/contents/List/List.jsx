@@ -1,13 +1,12 @@
-import { Children, Fragment, createContext, useContext } from "react"
-import { Link } from "@inertiajs/react"
+import { createContext, useContext } from "react"
 import './List.css'
 
 const ListContext = createContext()
 
-const List = ({ active = '', href, className = '', children, separator = ' ' }) => {
+const List = ({ className = '', children, separator = ' ' }) => {
 
     return (
-        <ListContext.Provider value={{ className, children, active, href, separator }}>
+        <ListContext.Provider value={{ className, children, separator }}>
             <nav aria-label="list">
                 <ul className={'list ' + className}>{children}</ul>
             </nav>
@@ -23,29 +22,17 @@ const ListItem = ({ children, className = '', active = '', href, ...props }) => 
     return (
         <li
             {...props}
-            className={'list-item' + `${active && ' active'}`}
+            className={'list-item'}
         >
-            {href
-                ?
-                <>
-                    <Link
-                        className={'list-link ' + className}
-                        href={href}
-                    >
-                        {children}
-                    </Link>
-                </>
-                :
-                <>
-                    {separatorValue && <div className="list-separator">{separatorValue}</div>}
-                    <div>
-                        {children}
-                    </div>
-                </>
-            }
+            <>
+                {separatorValue && <div className="list-separator">{separatorValue}</div>}
+                <div>
+                    {children}
+                </div>
+            </>
         </li>
-    );
-};
+    )
+}
 
 List.Item = ListItem
 
