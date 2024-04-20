@@ -1,6 +1,6 @@
 import './Image.css'
 
-export default function Image({ url, alt = '...', as = 'image', height = '196', width = '196', className = '', rounded = 'md', ...props }) {
+export default function Image({ url, alt = '...', as = 'image', height = '196', width = '196',thumbnailSize ='196', className = '', rounded = 'md', ...props }) {
 
     const roundedClass = {
         none: 'rounded-none',
@@ -14,13 +14,30 @@ export default function Image({ url, alt = '...', as = 'image', height = '196', 
     return (
         <>
             {as === 'image' &&
-                <img {...props} src={url} alt={alt} className={` ${rounded && roundedClass}`} style={{ height: `${height}px` }} />
+                <img
+                {...props}
+                src={url}
+                className={` ${rounded && roundedClass}`}
+                style={{ height: `${height}px`}}
+                alt={alt}
+                />
             }
             {as === 'responsive' &&
-                <img {...props} className={`img-fluid` + ` ${rounded && roundedClass}`} style={{ height: `${height}px` }} src={url} alt={alt} />
+                <img
+                {...props}
+                src={url}
+                height={height}
+                className={`img-fluid` + ` ${rounded && roundedClass}`}
+                style={{ height: `${height}px` }}
+                alt={alt} />
             }
             {as === 'thumbnail' &&
-                <img {...props} className={`img-thumbnail` + ` ${rounded && roundedClass}`} style={{ height: `${height}px`, width: `${width}px` }} src={url} alt={alt} />
+                <img
+                {...props}
+                src={url}
+                className={`img-thumbnail` + ` ${rounded && roundedClass}`}
+                style={{ height: `${thumbnailSize}px`, width: `${thumbnailSize}px` }}
+                alt={alt} />
             }
         </>
     )

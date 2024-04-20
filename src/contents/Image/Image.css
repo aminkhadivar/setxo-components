@@ -1,3 +1,5 @@
+/* ------------- Image ------------- */
+
 .img-fluid {
     @apply w-full flex items-center object-cover
 }
