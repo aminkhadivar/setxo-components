@@ -14,13 +14,13 @@ export default function Image({ url, alt = '...', as = 'image', height = '196', 
     return (
         <>
             {as === 'image' &&
-                <img src={url} alt={alt} className={` ${rounded && roundedClass}`} style={{ height: `${height}px` }} />
+                <img {...props} src={url} alt={alt} className={` ${rounded && roundedClass}`} style={{ height: `${height}px` }} />
             }
             {as === 'responsive' &&
-                <img className={`img-fluid` + ` ${rounded && roundedClass}`} style={{ height: `${height}px` }} src={url} alt={alt} />
+                <img {...props} className={`img-fluid` + ` ${rounded && roundedClass}`} style={{ height: `${height}px` }} src={url} alt={alt} />
             }
             {as === 'thumbnail' &&
-                <img className={`img-thumbnail` + ` ${rounded && roundedClass}`} style={{ height: `${height}px`, width: `${width}px` }} src={url} alt={alt} />
+                <img {...props} className={`img-thumbnail` + ` ${rounded && roundedClass}`} style={{ height: `${height}px`, width: `${width}px` }} src={url} alt={alt} />
             }
         </>
     )
