@@ -1,5 +1,5 @@
 .img-fluid {
-    @apply w-full flex items-center object-fill overflow-hidden
+    @apply w-full flex items-center object-cover
 }
 
 .img-thumbnail {
