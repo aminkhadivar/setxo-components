@@ -1,7 +1,7 @@
 import { Link } from "@inertiajs/react"
 import './Badge.css'
 
-export default function Badge({ href, className = '', color = '', children, size = '', rounded = 'rounded', ...props }) {
+export default function Badge({ href, className = '', color = '', children, size = '', rounded = 'rounded', position = false, ...props }) {
 
     const colorClass = {
         light: 'badge-light',
@@ -45,14 +45,14 @@ export default function Badge({ href, className = '', color = '', children, size
             <Link
                 {...props}
                 href={href}
-                className={`badge ${colorClass} ` + className + ` ${roundedClass}` + ` ${sizeClass}`}
+                className={`badge ${colorClass} ${position && ' badge-position'} ` + className + ` ${roundedClass}` + ` ${sizeClass}`}
             >
                 {children}
             </Link>
             :
             <div
                 {...props}
-                className={`badge ${colorClass} ` + className + ` ${roundedClass}` + ` ${size && sizeClass}`}
+                className={`badge ${colorClass} ${position && ' badge-position'} ` + className + ` ${roundedClass}` + ` ${size && sizeClass}`}
             >
                 {children}
             </div>
