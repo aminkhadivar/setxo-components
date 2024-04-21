@@ -63,6 +63,18 @@
     @apply bg-cyan-100 text-cyan-600 hover:text-cyan-600;
 }
 
-.badge-position {
+.badge-position-top-right {
     @apply absolute -right-[20px] -top-[10px];
+}
+
+.badge-position-top-left {
+    @apply absolute -left-[20px] -top-[10px];
+}
+
+.badge-position-bottom-right {
+    @apply absolute -right-[20px] -bottom-[10px];
+}
+
+.badge-position-bottom-left {
+    @apply absolute -left-[20px] -bottom-[10px];
 }
