@@ -1,19 +1,18 @@
 {
   "name": "setxo-component",
-  "private": false,
   "version": "1.0.0",
   "description": "React Components with Tailwind CSS",
   "type": "module",
+  "main": "components/index.js",
   "author": "Amin Khadivar <amin.khadivar@gmail.com>",
-  "homepage": "https://github.com/aminkhadivar/setxo-components#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aminkhadivar/setxo-component.git",
-    "directory": "packages/setxo-component"
+    "url": "git+https://github.com/aminkhadivar/setxo-components.git"
   },
   "bugs": {
-    "url": "https://github.com/aminkhadivar/setxo-component/issues"
+    "url": "https://github.com/aminkhadivar/setxo-components/issues"
   },
+  "homepage": "https://github.com/aminkhadivar/setxo-components#readme",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com",
     "access": "public"
