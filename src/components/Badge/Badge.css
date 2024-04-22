@@ -35,6 +35,10 @@
     @apply bg-cyan-500 text-white hover:text-white;
 }
 
+.badge-purple {
+    @apply bg-setxo-600 text-white hover:text-white;
+}
+
 .badge-light-gray {
     @apply bg-gray-200 text-gray-700 hover:text-gray-700;
 }
@@ -61,6 +65,10 @@
 
 .badge-light-info {
     @apply bg-cyan-100 text-cyan-600 hover:text-cyan-600;
+}
+
+.badge-light-purple {
+    @apply bg-setxo-100 text-setxo-600 hover:text-setxo-600;
 }
 
 .badge-position-top-right {

@@ -12,6 +12,7 @@ export default function Badge({ href, className = '', color = '', children, size
         danger: 'badge-danger',
         warning: 'badge-warning',
         info: 'badge-info',
+        purple: 'badge-purple',
         lightGray: 'badge-light-gray',
         lightDark: 'badge-light-dark',
         lightPrimary: 'badge-light-primary',
@@ -19,6 +20,7 @@ export default function Badge({ href, className = '', color = '', children, size
         lightDanger: 'badge-light-danger',
         lightWarning: 'badge-light-warning',
         lightInfo: 'badge-light-info',
+        lightPurple: 'badge-light-purple',
     }[color];
 
     const roundedClass = {
