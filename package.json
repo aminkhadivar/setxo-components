@@ -53,7 +53,6 @@
     "iconsax-react": "^0.0.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "setxo-component": "^1.0.0",
     "tailwindcss": "^3.3.2",
     "vite-plugin-babel-macros": "^1.0.6"
   },
