@@ -5,12 +5,31 @@ React Components with Tailwind CSS , optimized for Laravel and Inertia JS
 
 ## Installation
 
-Install setxo-components with npm
+```bash
+  npm install
+```
+    
+## Install Setxo Package
 
 ```bash
   npm install setxo-components
 ```
-    
+## Run Project
+
+```bash
+  npm run dev
+```
+## Usage/Examples
+
+```javascript
+import Button from 'setxo-components'
+
+function App() {
+  return <Button />
+}
+```
+
+
 ## Documentation
 
 [Documentation of Setxo Components](https://setxo.com)
