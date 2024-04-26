@@ -26,10 +26,10 @@ const Carousel = ({ slides, height = '384', autoSlide = false, indicators = fals
             {controls &&
             <div className="carousel-control">
                 <button onClick={prev} className='carousel-control-prev'>
-                    <ArrowLeft2 size={24} />
+                    <ArrowLeft2 size={36} />
                 </button>
                 <button onClick={next} className='carousel-control-next'>
-                    <ArrowRight2 size={24} />
+                    <ArrowRight2 size={36} />
                 </button>
             </div>
             }
@@ -39,7 +39,7 @@ const Carousel = ({ slides, height = '384', autoSlide = false, indicators = fals
                         {slides.map((s, i) => (
                             <button key={"circle" + i} onClick={() => {
                                 setCurrent(i);
-                            }} className={`carousel-indicator-item ${current === i ? "p-2" : "bg-opacity-50 p-0"}`} />
+                            }} className={`carousel-indicator-item ${current === i ? "bg-white p-2" : "bg-white bg-opacity-50 p-0"}`} />
                         ))}
                     </div>
                 </div>
