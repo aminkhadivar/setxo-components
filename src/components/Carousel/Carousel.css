@@ -1,0 +1,35 @@
+.carousel {
+    @apply overflow-hidden relative rounded-lg
+}
+
+.carousel-inner {
+    @apply flex transition-transform ease-out duration-500
+}
+
+.carousel-item {
+    @apply w-full flex-none bg-no-repeat bg-center bg-cover
+}
+
+.carousel-control {
+    @apply absolute inset-0 flex items-center justify-between p-4
+}
+
+.carousel-control-prev {
+    @apply p-1 rounded-full bg-white/60 text-gray-800 dark:text-gray-800 hover:bg-white/90
+}
+
+.carousel-control-next {
+    @apply p-1 rounded-full bg-white/60 text-gray-800 dark:text-gray-800 hover:bg-white/90
+}
+
+.carousel-indicators {
+    @apply absolute bottom-4 right-0 left-0
+}
+
+.carousel-indicators-inner {
+    @apply flex items-center justify-center gap-2
+}
+
+.carousel-indicator-item {
+    @apply transition-all w-3 h-3 bg-white rounded-full
+}

@@ -1,5 +1,6 @@
 import { ArrowLeft2, ArrowRight2 } from 'iconsax-react'
 import { useState, useEffect } from 'react'
+import './Carousel.css'
 
 const Carousel = ({ slides, height = '384', autoSlide = false, indicators = false, controls = true, autoSlideInterval = 5000 }) => {
 
@@ -16,29 +17,29 @@ const Carousel = ({ slides, height = '384', autoSlide = false, indicators = fals
     }, [])
 
     return (
-        <div className='overflow-hidden relative rounded-lg'>
-            <div className='flex transition-transform ease-out duration-500' style={{ transform: `translateX(-${current * 100}%)`, height: `${height}px` }}>
+        <div className="carousel">
+            <div className='carousel-inner' style={{ transform: `translateX(-${current * 100}%)`, height: `${height}px` }}>
                 {slides.map((s, i) => {
-                    return <div className={`w-full flex-none bg-no-repeat bg-center bg-cover`} style={{ backgroundImage: `url(${s})` }} key={"slide" + i} />
+                    return <div className={`carousel-item`} style={{ backgroundImage: `url(${s})` }} key={"slide" + i} />
                 })}
             </div>
             {controls &&
-            <div className="absolute inset-0 flex items-center justify-between p-4">
-                <button onClick={prev} className='p-1 rounded-full bg-white/60 text-gray-800 dark:text-gray-800 hover:bg-white/90'>
+            <div className="carousel-control">
+                <button onClick={prev} className='carousel-control-prev'>
                     <ArrowLeft2 size={24} />
                 </button>
-                <button onClick={next} className='p-1 rounded-full bg-white/60 text-gray-800 dark:text-gray-800 hover:bg-white/90'>
+                <button onClick={next} className='carousel-control-next'>
                     <ArrowRight2 size={24} />
                 </button>
             </div>
             }
             {indicators &&
-                <div className='absolute bottom-4 right-0 left-0'>
-                    <div className='flex items-center justify-center gap-2'>
+                <div className='carousel-indicators'>
+                    <div className='carousel-indicators-inner'>
                         {slides.map((s, i) => (
                             <button key={"circle" + i} onClick={() => {
                                 setCurrent(i);
-                            }} className={`transition-all w-3 h-3 bg-white rounded-full ${current === i ? "p-2" : "bg-opacity-50 p-0"}`} />
+                            }} className={`carousel-indicator-item ${current === i ? "p-2" : "bg-opacity-50 p-0"}`} />
                         ))}
                     </div>
                 </div>
