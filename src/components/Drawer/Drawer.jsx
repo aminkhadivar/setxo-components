@@ -12,7 +12,7 @@ export default function Drawer({ children, title, content, footer, show = false,
             element.classList.add("backdrop-effect");
             setTimeout(function () {
                 element.classList.remove("backdrop-effect");
-            }, 350);
+            }, 250);
         }
     };
 

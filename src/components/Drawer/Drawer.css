@@ -6,7 +6,7 @@
 }
 
 .backdrop-effect {
-    animation: zoom 350ms ease-in-out;
+    animation: zoom 250ms ease-in-out;
 }
 
 @keyframes zoom {
