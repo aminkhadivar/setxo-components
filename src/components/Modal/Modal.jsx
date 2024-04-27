@@ -34,7 +34,7 @@ export default function Modal({ content, title, footer, id, className = '', show
             <Dialog
                 as="div"
                 id={id}
-                className={`fixed inset-0 px-4 sm:px-0 items-center z-50 transform transition-all`}
+                className={`modal`}
                 onClose={close}
             >
                 <Transition.Child

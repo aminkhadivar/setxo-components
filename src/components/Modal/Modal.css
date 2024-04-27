@@ -1,8 +1,12 @@
 /* ------------- Modal ------------- */
+.modal {
+    @apply fixed inset-0 px-4 sm:px-0 items-center z-50 transform transition-all
+}
 
 .modal-dialog {
     @apply bg-white dark:bg-gray-950 shadow-xl dark:shadow-none transform transition-all sm:w-full sm:mx-auto
 }
+
 .modal-scrollable {
     @apply max-h-[50vh] overflow-y-auto;
 }
