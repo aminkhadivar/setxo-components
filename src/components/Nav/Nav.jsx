@@ -17,7 +17,7 @@ const Nav = ({ children, className = '' }) => {
     );
 };
 
-const NavLink = ({ active, disabled = '', className = '', children, ...props }) => {
+const NavLink = ({ active, disabled = '', className = '', href, children, ...props }) => {
 
     const [classNames, setClassNames] = useState('')
 
@@ -31,25 +31,38 @@ const NavLink = ({ active, disabled = '', className = '', children, ...props }) 
 
     return (
         <li className="nav-item">
-            {active ?
-                <Link
-                    {...props}
-                    className={
-                        classNames + (className && ` ${className}`) + (disabled && ' disabled')
+            {href ?
+                <>
+                    {active ?
+                        <Link
+                            {...props}
+                            className={
+                                classNames + (className && ` ${className}`) + (disabled && ' disabled')
+                            }
+                            aria-current="page"
+                        >
+                            {children}
+                        </Link>
+                        :
+                        <Link
+                            {...props}
+                            className={
+                                classNames + (className && ` ${className}`) + (disabled && ' disabled')
+                            }
+                        >
+                            {children}
+                        </Link>
                     }
-                    aria-current="page"
-                >
-                    {children}
-                </Link>
+                </>
                 :
-                <Link
+                <div
                     {...props}
                     className={
                         classNames + (className && ` ${className}`) + (disabled && ' disabled')
                     }
                 >
                     {children}
-                </Link>
+                </div>
             }
         </li>
     )

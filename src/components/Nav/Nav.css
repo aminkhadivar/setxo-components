@@ -25,7 +25,7 @@ nav {
 }
 
 .nav-link.active {
-    @apply text-blue-600 dark:text-blue-400 font-semibold 
+    @apply text-blue-600 dark:text-blue-400 font-semibold
 }
 
 .nav-tabs .nav-link.active {
@@ -41,11 +41,15 @@ nav {
 }
 
 .nav-pills {
-    @apply flex gap-2
+    @apply flex gap-4
+}
+
+.nav-fill .nav-item {
+    @apply w-full
 }
 
 .nav-pills .nav-link {
-    @apply px-4 h-10 text-gray-500 dark:text-gray-400 dark:hover:text-gray-100 hover:bg-gray-200 hover:text-gray-800 dark:hover:bg-gray-700 active:bg-gray-300 focus:bg-gray-300 active:text-gray-800 rounded duration-300
+    @apply grid text-center px-4 h-10 text-gray-500 dark:text-gray-400 dark:hover:text-gray-100 hover:bg-gray-200 hover:text-gray-800 dark:hover:bg-gray-700 active:bg-gray-300 focus:bg-gray-300 active:text-gray-800 rounded duration-300
 }
 
 .nav-pills .nav-link.active {
