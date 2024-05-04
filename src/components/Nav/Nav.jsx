@@ -68,6 +68,32 @@ const NavLink = ({ active, disabled = '', className = '', href, children, ...pro
     )
 }
 
+const NavTab = ({ children,active, disabled = '', className = '', ...props }) => {
+    const [classNames, setClassNames] = useState('')
+
+    useEffect(() => {
+        setClassNames(
+            active
+                ? 'nav-link active'
+                : 'nav-link'
+        )
+    }, [active]);
+    return (
+        <li
+            {...props}
+            className="nav-item"
+        >
+            <div
+                className={
+                    classNames + (className && ` ${className}`) + (disabled && ' disabled')
+                }
+            >
+                {children}
+            </div>
+        </li >
+    )
+}
+
 const NavDropdown = ({ children }) => {
     return (
         <li className="nav-item">
@@ -78,5 +104,6 @@ const NavDropdown = ({ children }) => {
 
 Nav.Link = NavLink;
 Nav.Dropdown = NavDropdown;
+Nav.Tab = NavTab;
 
 export default Nav;
