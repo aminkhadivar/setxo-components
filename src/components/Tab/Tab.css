@@ -4,18 +4,10 @@
     @apply grid gap-4
 }
 
-/* .nav-tabs {
-    @apply flex
-} */
-
 .tab-title {
     @apply flex flex-wrap
 }
 
 .tab-content {
     @apply overflow-hidden
-}
-
-.tab-button {
-    @apply flex items-center px-4 py-3 text-left text-sm font-medium transition duration-300 justify-between rounded-lg
 }
