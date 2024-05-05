@@ -22,7 +22,7 @@ const Tab = ({ className = '', tabs, type = 'nav-tabs' }) => {
                 <Nav className={`${type}`}>
                     {items.map(({ title, show, id, disabled }) => (
                         <div
-                            id={tabs + id}
+                            id={id}
                             key={id}
                         >
                             {show ?
