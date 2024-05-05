@@ -1,10 +1,9 @@
-import { useState, useContext } from 'react'
+import { useState } from 'react'
 import { Transition } from '@headlessui/react'
 import Nav from "../Nav/Nav"
-
 import './Tab.css'
 
-const Tab = ({ className = '', tabs }) => {
+const Tab = ({ className = '', tabs, type = 'nav-tabs', disabled = false }) => {
 
     const [items, setItems] = useState(tabs)
 
@@ -19,9 +18,9 @@ const Tab = ({ className = '', tabs }) => {
     return (
 
         <div className={'tab' + (className && ` ${className}`)}>
-            <div className="flex">
-                <Nav className="nav-tabs">
-                    {items.map(({ title, show, id }) => (
+            <div className="flex flex-wrap">
+                <Nav className={`${type}`}>
+                    {items.map(({ title, show, id, disabled }) => (
                         <div
                             id={id}
                             key={id}
@@ -34,8 +33,9 @@ const Tab = ({ className = '', tabs }) => {
                                 </Nav.Tab>
                                 :
                                 <Nav.Tab
-                                    onClick={() => handleClick(id)}
-                                    className="cursor-pointer"
+                                    onClick={!disabled ? (() => handleClick(id)) : null}
+                                    className={!disabled ? 'cursor-pointer' : ''}
+                                    disabled={disabled && 'disabled'}
                                 >
                                     {title}
                                 </Nav.Tab>
@@ -45,19 +45,19 @@ const Tab = ({ className = '', tabs }) => {
                 </Nav>
             </div>
 
-            <div className="overflow-hidden h-32">
+            <div className="overflow-hidden">
                 {items.map(({ content, show, id }) => (
                     <Transition
                         show={show}
                         id={id}
                         key={id}
-                        className=""
+                        className="h-full"
                         enter="ease-out duration-300"
-                        enterFrom="opacity-0 scale-95"
-                        enterTo="opacity-100 scale-100"
+                        enterFrom="opacity-0"
+                        enterTo="opacity-100"
                         leave="ease-in"
-                        leaveFrom="opacity-100 scale-100"
-                        leaveTo="opacity-0 scale-95"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0"
                     >
                         {content}
                     </Transition>

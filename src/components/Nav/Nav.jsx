@@ -5,11 +5,20 @@ import './Nav.css'
 
 const NavContext = createContext();
 
-const Nav = ({ children, className = '' }) => {
+const Nav = ({ children, className = '', as = 'nav' }) => {
+
+    const asClasses = {
+        nav: '',
+        tabs: 'nav-tabs',
+        pills: 'nav-pills',
+        fillTabs: 'nav-tabs nav-fill',
+        fillPills: 'nav-pills nav-fill',
+    }[as]
+
     return (
         <NavContext.Provider value={{ className, children }}>
             <nav aria-label="nav">
-                <ul className={'nav' + (className && ` ${className}`)}>
+                <ul className={'nav' + (className && ` ${className}`) + (as && ` ${asClasses}`)}>
                     {children}
                 </ul>
             </nav>
@@ -68,7 +77,7 @@ const NavLink = ({ active, disabled = '', className = '', href, children, ...pro
     )
 }
 
-const NavTab = ({ children,active, disabled = '', className = '', ...props }) => {
+const NavTab = ({ children, active, disabled = '', className = '', ...props }) => {
     const [classNames, setClassNames] = useState('')
 
     useEffect(() => {
