@@ -3,7 +3,7 @@ import { Transition } from '@headlessui/react'
 import Nav from "../Nav/Nav"
 import './Tab.css'
 
-const Tab = ({ className = '', tabs, type = 'nav-tabs' }) => {
+const Tab = ({ className = '', tabs, as = '' }) => {
 
     const [items, setItems] = useState(tabs)
 
@@ -17,9 +17,9 @@ const Tab = ({ className = '', tabs, type = 'nav-tabs' }) => {
 
     return (
 
-        <div className={'tab' + (className && ` ${className}`)}>
-            <div className="flex flex-wrap">
-                <Nav className={`${type}`}>
+        <div className="tab">
+            <div className="tab-title">
+                <Nav className={`${as}` + (className && ` ${className}`)}>
                     {items.map(({ title, show, id, disabled }) => (
                         <div
                             id={id}
@@ -48,7 +48,7 @@ const Tab = ({ className = '', tabs, type = 'nav-tabs' }) => {
                 </Nav>
             </div>
 
-            <div className="overflow-hidden">
+            <div className="tab-content">
                 {items.map(({ content, show, id }) => (
                     <Transition
                         show={show}
