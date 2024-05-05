@@ -17,7 +17,7 @@ nav {
 }
 
 .nav-link {
-    @apply flex items-center w-full text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 disabled:text-gray-500 border-b-transparent duration-300
+    @apply flex items-center w-full text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 disabled:text-gray-500 border-b-transparent duration-300 cursor-pointer
 }
 
 .nav-link.disabled {

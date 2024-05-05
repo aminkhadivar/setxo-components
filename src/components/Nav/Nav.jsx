@@ -89,16 +89,28 @@ const NavTab = ({ children, active, disabled = '', className = '', ...props }) =
     }, [active]);
     return (
         <li
-            {...props}
             className="nav-item"
         >
-            <div
-                className={
-                    classNames + (className && ` ${className}`) + (disabled && ' disabled')
-                }
-            >
-                {children}
-            </div>
+            {disabled ?
+                <div
+                    {...props}
+                    className={
+                        classNames + (className && ` ${className}`) + (disabled && ' disabled')
+                    }
+                    aria-disabled={disabled ? 'true' : ''}
+                >
+                    {children}
+                </div>
+                :
+                <div
+                    {...props}
+                    className={
+                        classNames + (className && ` ${className}`)
+                    }
+                >
+                    {children}
+                </div>
+            }
         </li >
     )
 }

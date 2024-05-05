@@ -3,7 +3,7 @@ import { Transition } from '@headlessui/react'
 import Nav from "../Nav/Nav"
 import './Tab.css'
 
-const Tab = ({ className = '', tabs, type = 'nav-tabs', disabled = false }) => {
+const Tab = ({ className = '', tabs, type = 'nav-tabs' }) => {
 
     const [items, setItems] = useState(tabs)
 
@@ -22,20 +22,23 @@ const Tab = ({ className = '', tabs, type = 'nav-tabs', disabled = false }) => {
                 <Nav className={`${type}`}>
                     {items.map(({ title, show, id, disabled }) => (
                         <div
-                            id={id}
+                            id={tabs + id}
                             key={id}
                         >
                             {show ?
                                 <Nav.Tab
-                                    className="cursor-pointer" active aria-selected="true"
+                                active
+                                aria-selected="true"
+                                role="tab"
                                 >
                                     {title}
                                 </Nav.Tab>
                                 :
                                 <Nav.Tab
-                                    onClick={!disabled ? (() => handleClick(id)) : null}
-                                    className={!disabled ? 'cursor-pointer' : ''}
-                                    disabled={disabled && 'disabled'}
+                                    onClick={disabled ? null : (() => handleClick(id))}
+                                    aria-selected="false"
+                                    role="tab"
+                                    disabled={disabled ? 'true' : ''}
                                 >
                                     {title}
                                 </Nav.Tab>
