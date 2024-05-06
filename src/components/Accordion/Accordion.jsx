@@ -5,27 +5,72 @@ import './Accordion.css'
 
 const AccordionContext = createContext()
 
-const Accordion = ({ children, className = '', multiple = false }) => {
+const Accordion = ({ children, className = '', data = [], multiple = false }) => {
+
+    const [items, setItems] = useState(data)
+
+    const handleClick = (id) => {
+        setItems(
+            items.map((d) =>
+                d.id === id ? { ...d, show: !d.show } : { ...d, show: false }
+            )
+        );
+    }
+
     return (
         <AccordionContext.Provider value={{ className, children, multiple }}>
             <div className={'accordion' + (className && ` ${className}`)}>
+
                 {children}
+
+                {/* Use data array from another components */}
+                {items.map(({ title, id, show, content }) => (
+                    <div className="accordion-item"
+                        id={id}
+                        key={id}
+                        show={show.toString()}
+                        onClick={() => handleClick(id)}
+                    >
+                        <button
+                            className={`accordion-button ${show ? 'bg-blue-100 dark:bg-gray-600 text-blue-900 dark:text-gray-200' : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-400'}`}
+                            type="button"
+                            aria-expanded={show ? 'true' : 'false'}
+                        >
+                            <h6 className="font-medium text-inherit">{title}</h6>
+                            <ArrowDown2
+                                className={`h-5 w-5 ${show ? 'rotate-180 text-blue-600 dark:text-gray-200' : 'text-gray-500 dark:text-gray-400'} transform duration-300`}
+                            />
+                        </button>
+                        <Transition
+                            show={show}
+                            id={id}
+                            key={id}
+                            className="overflow-hidden"
+                            enter="transition transition-[max-height] duration-500 ease-in"
+                            enterFrom="transform max-h-0"
+                            enterTo="transform max-h-screen"
+                            leave="transition transition-[max-height] duration-300 ease-out"
+                            leaveFrom="transform max-h-screen"
+                            leaveTo="transform max-h-0"
+                        >
+                            <p className="w-full mt-2 p-4 border border-gray-300 dark:border-gray-600 rounded-lg">
+                                {content}
+                            </p>
+                        </Transition>
+                    </div>
+                ))}
             </div>
         </AccordionContext.Provider>
     )
 }
 
-const AccordionItem = ({ children, title, show = false, alwaysOpen, onClick = () => { } }) => {
+const AccordionItem = ({ children, title, id, alwaysOpen }) => {
 
     const multiple = useContext(AccordionContext)
 
     let multipleValue = multiple.multiple
 
     const [open, setOpen] = useState(false)
-
-    const toggleOnClick = () => {
-        onClick()
-    }
 
     useEffect(() => {
         if (alwaysOpen) {
@@ -37,36 +82,43 @@ const AccordionItem = ({ children, title, show = false, alwaysOpen, onClick = ()
         if (multipleValue) {
             setOpen((previousState) => !previousState)
         } else {
-            toggleOnClick()
+            handleClick()
         }
     }
 
     return (
-        <div className="accordion-item">
-            <button
-                className={`accordion-button ${(show ? show : open) ? 'bg-blue-100 dark:bg-gray-600 text-blue-900 dark:text-gray-200' : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-400'}`}
-                type="button"
-                aria-expanded={(show ? show : open) ? 'true' : 'false'}
-                onClick={toggleOpen}
-            >
-                <h6 className="font-medium text-inherit">{title}</h6>
-                <ArrowDown2
-                    className={`h-5 w-5 ${(show ? show : open) ? 'rotate-180 text-blue-600 dark:text-gray-200' : 'text-gray-500 dark:text-gray-400'} transform duration-300`}
-                />
-            </button>
-            <Transition
-                show={show ? show : open}
-                className="overflow-hidden"
-                enter="transition transition-[max-height] duration-700 ease-in"
-                enterFrom="transform max-h-0"
-                enterTo="transform max-h-screen"
-                leave="transition transition-[max-height] duration-300 ease-out"
-                leaveFrom="transform max-h-screen"
-                leaveTo="transform max-h-0"
-            >
-                {children}
-            </Transition>
-        </div>
+        <>
+            {/* Multiple props for Accordion component */}
+            <div
+                className="accordion-item"
+                id={id}
+                key={id}>
+                <button
+                    className={`accordion-button ${open ? 'bg-blue-100 dark:bg-gray-600 text-blue-900 dark:text-gray-200' : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-400'}`}
+                    type="button"
+                    aria-expanded={open ? 'true' : 'false'}
+                    onClick={toggleOpen}
+                >
+                    <h6 className="font-medium text-inherit">{title}</h6>
+                    <ArrowDown2
+                        className={`h-5 w-5 ${open ? 'rotate-180 text-blue-600 dark:text-gray-200' : 'text-gray-500 dark:text-gray-400'} transform duration-300`}
+                    />
+                </button>
+
+                <Transition
+                    show={open}
+                    className="overflow-hidden"
+                    enter="transition transition-[max-height] duration-500 ease-in"
+                    enterFrom="transform max-h-0"
+                    enterTo="transform max-h-screen"
+                    leave="transition transition-[max-height] duration-300 ease-out"
+                    leaveFrom="transform max-h-screen"
+                    leaveTo="transform max-h-0"
+                >
+                    {children}
+                </Transition>
+            </div>
+        </>
     )
 }
 
