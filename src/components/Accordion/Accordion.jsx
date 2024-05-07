@@ -1,6 +1,6 @@
 import { useEffect, useState, createContext, useContext } from 'react'
 import { Transition } from '@headlessui/react'
-import { ArrowDown2 } from 'iconsax-react'
+import { ArrowDown2, Home } from 'iconsax-react'
 import './Accordion.css'
 
 const AccordionContext = createContext()
@@ -37,9 +37,11 @@ const Accordion = ({ children, className = '', data = [], multiple = false }) =>
                             aria-expanded={show ? 'true' : 'false'}
                         >
                             <h6 className="font-medium text-inherit">{title}</h6>
-                            <ArrowDown2
-                                className={`h-5 w-5 ${show ? 'rotate-180 text-blue-600 dark:text-gray-200' : 'text-gray-500 dark:text-gray-400'} transform duration-300`}
-                            />
+                            <div className="flex items-center ml-2">
+                                <ArrowDown2
+                                    className={`h-5 w-5 ${show ? 'rotate-180 text-blue-600 dark:text-gray-200' : 'text-gray-500 dark:text-gray-400'} transform duration-300`}
+                                />
+                            </div>
                         </button>
                         <Transition
                             show={show}

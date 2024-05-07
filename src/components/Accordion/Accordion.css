@@ -5,5 +5,5 @@
 }
 
 .accordion-button {
-    @apply flex items-center w-full px-4 py-3 text-left text-sm font-medium transition duration-300 justify-between rounded-lg
+    @apply flex items-center w-full p-4 text-left text-sm font-medium transition duration-300 justify-between rounded-lg
 }
