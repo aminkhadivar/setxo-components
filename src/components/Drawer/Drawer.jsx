@@ -4,21 +4,22 @@ import CloseButton from "../CloseButton/CloseButton"
 import './Drawer.css'
 
 export default function Drawer({ children, title, content, footer, show = false, width, placement, closeable = true, onClose = () => { }, ...props }) {
+
     const close = () => {
         if (closeable) {
-            onClose();
+            onClose()
         } else {
             var element = document.querySelector('.drawer-dialog');
             element.classList.add("backdrop-effect");
             setTimeout(function () {
                 element.classList.remove("backdrop-effect");
-            }, 250);
+            }, 250)
         }
-    };
+    }
 
     const closeButton = () => {
-        onClose();
-    };
+        onClose()
+    }
 
     const alignClass = {
         default: {
@@ -67,53 +68,53 @@ export default function Drawer({ children, title, content, footer, show = false,
     }[placement];
 
     return (
-        <Transition show={show} as={Fragment}>
-            <Dialog
-                as="div"
-                className="relative z-50"
-                onClose={close}
-            >
-                <Transition.Child
-                    as={Fragment}
-                    enter="ease-in-out duration-200"
-                    enterFrom="opacity-0"
-                    enterTo="opacity-100"
-                    leave="ease-in-out duration-100"
-                    leaveFrom="opacity-100"
-                    leaveTo="opacity-0"
+            <Transition show={show} as={Fragment}>
+                <Dialog
+                    as="div"
+                    className="relative z-50"
+                    onClose={close}
                 >
-                    <div className={`fixed inset-0 overflow-hidden bg-gray-500 bg-opacity-20 transition-opacity backdrop-filter backdrop-blur-md ${closeable ? 'cursor-pointer' : ''}`} />
-                </Transition.Child>
-
-                <Transition.Child
-                    as={Fragment}
-                    placement={placement}
-                    enter={`${alignClass.enter}`}
-                    enterFrom={`${alignClass.enterFrom}`}
-                    enterTo={`${alignClass.enterTo}`}
-                    leave={`${alignClass.leave}`}
-                    leaveFrom={`${alignClass.leaveFrom}`}
-                    leaveTo={`${alignClass.leaveTo}`}
-                >
-                    <Dialog.Panel {...props}
-                        className={`drawer-dialog bg-white dark:bg-gray-900 overflow-y-auto shadow-lg transform transition-all rounded-lg ${width} ${props.className}`}
+                    <Transition.Child
+                        as={Fragment}
+                        enter="ease-in-out duration-200"
+                        enterFrom="opacity-0"
+                        enterTo="opacity-100"
+                        leave="ease-in-out duration-100"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0"
                     >
-                        <div className="p-4">
-                            <div className="text-lg">
-                                {title &&
-                                    <div className="flex items-center justify-between">
-                                        <h4>{title}</h4>
-                                        <CloseButton color="transparent" size="md" rounded="full" onClick={closeButton} />
-                                    </div>
-                                }
+                        <div className={`fixed inset-0 overflow-hidden bg-gray-800 dark:bg-gray-700 bg-opacity-80 dark:bg-opacity-90 transition-opacity ${closeable ? 'cursor-pointer' : ''}`} />
+                    </Transition.Child>
+
+                    <Transition.Child
+                        as={Fragment}
+                        placement={placement}
+                        enter={`${alignClass.enter}`}
+                        enterFrom={`${alignClass.enterFrom}`}
+                        enterTo={`${alignClass.enterTo}`}
+                        leave={`${alignClass.leave}`}
+                        leaveFrom={`${alignClass.leaveFrom}`}
+                        leaveTo={`${alignClass.leaveTo}`}
+                    >
+                        <Dialog.Panel {...props}
+                            className={`drawer-dialog bg-white dark:bg-gray-900 overflow-y-auto shadow-lg transform transition-all rounded-lg ${width} ${props.className}`}
+                        >
+                            <div className="p-4">
+                                <div className="text-lg">
+                                    {title &&
+                                        <div className="flex items-center justify-between">
+                                            <h4>{title}</h4>
+                                            <CloseButton color="transparent" size="md" rounded="full" onClick={closeButton} />
+                                        </div>
+                                    }
+                                </div>
+                                <div className="mt-6">
+                                    {content}
+                                </div>
                             </div>
-                            <div className="mt-6">
-                                {content}
-                            </div>
-                        </div>
-                    </Dialog.Panel>
-                </Transition.Child>
-            </Dialog>
-        </Transition>
+                        </Dialog.Panel>
+                    </Transition.Child>
+                </Dialog>
+            </Transition>
     );
 }
