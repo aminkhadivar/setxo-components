@@ -7,3 +7,7 @@
 .accordion-button {
     @apply flex items-center w-full p-4 text-left text-sm font-medium transition duration-300 justify-between rounded-lg
 }
+
+.accordion-content {
+    @apply overflow-hidden mt-2 p-4 border border-gray-300 dark:border-gray-600 rounded-lg
+}

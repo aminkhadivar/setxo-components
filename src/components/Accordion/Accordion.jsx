@@ -1,6 +1,6 @@
 import { useEffect, useState, createContext, useContext } from 'react'
 import { Transition } from '@headlessui/react'
-import { ArrowDown2, Home } from 'iconsax-react'
+import { ArrowDown2 } from 'iconsax-react'
 import './Accordion.css'
 
 const AccordionContext = createContext()
@@ -44,18 +44,19 @@ const Accordion = ({ children, className = '', data = [], multiple = false }) =>
                             </div>
                         </button>
                         <Transition
+                            as="div"
                             show={show}
                             id={id}
                             key={id}
-                            className="overflow-hidden"
-                            enter="transition transition-[max-height] duration-500 ease-in"
-                            enterFrom="transform max-h-0"
-                            enterTo="transform max-h-screen"
-                            leave="transition transition-[max-height] duration-300 ease-out"
-                            leaveFrom="transform max-h-screen"
-                            leaveTo="transform max-h-0"
+                            className="transition-all"
+                            enter="transition-[max-height] duration-500 ease-in"
+                            enterFrom="transform max-h-0 opacity-0"
+                            enterTo="transform max-h-screen opacity-100"
+                            leave="transition-[max-height] duration-300 ease-out"
+                            leaveFrom="transform max-h-screen opacity-100"
+                            leaveTo="transform max-h-0 opacity-0"
                         >
-                            <p className="w-full mt-2 p-4 border border-gray-300 dark:border-gray-600 rounded-lg">
+                            <p className="accordion-content">
                                 {content}
                             </p>
                         </Transition>
@@ -108,16 +109,19 @@ const AccordionItem = ({ children, title, id, alwaysOpen }) => {
                 </button>
 
                 <Transition
+                    as="div"
                     show={open}
-                    className="overflow-hidden"
-                    enter="transition transition-[max-height] duration-500 ease-in"
-                    enterFrom="transform max-h-0"
-                    enterTo="transform max-h-screen"
-                    leave="transition transition-[max-height] duration-300 ease-out"
-                    leaveFrom="transform max-h-screen"
-                    leaveTo="transform max-h-0"
+                    className="transition-all duration-300"
+                    enter="transition-[max-height] duration-300 ease-in"
+                    enterFrom="transform max-h-0 opacity-0"
+                    enterTo="transform max-h-screen opacity-100"
+                    leave="transition-[max-height] duration-300 ease-out"
+                    leaveFrom="transform max-h-screen opacity-100"
+                    leaveTo="transform max-h-0 opacity-0"
                 >
-                    {children}
+                    <p className="overflow-hidden">
+                        {children}
+                    </p>
                 </Transition>
             </div>
         </>
