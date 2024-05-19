@@ -27,9 +27,9 @@ const Tab = ({ className = '', tabs, as = '' }) => {
                         >
                             {show ?
                                 <Nav.Tab
-                                active
-                                aria-selected="true"
-                                role="tab"
+                                    active
+                                    aria-selected="true"
+                                    role="tab"
                                 >
                                     {title}
                                 </Nav.Tab>
@@ -51,18 +51,21 @@ const Tab = ({ className = '', tabs, as = '' }) => {
             <div className="tab-content">
                 {items.map(({ content, show, id }) => (
                     <Transition
+                        as="div"
                         show={show}
                         id={id}
                         key={id}
-                        className="h-full"
-                        enter="ease-out duration-300"
-                        enterFrom="opacity-0"
-                        enterTo="opacity-100"
-                        leave="ease-in"
-                        leaveFrom="opacity-100"
-                        leaveTo="opacity-0"
+                        className="transition-all"
+                        enter="transition-[max-height] duration-500 ease-in"
+                        enterFrom="transform max-h-0 opacity-0"
+                        enterTo="transform opacity-100"
+                        leave="transition-[max-height] duration-300 ease-out"
+                        leaveFrom="transform opacity-100"
+                        leaveTo="transform max-h-0 opacity-0"
                     >
-                        {content}
+                        <p className="overflow-hidden">
+                            {content}
+                        </p>
                     </Transition>
                 ))}
             </div>
