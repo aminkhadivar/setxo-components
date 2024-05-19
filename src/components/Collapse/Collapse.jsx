@@ -23,7 +23,7 @@ export default function Collapse({ children, title, className, show }) {
                     <Transition
                         show={title ? openDefaultCollapse : show}
                         className="transition-all duration-300"
-                        enter="transition-[max-height] duration-300 ease-in"
+                        enter="transition-[max-height] duration-500 ease-in"
                         enterFrom="transform max-h-0 h-0"
                         enterTo="transform max-h-screen h-auto"
                         leave="transition-[max-height] duration-300 ease-out"
