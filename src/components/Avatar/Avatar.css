@@ -1,0 +1,5 @@
+/* ------------- Avatar ------------- */
+
+.img-avatar {
+    @apply flex items-center object-cover
+}
