@@ -17,7 +17,7 @@ export default function Image({ url, alt , as = 'image', height = '196', width =
                 <img
                     {...props}
                     src={url}
-                    className={` ${rounded && roundedClass}`}
+                    className={` ${rounded && roundedClass}` + `${className && ` ` + className}`}
                     style={{ height: `${height}px` }}
                     alt={alt}
                 />
@@ -27,7 +27,7 @@ export default function Image({ url, alt , as = 'image', height = '196', width =
                     {...props}
                     src={url}
                     height={height}
-                    className={`img-fluid` + ` ${rounded && roundedClass}`}
+                    className={`img-fluid` + ` ${rounded && roundedClass}` + `${className && ` ` + className}`}
                     style={{ height: `${height}px` }}
                     alt={alt} />
             }
@@ -35,7 +35,7 @@ export default function Image({ url, alt , as = 'image', height = '196', width =
                 <img
                     {...props}
                     src={url}
-                    className={`img-thumbnail` + ` ${rounded && roundedClass}`}
+                    className={`img-thumbnail` + ` ${rounded && roundedClass}` + `${className && ` ` + className}`}
                     style={{ height: `${thumbnailSize}px`, width: `${thumbnailSize}px` }}
                     alt={alt} />
             }

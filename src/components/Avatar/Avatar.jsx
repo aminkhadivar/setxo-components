@@ -1,7 +1,7 @@
 import Image from "../../contents/Image/Image"
 import './Avatar.css'
 
-export default function Avatar({ url, alt = '...', as = 'image' , size , height = '32', className = '', rounded = 'rounded', ...props }) {
+export default function Avatar({ url, alt = '...', as = 'image', size, height = '32', className = '', rounded = 'rounded', ...props }) {
 
     const DefaultAvatar = () => {
         return (
@@ -18,6 +18,7 @@ export default function Avatar({ url, alt = '...', as = 'image' , size , height 
         md: '48',
         lg: '56',
         xl: '64',
+        '2xl': '72',
     }[size];
 
     return (
@@ -26,7 +27,7 @@ export default function Avatar({ url, alt = '...', as = 'image' , size , height 
                 <Image
                     {...props}
                     url={url}
-                    className={className}
+                    className={className + ' border border-green-400'}
                     alt={alt}
                     rounded={rounded}
                     as="thumbnail"
@@ -35,13 +36,13 @@ export default function Avatar({ url, alt = '...', as = 'image' , size , height 
             {url && as === 'svg' &&
                 <Image
                     {...props}
-                    url={url ? url : <DefaultAvatar />}
-                    className={className}
+                    url={url}
+                    className={className + ' border-2 border-green-400'}
                     title={alt}
                     rounded={rounded}
                     as="svg"
                     height={size ? sizeClass : height}
-                    />
+                />
             }
             {!url &&
                 <Image
@@ -52,7 +53,7 @@ export default function Avatar({ url, alt = '...', as = 'image' , size , height 
                     rounded={rounded}
                     as="svg"
                     height={size ? sizeClass : height}
-                    />
+                />
             }
         </>
     )
