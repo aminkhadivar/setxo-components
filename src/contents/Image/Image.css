@@ -1,9 +1,13 @@
 /* ------------- Image ------------- */
 
 .img-fluid {
-    @apply w-full flex items-center object-cover
+    @apply w-full flex items-center justify-center object-cover overflow-hidden
 }
 
 .img-thumbnail {
-    @apply flex items-center object-cover
+    @apply flex items-center justify-center object-cover overflow-hidden
+}
+
+.img-svg {
+    @apply flex items-center justify-center object-cover overflow-hidden
 }

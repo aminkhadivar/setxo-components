@@ -1,6 +1,6 @@
 import './Image.css'
 
-export default function Image({ url, alt = '...', as = 'image', height = '196', width = '196', thumbnailSize = '196', className = '', rounded = 'md', ...props }) {
+export default function Image({ url, alt , as = 'image', height = '196', width = '196', thumbnailSize = '196', className = '', rounded = 'md', ...props }) {
 
     const roundedClass = {
         none: 'rounded-none',
@@ -42,8 +42,8 @@ export default function Image({ url, alt = '...', as = 'image', height = '196', 
             {as === 'svg' &&
                 <div
                     {...props}
-                    className={`img-thumbnail` + ` ${rounded && roundedClass}` + ` ${className && className}`}
-                    style={{ height: `${thumbnailSize}px`, width: `${thumbnailSize}px` }}
+                    className={`img-svg` + ` ${rounded && roundedClass}` + `${className && ` ` + className}`}
+                    style={{ height: `${height}px` , minWidth: `${height}px`}}
                     alt={alt}
                 >
                     {url}
