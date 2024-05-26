@@ -1,7 +1,11 @@
 /* ------------- Alert ------------- */
 
 .alert {
-    @apply w-full flex items-center p-4 text-sm transition duration-300;
+    @apply w-full flex p-4 text-sm transition duration-300;
+}
+
+.alert-content {
+    @apply flex flex-1 items-center
 }
 
 .alert-light {
