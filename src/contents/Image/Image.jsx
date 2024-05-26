@@ -1,6 +1,6 @@
 import './Image.css'
 
-export default function Image({ url, alt , as = 'image', height = '196', width = '196', thumbnailSize = '196', className = '', rounded = 'md', ...props }) {
+export default function Image({ children ,url, alt , as = 'image', height = '196', width = '196', thumbnailSize = '196', className = '', rounded = 'md', ...props }) {
 
     const roundedClass = {
         none: 'rounded-none',
@@ -46,7 +46,7 @@ export default function Image({ url, alt , as = 'image', height = '196', width =
                     style={{ height: `${height}px` , minWidth: `${height}px`}}
                     alt={alt}
                 >
-                    {url}
+                    {children}
                 </div>
             }
         </>
