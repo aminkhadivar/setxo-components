@@ -21,7 +21,7 @@ export default function A({ href, as = 'Link', className = '', color = 'primary'
                 <Link
                     {...props}
                     href={href}
-                    className={`${colorClass}` + `${underline && ' underline'}` + `${underlineOnHover && ' hover:underline'}` + className}
+                    className={`${colorClass}` + `${underline && ' underline'}` + `${underlineOnHover && ' hover:underline'}` + `${className && ' ' + className}`}
                 >
                     {children}
                 </Link>
@@ -32,7 +32,7 @@ export default function A({ href, as = 'Link', className = '', color = 'primary'
                     href={href}
                     target="_blank"
                     rel="noreferrer"
-                    className={`${colorClass}` + `${underline && ' underline'}` + className}
+                    className={`${colorClass}` + `${underline && ' underline'}` + `${className && ' ' + className}`}
                 >
                     {children}
                 </a>
