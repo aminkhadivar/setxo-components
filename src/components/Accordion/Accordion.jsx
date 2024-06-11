@@ -56,9 +56,9 @@ const Accordion = ({ children, className = '', data = [], multiple = false }) =>
                             leaveFrom="transform max-h-screen opacity-100"
                             leaveTo="transform max-h-0 opacity-0"
                         >
-                            <p className="accordion-content">
+                            <div className="accordion-content">
                                 {content}
-                            </p>
+                            </div>
                         </Transition>
                     </div>
                 ))}
@@ -119,9 +119,9 @@ const AccordionItem = ({ children, title, id, alwaysOpen }) => {
                     leaveFrom="transform max-h-screen opacity-100"
                     leaveTo="transform max-h-0 opacity-0"
                 >
-                    <p className="overflow-hidden">
+                    <div className="overflow-hidden">
                         {children}
-                    </p>
+                    </div>
                 </Transition>
             </div>
         </>
