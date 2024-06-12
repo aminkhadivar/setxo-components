@@ -15,11 +15,11 @@
 }
 
 .carousel-control-prev {
-    @apply h-full px-6 bg-gradient-to-r from-gray-900/40 to-transparent text-gray-100 dark:text-gray-800 hover:bg-gradient-to-r hover:from-gray-900/60 hover:to-transparent
+    @apply h-full px-6 bg-gradient-to-r from-gray-900/40 to-transparent text-gray-100/90 hover:text-gray-100 hover:bg-gradient-to-r hover:from-gray-900/60 hover:to-transparent duration-300
 }
 
 .carousel-control-next {
-    @apply h-full px-6 bg-gradient-to-r from-transparent to-gray-900/40 text-gray-100 dark:text-gray-800 hover:bg-gradient-to-r hover:from-transparent hover:to-gray-900/60
+    @apply h-full px-6 bg-gradient-to-r from-transparent to-gray-900/40 text-gray-100/90 hover:text-gray-100 hover:bg-gradient-to-r hover:from-transparent hover:to-gray-900/60 duration-300
 }
 
 .carousel-indicators {
