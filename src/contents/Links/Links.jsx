@@ -1,7 +1,7 @@
 import { Link } from "@inertiajs/react"
 import './Links.css'
 
-export default function A({ href, as = 'Link', className = '', color = 'primary', underline = '', underlineOnHover = '', children, ...props }) {
+export default function A({ href, as = 'Link', className = '', color = '', underline = '', underlineOnHover = '', children, ...props }) {
 
     const colorClass = {
         light: 'link-light',
