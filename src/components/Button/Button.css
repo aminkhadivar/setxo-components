@@ -109,33 +109,33 @@ button {
 }
 
 .shadow-gray {
-    @apply shadow-lg shadow-gray-500/50 hover:shadow-gray-700/50 dark:shadow-none
+    @apply shadow-lg shadow-gray-500/50 hover:shadow-gray-700/50 dark:shadow-gray-600/70 dark:hover:shadow-gray-500/70
 }
 
 .shadow-dark {
-    @apply shadow-lg shadow-gray-700/50 hover:shadow-gray-900/50 dark:shadow-none
+    @apply shadow-lg shadow-gray-700/50 hover:shadow-gray-900/50 dark:shadow-gray-700/70 dark:hover:shadow-gray-600/70
 }
 
 .shadow-primary {
-    @apply shadow-lg shadow-blue-400/50 hover:shadow-blue-600/50 dark:shadow-none
+    @apply shadow-lg shadow-blue-400/50 hover:shadow-blue-600/50 dark:shadow-blue-700/70 dark:hover:shadow-blue-600/70
 }
 
 .shadow-success {
-    @apply shadow-lg shadow-green-400/50 hover:shadow-green-600/50 dark:shadow-none
+    @apply shadow-lg shadow-green-400/50 hover:shadow-green-600/50 dark:shadow-green-700/70 dark:hover:shadow-green-600/70
 }
 
 .shadow-danger {
-    @apply shadow-lg shadow-red-400/50 hover:shadow-red-600/50 dark:shadow-none
+    @apply shadow-lg shadow-red-400/50 hover:shadow-red-600/50 dark:shadow-red-700/70 dark:hover:shadow-red-600/70
 }
 
 .shadow-warning {
-    @apply shadow-lg shadow-amber-400/50 hover:shadow-amber-600/50 dark:shadow-none
+    @apply shadow-lg shadow-amber-400/50 hover:shadow-amber-600/50 dark:shadow-amber-700/70 dark:hover:shadow-amber-600/70
 }
 
 .shadow-info {
-    @apply shadow-lg shadow-cyan-400/50 hover:shadow-cyan-600/50 dark:shadow-none
+    @apply shadow-lg shadow-cyan-400/50 hover:shadow-cyan-600/50 dark:shadow-cyan-700/70 dark:hover:shadow-cyan-600/70
 }
 
 .shadow-purple {
-    @apply shadow-lg shadow-setxo-400/50 hover:shadow-setxo-600/50 dark:shadow-none
+    @apply shadow-lg shadow-setxo-400/50 hover:shadow-setxo-600/50 dark:shadow-setxo-700/70 dark:hover:shadow-setxo-600/70
 }
