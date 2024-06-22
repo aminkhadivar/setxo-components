@@ -56,9 +56,9 @@ const Accordion = ({ children, className = '', data = [], multiple = false }) =>
                             leaveFrom="transform max-h-screen opacity-100"
                             leaveTo="transform max-h-0 opacity-0"
                         >
-                            <div className="accordion-content">
+                            <p className="accordion-content">
                                 {content}
-                            </div>
+                            </p>
                         </Transition>
                     </div>
                 ))}
