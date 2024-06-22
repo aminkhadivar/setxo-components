@@ -83,7 +83,7 @@ export default function Drawer({ children, title, content, footer, show = false,
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                     >
-                        <div className={`fixed inset-0 overflow-hidden bg-gray-800 dark:bg-gray-300 bg-opacity-80 dark:bg-opacity-90 transition-opacity ${closeable && 'cursor-pointer'}`} />
+                        <div className={`fixed inset-0 overflow-hidden bg-gray-800 dark:bg-gray-600 bg-opacity-80 dark:bg-opacity-90 transition-opacity ${closeable && 'cursor-pointer'}`} />
                     </Transition.Child>
 
                     <Transition.Child
