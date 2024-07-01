@@ -30,6 +30,7 @@ export default function Tooltip({ content, className = '', children, placement =
         danger: 'tooltip-danger',
         warning: 'tooltip-warning',
         info: 'tooltip-info',
+        purple: 'tooltip-purple',
         custom: '',
     }[color]
 
@@ -65,7 +66,7 @@ export default function Tooltip({ content, className = '', children, placement =
                 leaveFrom="opacity-100 sm:scale-100 translate-y-0"
                 leaveTo={`opacity-0 sm:scale-95 ${translateClass}`}
             >
-                <div className={`tooltip-content ${placementClass}` + `${roundedClass}` + ` ${colorClass}` + className} >
+                <div className={`tooltip-content ${placementClass}` + `${roundedClass}` + ` ${colorClass}` + ` ${className}`} >
                     {content}
                 </div>
             </Transition>

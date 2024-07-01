@@ -59,3 +59,7 @@
 .tooltip-info {
     @apply bg-cyan-600/90 text-gray-100
 }
+
+.tooltip-purple {
+    @apply bg-setxo-600/90 text-gray-100
+}
