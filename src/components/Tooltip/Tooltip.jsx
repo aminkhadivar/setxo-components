@@ -2,16 +2,16 @@ import { useState, Fragment } from "react"
 import { Transition } from '@headlessui/react'
 import './Tooltip.css'
 
-export default function Tooltip({ content, className = '', children, placement = 'top', rounded = 'md', color = 'dark', ...props }) {
+export default function Tooltip({ content, className = '', children, placement = 'top', rounded = 'md', color = 'gray', ...props }) {
 
     const [show, setShow] = useState(false)
-    
+
     const showTooltip = () => {
         setShow(true)
     }
 
     const hideTooltip = () => {
-        setShow(false);
+        setShow(false)
     }
 
     const placementClass = {
@@ -66,7 +66,7 @@ export default function Tooltip({ content, className = '', children, placement =
                 leaveFrom="opacity-100 sm:scale-100 translate-y-0"
                 leaveTo={`opacity-0 sm:scale-95 ${translateClass}`}
             >
-                <div className={`tooltip-content ${placementClass}` + `${roundedClass}` + ` ${colorClass}` + ` ${className}`} >
+                <div {...props} className={`tooltip-content ${placementClass}` + `${roundedClass}` + ` ${colorClass}` + ` ${className}`} >
                     {content}
                 </div>
             </Transition>
