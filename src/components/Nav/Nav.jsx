@@ -45,6 +45,7 @@ const NavLink = ({ active, disabled = '', className = '', href, children, ...pro
                     {active ?
                         <Link
                             {...props}
+                            href={href}
                             className={
                                 classNames + (className && ` ${className}`) + (disabled && ' disabled')
                             }
@@ -55,6 +56,7 @@ const NavLink = ({ active, disabled = '', className = '', href, children, ...pro
                         :
                         <Link
                             {...props}
+                            href={href}
                             className={
                                 classNames + (className && ` ${className}`) + (disabled && ' disabled')
                             }
