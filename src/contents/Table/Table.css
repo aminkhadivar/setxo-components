@@ -1,0 +1,209 @@
+/* ------------- Table ------------- */
+
+.table {
+    @apply text-left w-full overflow-hidden
+}
+
+.table-light {
+    @apply bg-gray-50 text-gray-700
+}
+
+.table-gray {
+    @apply bg-gray-200 text-gray-900
+}
+
+.table-dark {
+    @apply bg-gray-600 text-gray-100
+}
+
+.table-primary {
+    @apply bg-blue-50 text-blue-950
+}
+
+.table-success {
+    @apply bg-green-50 text-green-950
+}
+
+.table-danger {
+    @apply bg-red-50 text-red-950
+}
+
+.table-warning {
+    @apply bg-amber-50 text-amber-950
+}
+
+.table-info {
+    @apply bg-cyan-50 text-cyan-950
+}
+
+.table-purple {
+    @apply bg-setxo-50 text-setxo-950
+}
+
+.table-head {
+    @apply px-6 py-2 whitespace-nowrap border-b-2 border-transparent
+}
+
+.table-head-defualt {
+    @apply border-gray-300 dark:border-gray-500
+}
+
+.table-head-light {
+    @apply bg-gray-200/80 border-gray-300
+}
+
+.table-head-gray {
+    @apply bg-gray-300 text-gray-800 border-gray-400/50
+}
+
+.table-head-dark {
+    @apply bg-gray-700 text-gray-200 border-gray-300/50
+}
+
+.table-head-primary {
+    @apply bg-blue-200/50 text-blue-900 border-blue-300/50
+}
+
+.table-head-success {
+    @apply bg-green-200/50 text-green-900 border-green-300/50
+}
+
+.table-head-danger {
+    @apply bg-red-200/50 text-red-900 border-red-300/50
+}
+
+.table-head-warning {
+    @apply bg-amber-200/50 text-amber-800 border-amber-300/50
+}
+
+.table-head-info {
+    @apply bg-cyan-200/50 text-cyan-900 border-cyan-300/50
+}
+
+.table-head-purple {
+    @apply bg-setxo-200/50 text-setxo-900 border-setxo-300/50
+}
+
+.table-divided-default {
+    @apply divide-y divide-gray-200 dark:divide-gray-600
+}
+
+.table-divided-light {
+    @apply divide-y divide-gray-200
+}
+
+.table-divided-gray {
+    @apply divide-y divide-gray-300
+}
+
+.table-divided-dark {
+    @apply divide-y divide-gray-500
+}
+
+.table-divided-primary {
+    @apply divide-y divide-blue-200/80
+}
+
+.table-divided-success {
+    @apply divide-y divide-green-200/80
+}
+
+.table-divided-danger {
+    @apply divide-y divide-red-200/80
+}
+
+.table-divided-warning {
+    @apply divide-y divide-amber-200/80
+}
+
+.table-divided-info {
+    @apply divide-y divide-cyan-200/80
+}
+
+.table-divided-purple {
+    @apply divide-y divide-setxo-200/80
+}
+
+.table-cell {
+    @apply px-6 py-2 whitespace-nowrap
+}
+
+.table-striped-default .table-row:nth-child(odd) {
+    @apply bg-gray-100 dark:bg-black/5
+}
+
+.table-striped .table-row:nth-child(odd) {
+    @apply bg-gray-100 dark:bg-black/5
+}
+
+.table-striped.table-dark .table-row:nth-child(odd) {
+    @apply bg-white bg-opacity-5
+}
+
+.table-striped.table-primary .table-row:nth-child(odd) {
+    @apply bg-blue-100/50
+}
+
+.table-striped.table-success .table-row:nth-child(odd) {
+    @apply bg-green-100/50
+}
+
+.table-striped.table-danger .table-row:nth-child(odd) {
+    @apply bg-red-100/50
+}
+
+.table-striped.table-warning .table-row:nth-child(odd) {
+    @apply bg-amber-100/50
+}
+
+.table-striped.table-info .table-row:nth-child(odd) {
+    @apply bg-cyan-100/50
+}
+
+.table-striped.table-purple .table-row:nth-child(odd) {
+    @apply bg-setxo-100/80
+}
+
+.table-row {
+    @apply duration-300
+}
+
+.table.table-hover .table-row:hover {
+    @apply bg-gray-100/80 dark:bg-gray-700/80
+}
+
+.table.table-hover.table-light .table-row:hover {
+    @apply bg-gray-200/80
+}
+
+.table.table-hover.table-gray .table-row:hover {
+    @apply bg-gray-300/80
+}
+
+.table.table-hover.table-dark .table-row:hover {
+    @apply bg-gray-500/80
+}
+
+.table.table-hover.table-primary .table-row:hover {
+    @apply bg-blue-200/50
+}
+
+.table.table-hover.table-success .table-row:hover {
+    @apply bg-green-200/50
+}
+
+.table.table-hover.table-danger .table-row:hover {
+    @apply bg-red-200/50
+}
+
+.table.table-hover.table-warning .table-row:hover {
+    @apply bg-amber-200/50
+}
+
+.table.table-hover.table-info .table-row:hover {
+    @apply bg-cyan-200/50
+}
+
+.table.table-hover.table-purple .table-row:hover {
+    @apply bg-setxo-200/50
+}
