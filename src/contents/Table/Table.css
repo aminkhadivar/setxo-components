@@ -129,7 +129,7 @@
 }
 
 .table-striped-default .table-row:nth-child(odd) {
-    @apply bg-gray-100 dark:bg-black/5
+    @apply bg-gray-100 dark:bg-gray-700/50
 }
 
 .table-striped .table-row:nth-child(odd) {
