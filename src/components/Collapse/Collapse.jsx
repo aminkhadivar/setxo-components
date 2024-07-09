@@ -30,9 +30,9 @@ export default function Collapse({ children, title, className, show }) {
                         leaveFrom="transform max-h-screen h-auto"
                         leaveTo="transform max-h-0 h-0"
                     >
-                        <p className="overflow-hidden">
+                        <div className="overflow-hidden">
                             {children}
-                        </p>
+                        </div>
                     </Transition>
                 </>
             </Disclosure>
