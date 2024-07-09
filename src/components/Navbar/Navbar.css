@@ -1,0 +1,107 @@
+.navbar {
+    @apply px-2 py-2.5 sm:px-4 z-auto relative
+}
+
+.navbar-default {
+    @apply bg-gray-50 dark:bg-gray-600/20
+}
+
+.navbar-light {
+    @apply text-gray-200 
+}
+
+.navbar-light a{
+    @apply text-gray-200 dark:text-gray-200
+}
+
+.navbar-light a:hover{
+    @apply text-white 
+}
+
+.navbar-dark {
+    @apply !text-gray-700
+}
+
+.navbar-dark a{
+    @apply !text-gray-700
+}
+
+.navbar-dark a:hover{
+    @apply !text-gray-600
+}
+
+.navbar-container {
+    @apply mx-auto flex flex-wrap items-center justify-between z-50
+}
+
+.navbar-brand {
+    @apply flex items-center gap-2 self-center whitespace-nowrap text-2xl font-semibold dark:text-white
+}
+
+.navbar-collapse {
+    @apply w-full md:block md:w-auto order-1
+}
+
+.navbar-nav {
+    @apply absolute md:relative flex w-full md:hidden md:w-auto order-2 md:p-0 px-2 py-2.5 sm:px-4 top-full left-0 bg-white rounded-b-lg z-40
+}
+
+.navbar-toggle {
+    @apply inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden order-1
+}
+
+/* .enter-from {
+    @apply opacity-0 -translate-y-5 -z-10
+}
+
+.enter-to {
+    @apply opacity-100 translate-y-0 z-0
+}
+
+.leave-from {
+    @apply opacity-100 translate-y-0 z-0
+}
+
+.leave-to {
+    @apply opacity-0 -translate-y-5 -z-10
+} */
+
+.bg-default {
+    @apply bg-gray-100 dark:bg-gray-50
+}
+
+.bg-light {
+    @apply bg-gray-300 dark:bg-gray-200
+}
+
+.bg-gray {
+    @apply bg-gray-500 dark:bg-gray-500
+}
+
+.bg-dark {
+    @apply bg-gray-700 dark:bg-gray-700
+}
+
+.bg-primary {
+    @apply bg-blue-800 dark:bg-sky-800
+}
+
+.bg-success {
+    @apply bg-emerald-700 dark:bg-emerald-700
+}
+
+.bg-danger {
+    @apply bg-rose-800 dark:bg-rose-800
+}
+
+.bg-warning {
+    @apply bg-amber-700 dark:bg-amber-700
+}
+
+.bg-info {
+    @apply bg-cyan-700 dark:bg-gray-700
+}
+
+.bg-purple {
+    @apply bg-setxo-800 dark:bg-setxo-800
+}
