@@ -1,34 +1,45 @@
-import { createContext } from 'react'
+import { createContext, useContext } from 'react'
 import { Link } from '@inertiajs/react'
 import { useEffect, useState } from "react"
 import './Nav.css'
 
-const NavContext = createContext();
+const NavContext = createContext()
 
-const Nav = ({ children, className = '', as = 'nav' }) => {
+const Nav = ({ children, rounded = 'rounded', className = '', as = 'nav' }) => {
 
     const asClasses = {
-        nav: '',
-        tabs: 'nav-tabs',
-        pills: 'nav-pills',
-        fillTabs: 'nav-tabs nav-fill',
-        fillPills: 'nav-pills nav-fill',
+        nav: 'nav',
+        tabs: 'nav nav-tabs',
+        pills: 'nav nav-pills',
+        fillTabs: 'nav nav-tabs nav-fill',
+        fillPills: 'nav nav-pills nav-fill',
     }[as]
 
+    const roundedClass = {
+        none: 'rounded-none',
+        rounded: 'rounded',
+        sm: 'rounded-sm',
+        md: 'rounded-md',
+        lg: 'rounded-lg',
+        full: 'rounded-full',
+    }[rounded];
+
     return (
-        <NavContext.Provider value={{ className, children }}>
+        <NavContext.Provider value={{ className, children, rounded, roundedClass, as }}>
             <nav aria-label="nav">
-                <ul className={'nav' + (className && ` ${className}`) + (as && ` ${asClasses}`)}>
+                <ul className={(as && `${asClasses}`) + (className && ` ${className}`)}>
                     {children}
                 </ul>
             </nav>
         </NavContext.Provider>
-    );
-};
+    )
+}
 
 const NavLink = ({ active, disabled = '', className = '', href, children, ...props }) => {
 
     const [classNames, setClassNames] = useState('')
+
+    const { rounded, roundedClass, as } = useContext(NavContext)
 
     useEffect(() => {
         setClassNames(
@@ -36,7 +47,7 @@ const NavLink = ({ active, disabled = '', className = '', href, children, ...pro
                 ? 'nav-link active'
                 : 'nav-link'
         )
-    }, [active]);
+    }, [active])
 
     return (
         <li className="nav-item">
@@ -47,7 +58,7 @@ const NavLink = ({ active, disabled = '', className = '', href, children, ...pro
                             {...props}
                             href={href}
                             className={
-                                classNames + (className && ` ${className}`) + (disabled && ' disabled')
+                                classNames + (className && ` ${className}`) + (rounded && (as == 'pills' || as == 'fillPills') ? ` ${roundedClass}` : '') + (disabled && ' disabled')
                             }
                             aria-current="page"
                         >
@@ -58,7 +69,7 @@ const NavLink = ({ active, disabled = '', className = '', href, children, ...pro
                             {...props}
                             href={href}
                             className={
-                                classNames + (className && ` ${className}`) + (disabled && ' disabled')
+                                classNames + (className && ` ${className}`) + (rounded && (as == 'pills' || as == 'fillPills') ? ` ${roundedClass}` : '') + (disabled && ' disabled')
                             }
                         >
                             {children}
@@ -69,7 +80,7 @@ const NavLink = ({ active, disabled = '', className = '', href, children, ...pro
                 <div
                     {...props}
                     className={
-                        classNames + (className && ` ${className}`) + (disabled && ' disabled')
+                        classNames + (className && ` ${className}`) + (rounded && (as == 'pills' || as == 'fillPills') ? ` ${roundedClass}` : '') + (disabled && ' disabled')
                     }
                 >
                     {children}
@@ -80,24 +91,28 @@ const NavLink = ({ active, disabled = '', className = '', href, children, ...pro
 }
 
 const NavTab = ({ children, active, disabled = '', className = '', ...props }) => {
+
     const [classNames, setClassNames] = useState('')
 
     useEffect(() => {
         setClassNames(
-            active
+            active == 'true'
                 ? 'nav-link active'
                 : 'nav-link'
         )
-    }, [active]);
+    }, [active])
+
+    const { rounded, roundedClass, as } = useContext(NavContext)
+
     return (
         <li
+            {...props}
             className="nav-item"
         >
             {disabled ?
                 <div
-                    {...props}
                     className={
-                        classNames + (className && ` ${className}`) + (disabled && ' disabled')
+                        classNames + (className && ` ${className}`) + (rounded && (as == 'pills' || as == 'fillPills') ? ` ${roundedClass}` : '') + (disabled && ' disabled')
                     }
                     aria-disabled={disabled ? 'true' : ''}
                 >
@@ -105,9 +120,8 @@ const NavTab = ({ children, active, disabled = '', className = '', ...props }) =
                 </div>
                 :
                 <div
-                    {...props}
                     className={
-                        classNames + (className && ` ${className}`)
+                        classNames + (className && ` ${className}`) + (rounded && (as == 'pills' || as == 'fillPills') ? ` ${roundedClass}` : '')
                     }
                 >
                     {children}
@@ -125,8 +139,8 @@ const NavDropdown = ({ children }) => {
     )
 }
 
-Nav.Link = NavLink;
-Nav.Dropdown = NavDropdown;
-Nav.Tab = NavTab;
+Nav.Link = NavLink
+Nav.Dropdown = NavDropdown
+Nav.Tab = NavTab
 
-export default Nav;
+export default Nav

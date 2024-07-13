@@ -1,13 +1,13 @@
-import { createContext, useContext, useState, Fragment } from 'react'
+import { createContext, useContext, useState } from 'react'
 import { Link } from "@inertiajs/react"
 import './Navbar.css'
-import { ArrowRight2, HambergerMenu } from 'iconsax-react'
+import { HambergerMenu } from 'iconsax-react'
 import { Transition } from '@headlessui/react'
 
 
 const NavbarContext = createContext()
 
-const Navbar = ({ children, className = '', color = 'default', striped = '', divided = '', hoverable = '', rounded = '', ...props }) => {
+const Navbar = ({ children, navbarTheme = '', className = '', color = 'default', customColor = '', striped = '', divided = '', hoverable = '', rounded = 'md', ...props }) => {
 
     const [open, setOpen] = useState(false)
 
@@ -15,31 +15,55 @@ const Navbar = ({ children, className = '', color = 'default', striped = '', div
         setOpen((previousState) => !previousState)
     }
 
+    const navbarThemeClass = {
+        light: 'navbar-dark',
+        dark: 'navbar-light',
+    }[navbarTheme]
+
     const colorClass = {
-        default: 'bg-default navbar-dark',
-        light: 'bg-light navbar-dark',
-        gray: 'bg-gray navbar-light',
-        dark: 'bg-dark navbar-light',
-        primary: 'bg-primary navbar-light',
-        success: 'bg-success navbar-light',
-        danger: 'bg-danger navbar-light',
-        warning: 'bg-warning navbar-light',
-        info: 'bg-info navbar-light',
-        purple: 'bg-purple navbar-light',
+        default: 'bg-default',
+        light: 'bg-light',
+        gray: 'bg-gray',
+        dark: 'bg-dark',
+        primary: 'bg-primary',
+        success: 'bg-success',
+        danger: 'bg-danger',
+        warning: 'bg-warning',
+        info: 'bg-info',
+        purple: 'bg-purple',
+        custom: customColor,
     }[color]
 
     const roundedClass = {
         none: 'rounded-none',
-        rounded: 'rounded',
         sm: 'rounded-sm',
+        rounded: 'rounded',
         md: 'rounded-md',
         lg: 'rounded-lg',
-        full: 'rounded-full',
-    }[rounded];
+        full: 'rounded-30',
+    }[rounded]
+
+    // const roundedAfterOpenClass = {
+    //     none: 'rounded-none',
+    //     sm: 'rounded-t-sm rounded-b-none',
+    //     rounded: 'rounded-t rounded-b-none',
+    //     md: 'rounded-t-md rounded-b-none',
+    //     lg: 'rounded-t-lg rounded-b-none',
+    //     full: 'rounded-t-30 rounded-b-30',
+    // }[rounded]
+
+    const roundedBottomClass = {
+        none: 'rounded-none',
+        sm: 'rounded-b-sm',
+        rounded: 'rounded-b',
+        md: 'rounded-b-md',
+        lg: 'rounded-b-lg',
+        full: 'rounded-b-lg',
+    }[rounded]
 
     return (
-        <NavbarContext.Provider value={{ className, children, color, open, toggleOpen , colorClass }}>
-            <nav {...props} className={`navbar` + `${open ? ' rounded-b-none' : ' '}` + `${color && ` ` + colorClass}` + `${rounded && ` ` + roundedClass}`}>
+        <NavbarContext.Provider value={{ className, children, color, open, toggleOpen, colorClass , rounded , roundedBottomClass }}>
+            <nav {...props} className={`navbar` + `${open ? ' rounded-b-none z-50' : ' z-auto'}` + `${color && ` ` + colorClass}` + ` ${rounded && ` ` + roundedClass}` + `${className && ` ` + className}` + `${navbarTheme && ` ` + navbarThemeClass}`}>
                 <div className="navbar-container">
                     {children}
                 </div>
@@ -67,7 +91,6 @@ const NavbarToggle = ({ children, className = '', ...props }) => {
 
     return (
         <button onClick={toggleOpen} className="navbar-toggle order-2" type="button" aria-expanded={`${open ? true : false}`} aria-label="Toggle navigation">
-            <span className="absolute -inset-0.5"></span>
             <span className="sr-only">Open main menu</span>
             {open ?
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
@@ -82,15 +105,15 @@ const NavbarToggle = ({ children, className = '', ...props }) => {
 
 const NavbarCollapse = ({ children, className = '', ...props }) => {
 
-    const { open, setOpen, toggleOpen , colorClass , color } = useContext(NavbarContext)
+    const { open, setOpen, toggleOpen, colorClass, color , rounded , roundedBottomClass } = useContext(NavbarContext)
 
     return (
         <>
-            <div className={`navbar-collapse`}>
+            <div className={`navbar-collapse` + `${className && ` ` + className}`}>
                 <Transition
                     as="div"
                     show={open}
-                    className={`navbar-nav transition-all duration-500` + `${color && ` ` + colorClass}`}
+                    className={`navbar-nav transition-all duration-500` + `${color && ` ` + colorClass}` + ` ${roundedBottomClass}`}
                     enter="ease-in-out duration-500"
                     enterFrom={`opacity-0 -translate-y-5`}
                     enterTo="opacity-100 translate-y-0"
@@ -98,88 +121,17 @@ const NavbarCollapse = ({ children, className = '', ...props }) => {
                     leaveFrom="opacity-100 translate-y-0"
                     leaveTo={`opacity-0 -translate-y-5`}
                 >
-                    <div className="relative">
+                    <div className="relative w-full">
                         {children}
                     </div>
                 </Transition>
-                <div className={`relative hidden md:block`}>
+                <div className={`relative hidden md:flex items-center w-full`}>
                     {children}
                 </div>
             </div>
         </>
     )
 }
-
-// const TableHeadCell = ({ children, key }) => {
-
-//     const color = useContext(TableContext)
-//     let colorValue = color.color
-
-//     const divided = useContext(TableContext)
-//     let dividedValue = divided.divided
-
-//     const colorHeadClass = {
-//         light: 'table-head-light',
-//         gray: 'table-head-gray',
-//         dark: 'table-head-dark',
-//         primary: 'table-head-primary',
-//         success: 'table-head-success',
-//         danger: 'table-head-danger',
-//         warning: 'table-head-warning',
-//         info: 'table-head-info',
-//         purple: 'table-head-purple',
-//     }[colorValue]
-
-//     return (
-//         <th className={`table-head` + `${colorValue && ` ` + colorHeadClass}` + ` ${!colorValue && dividedValue && ' table-head-defualt'}`} key={key}>
-//             {children}
-//         </th>
-//     )
-// }
-
-// const TableBody = ({ children }) => {
-
-//     const color = useContext(TableContext)
-//     let colorValue = color.color
-
-//     const divided = useContext(TableContext)
-//     let dividedValue = divided.divided
-
-//     const colorDivideClass = {
-//         default: 'table-divided-default',
-//         light: 'table-divided-light',
-//         gray: 'table-divided-gray',
-//         dark: 'table-divided-dark',
-//         primary: 'table-divided-primary',
-//         success: 'table-divided-success',
-//         danger: 'table-divided-danger',
-//         warning: 'table-divided-warning',
-//         info: 'table-divided-info',
-//         purple: 'table-divided-purple',
-//     }[color.color]
-
-//     return (
-//         <tbody className={`table-body group/body` + `${colorValue ? (dividedValue && ` ` + colorDivideClass) : (dividedValue && ` table-divided-default`)}`}>
-//             {children}
-//         </tbody>
-//     )
-// }
-// const TableRow = ({ children, key }) => {
-
-//     return (
-//         <tr className={`table-row group/row`} key={key}>
-//             {children}
-//         </tr>
-//     )
-// }
-// const TableCell = ({ children, key }) => {
-
-//     return (
-//         <td className={`table-cell`} key={key}>
-//             {children}
-//         </td>
-//     )
-// }
 
 Navbar.Brand = NavbarBrand
 Navbar.Collapse = NavbarCollapse

@@ -5,7 +5,7 @@
 }
 
 .tab-title {
-    @apply flex flex-wrap
+    @apply flex flex-col
 }
 
 .tab-content {

@@ -37,7 +37,7 @@ nav {
 }
 
 .nav-tabs .nav-link {
-    @apply flex items-center border-b-2 h-10 px-6 text-gray-500 dark:text-gray-400 hover:border-b-2 hover:border-gray-400 hover:text-gray-800 dark:hover:text-gray-300 duration-300
+    @apply flex items-center justify-center border-b-2 h-10 px-4 text-gray-500 dark:text-gray-400 hover:border-b-2 hover:border-gray-400 hover:text-gray-800 dark:hover:text-gray-300 duration-300
 }
 
 .nav-tabs .nav-link.disabled {
@@ -45,11 +45,11 @@ nav {
 }
 
 .nav-pills {
-    @apply flex gap-4
+    @apply flex
 }
 
 .nav-fill {
-    @apply sm:flex-nowrap flex-wrap
+    @apply sm:flex-nowrap flex-wrap 
 }
 
 .nav-fill .nav-item {
@@ -57,11 +57,11 @@ nav {
 }
 
 .nav-pills .nav-link {
-    @apply grid text-center px-4 h-10 text-gray-500 dark:text-gray-400 dark:hover:text-gray-100 hover:bg-gray-200 hover:text-gray-800 dark:hover:bg-gray-700 active:bg-gray-300 focus:bg-gray-300 active:text-gray-800 rounded duration-300
+    @apply grid px-4 h-10 text-gray-500 dark:text-gray-400 dark:hover:text-gray-100 hover:bg-gray-200 hover:text-gray-800 dark:hover:bg-gray-700 active:bg-gray-300 focus:bg-gray-300 active:text-gray-800 duration-300
 }
 
 .nav-pills .nav-link.active {
-    @apply bg-blue-600 dark:bg-blue-600 hover:bg-blue-600 dark:hover:bg-blue-600 active:bg-blue-700 focus:bg-blue-700 !text-white rounded
+    @apply bg-blue-600 dark:bg-blue-600 hover:bg-blue-600 dark:hover:bg-blue-600 active:bg-blue-700 focus:bg-blue-700 !text-white
 }
 
 .nav-pills .nav-link.disabled {
