@@ -40,17 +40,17 @@ const Navbar = ({ children, navbarTheme = '', className = '', color = 'default',
         rounded: 'rounded',
         md: 'rounded-md',
         lg: 'rounded-lg',
-        full: 'rounded-30',
+        xl: 'rounded-32',
     }[rounded]
 
-    // const roundedAfterOpenClass = {
-    //     none: 'rounded-none',
-    //     sm: 'rounded-t-sm rounded-b-none',
-    //     rounded: 'rounded-t rounded-b-none',
-    //     md: 'rounded-t-md rounded-b-none',
-    //     lg: 'rounded-t-lg rounded-b-none',
-    //     full: 'rounded-t-30 rounded-b-30',
-    // }[rounded]
+    const roundedTopClass = {
+        none: 'rounded-none',
+        sm: 'rounded-sm',
+        rounded: 'rounded',
+        md: 'rounded-md',
+        lg: 'rounded-lg',
+        xl: 'rounded-t-32',
+    }[rounded]
 
     const roundedBottomClass = {
         none: 'rounded-none',
@@ -58,12 +58,12 @@ const Navbar = ({ children, navbarTheme = '', className = '', color = 'default',
         rounded: 'rounded-b',
         md: 'rounded-b-md',
         lg: 'rounded-b-lg',
-        full: 'rounded-b-lg',
+        xl: 'rounded-b-32',
     }[rounded]
 
     return (
-        <NavbarContext.Provider value={{ className, children, color, open, toggleOpen, colorClass , rounded , roundedBottomClass }}>
-            <nav {...props} className={`navbar` + `${open ? ' rounded-b-none z-50' : ' z-auto'}` + `${color && ` ` + colorClass}` + ` ${rounded && ` ` + roundedClass}` + `${className && ` ` + className}` + `${navbarTheme && ` ` + navbarThemeClass}`}>
+        <NavbarContext.Provider value={{ className, children, color, open, toggleOpen, colorClass, rounded, roundedBottomClass }}>
+            <nav {...props} className={`navbar` + `${open ? ' z-50' : ' z-auto'}` + `${color && ` ` + colorClass}` + ` ${open ? ` rounded-b-none ` + roundedTopClass : ` ` + roundedClass}` + `${className && ` ` + className}` + `${navbarTheme && ` ` + navbarThemeClass}`}>
                 <div className="navbar-container">
                     {children}
                 </div>
@@ -87,7 +87,7 @@ const NavbarBrand = ({ children, href, className = '', ...props }) => {
 
 const NavbarToggle = ({ children, className = '', ...props }) => {
 
-    const { open, setOpen, toggleOpen } = useContext(NavbarContext)
+    const { open, toggleOpen } = useContext(NavbarContext)
 
     return (
         <button onClick={toggleOpen} className="navbar-toggle order-2" type="button" aria-expanded={`${open ? true : false}`} aria-label="Toggle navigation">
@@ -105,7 +105,7 @@ const NavbarToggle = ({ children, className = '', ...props }) => {
 
 const NavbarCollapse = ({ children, className = '', ...props }) => {
 
-    const { open, setOpen, toggleOpen, colorClass, color , rounded , roundedBottomClass } = useContext(NavbarContext)
+    const { open, colorClass, color, roundedBottomClass } = useContext(NavbarContext)
 
     return (
         <>
