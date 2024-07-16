@@ -1,16 +1,16 @@
 .navbar {
-    @apply px-2 py-2 sm:px-4 sm:py-3 relative duration-500
+    @apply w-full px-2 py-2 sm:px-4 sm:py-3 duration-300
 }
 
 .navbar-light {
     @apply text-gray-200 dark:text-gray-200
 }
 
-.navbar-light a{
+.navbar-light a {
     @apply text-gray-200 dark:text-gray-200
 }
 
-.navbar-light a:hover{
+.navbar-light a:hover {
     @apply text-white dark:text-white
 }
 
@@ -18,11 +18,11 @@
     @apply text-gray-600 dark:text-gray-600
 }
 
-.navbar-dark a{
+.navbar-dark a {
     @apply text-gray-600 dark:text-gray-600
 }
 
-.navbar-dark a:hover{
+.navbar-dark a:hover {
     @apply text-gray-900 dark:text-gray-900
 }
 
@@ -39,11 +39,11 @@
 }
 
 .navbar-nav {
-    @apply absolute md:relative flex w-full md:hidden md:w-auto order-2 md:p-0 px-2 pb-4 sm:px-4 top-full left-0 z-40 backdrop-filter backdrop-blur-md
+    @apply absolute md:relative flex w-full md:hidden md:w-auto order-2 px-4 pb-4 top-full left-0 z-40 backdrop-filter backdrop-blur-md
 }
 
 .navbar-toggle {
-    @apply inline-flex items-center rounded-lg p-2 text-sm text-gray-200  dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden order-1
+    @apply inline-flex items-center rounded-lg p-2 text-sm text-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden order-1
 }
 
 .navbar-light .navbar-toggle {
@@ -75,27 +75,27 @@
 }
 
 .bg-primary {
-    @apply bg-blue-900/90 dark:bg-blue-800/90
+    @apply bg-blue-600/90 dark:bg-blue-600/90
 }
 
 .bg-success {
-    @apply bg-emerald-800/90 dark:bg-emerald-700/90
+    @apply bg-emerald-600/90 dark:bg-emerald-600/90
 }
 
 .bg-danger {
-    @apply bg-red-800/90 dark:bg-red-800/90
+    @apply bg-rose-700/90 dark:bg-rose-700/90
 }
 
 .bg-warning {
-    @apply bg-amber-700/90 dark:bg-amber-700/90
+    @apply bg-amber-600/90 dark:bg-amber-600/90
 }
 
 .bg-info {
-    @apply bg-cyan-700/90 dark:bg-cyan-700/90
+    @apply bg-cyan-500/90 dark:bg-cyan-500/90
 }
 
 .bg-purple {
-    @apply bg-setxo-900/90 dark:bg-setxo-800/90
+    @apply bg-setxo-800/90 dark:bg-setxo-700/90
 }
 
 .rounded-32 {

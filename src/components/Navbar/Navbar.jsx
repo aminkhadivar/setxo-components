@@ -4,10 +4,9 @@ import './Navbar.css'
 import { HambergerMenu } from 'iconsax-react'
 import { Transition } from '@headlessui/react'
 
-
 const NavbarContext = createContext()
 
-const Navbar = ({ children, navbarTheme = '', className = '', color = 'default', customColor = '', striped = '', divided = '', hoverable = '', rounded = 'md', ...props }) => {
+const Navbar = ({ children, position = 'relative', navbarTheme = '', className = '', color = 'default', customColor = '', striped = '', divided = '', hoverable = '', rounded = 'md', placement = 'top', ...props }) => {
 
     const [open, setOpen] = useState(false)
 
@@ -47,7 +46,7 @@ const Navbar = ({ children, navbarTheme = '', className = '', color = 'default',
         none: 'rounded-none',
         sm: 'rounded-sm',
         rounded: 'rounded',
-        md: 'rounded-md',
+        md: 'rounded-t-md',
         lg: 'rounded-lg',
         xl: 'rounded-t-32',
     }[rounded]
@@ -61,9 +60,16 @@ const Navbar = ({ children, navbarTheme = '', className = '', color = 'default',
         xl: 'rounded-b-32',
     }[rounded]
 
+    const positionClass = {
+        relative: 'relative',
+        absolute: 'absolute',
+        fixed: 'fixed',
+        sticky: 'sticky',
+    }[position]
+
     return (
         <NavbarContext.Provider value={{ className, children, color, open, toggleOpen, colorClass, rounded, roundedBottomClass }}>
-            <nav {...props} className={`navbar` + `${open ? ' z-50' : ' z-auto'}` + `${color && ` ` + colorClass}` + ` ${open ? ` rounded-b-none ` + roundedTopClass : ` ` + roundedClass}` + `${className && ` ` + className}` + `${navbarTheme && ` ` + navbarThemeClass}`}>
+            <nav {...props} className={`navbar` + `${open ? ' z-50 backdrop-filter backdrop-blur-md' : ' z-auto'}` + `${color && ` ` + colorClass}` + ` ${open ? ` rounded-b-none ` + roundedTopClass : ` ` + roundedClass}` + `${className && ` ` + className}` + `${navbarTheme && ` ` + navbarThemeClass}` + ` ${position}`}>
                 <div className="navbar-container">
                     {children}
                 </div>
@@ -108,28 +114,26 @@ const NavbarCollapse = ({ children, className = '', ...props }) => {
     const { open, colorClass, color, roundedBottomClass } = useContext(NavbarContext)
 
     return (
-        <>
-            <div className={`navbar-collapse` + `${className && ` ` + className}`}>
-                <Transition
-                    as="div"
-                    show={open}
-                    className={`navbar-nav transition-all duration-500` + `${color && ` ` + colorClass}` + ` ${roundedBottomClass}`}
-                    enter="ease-in-out duration-500"
-                    enterFrom={`opacity-0 -translate-y-5`}
-                    enterTo="opacity-100 translate-y-0"
-                    leave="ease-in-out duration-500"
-                    leaveFrom="opacity-100 translate-y-0"
-                    leaveTo={`opacity-0 -translate-y-5`}
-                >
-                    <div className="relative w-full">
-                        {children}
-                    </div>
-                </Transition>
-                <div className={`relative hidden md:flex items-center w-full`}>
+        <div className={`navbar-collapse` + `${className && ` ` + className}`}>
+            <Transition
+                as="div"
+                show={open}
+                className={`navbar-nav transition-all` + `${color && ` ` + colorClass}` + ` ${roundedBottomClass}`}
+                enter="ease-linear duration-300"
+                enterFrom={`opacity-0 -translate-y-5`}
+                enterTo="opacity-100 translate-y-0"
+                leave="ease-linear duration-300"
+                leaveFrom="opacity-100 translate-y-0"
+                leaveTo={`opacity-0 -translate-y-5`}
+            >
+                <div className="relative w-full">
                     {children}
                 </div>
+            </Transition>
+            <div className={`relative hidden md:flex items-center w-full`}>
+                {children}
             </div>
-        </>
+        </div>
     )
 }
 
