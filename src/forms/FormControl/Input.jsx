@@ -1,9 +1,12 @@
 import { forwardRef, useEffect, useRef, useState } from 'react'
-import './Input.css'
+import './Form.css'
 
-export default forwardRef(function Input({ type = 'text', className = '', rounded = 'rounded', size = 'default', isFocused = false, placeholder, value, disabled = '', ...props }, ref) {
+export default forwardRef(function Input({ as = 'text', type = 'text', className = '', rounded = 'rounded', size = 'default', isFocused = false, placeholder, value, disabled = '', readOnly = '', ...props }, ref) {
 
-    const [inputValue, setInputValue] = useState(value)
+    const asClass = {
+        text: 'form-control',
+        plaintext: 'form-control-plaintext',
+    }[as]
 
     const input = ref ? ref : useRef()
 
@@ -12,6 +15,14 @@ export default forwardRef(function Input({ type = 'text', className = '', rounde
             input.current.focus()
         }
     }, [])
+
+    const [inputValue, setInputValue] = useState(value)
+
+    const onChangeInput = (e) => {
+        if (!readOnly) {
+            setInputValue(e.target.value)
+        }
+    }
 
     const roundedClass = {
         none: 'rounded-none',
@@ -24,7 +35,7 @@ export default forwardRef(function Input({ type = 'text', className = '', rounde
 
     const sizeClass = {
         sm: 'form-control-sm',
-        default: '',
+        default: 'form-control-default',
         lg: 'form-control-lg',
     }[size]
 
@@ -32,13 +43,12 @@ export default forwardRef(function Input({ type = 'text', className = '', rounde
         <input
             {...props}
             type={type}
-            className={`form-control` + `${size && ` ` + sizeClass}` +
-                `${className && ` ` + className}` + ` ${roundedClass}` + `${disabled && ' pointer-events-none opacity-50 !bg-gray-200'
-                }`
+            className={`${asClass}` + `${size && ` ` + sizeClass}` +
+                `${className && ` ` + className}` + ` ${roundedClass}` + `${disabled && `${readOnly ? ' disabled-readonly' : ' disabled'}`}`
             }
             ref={input}
             value={inputValue || ''}
-            onChange={e => setInputValue(e.target.value)}
+            onChange={onChangeInput}
             placeholder={placeholder}
         />
     )
