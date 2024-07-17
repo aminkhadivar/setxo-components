@@ -1,4 +1,4 @@
-/* ------------- Input ------------- */
+/* ------------- Form Control ------------- */
 
 .form-control {
     @apply w-full block px-2 bg-transparent border-black/10 dark:border-white/20 focus:bg-white dark:focus:bg-black/20 focus:border-setxo-300 dark:focus:border-zinc-300/60 focus:ring focus:ring-setxo-200 dark:focus:ring-white/20 focus:ring-opacity-50 duration-300 focus:outline-none outline-none resize-none
