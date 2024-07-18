@@ -1,5 +1,5 @@
 .form-check {
-    @apply flex items-center gap-2
+    @apply flex items-center
 }
 
 .form-check-input {
@@ -7,5 +7,5 @@
 }
 
 .form-check .form-label {
-    @apply mb-0
+    @apply mb-0 gap-2 cursor-pointer
 }
