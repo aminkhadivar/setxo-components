@@ -1,0 +1,11 @@
+.form-check {
+    @apply flex items-center gap-2
+}
+
+.form-check-input {
+    @apply bg-transparent rounded-sm border-zinc-300 dark:border-zinc-600 text-blue-600 dark:text-blue-600 focus:ring-transparent
+}
+
+.form-check .form-label {
+    @apply mb-0
+}

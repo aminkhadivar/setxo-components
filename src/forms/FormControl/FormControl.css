@@ -5,7 +5,7 @@
 }
 
 .form-label {
-    @apply block font-medium text-sm mb-2 text-zinc-500 dark:text-zinc-400
+    @apply flex items-center font-medium text-sm text-zinc-500 dark:text-zinc-400 mb-2
 }
 
 .form-control-sm {

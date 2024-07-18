@@ -1,6 +1,6 @@
 /* ------------- Input ------------- */
 
-label {
+/* label {
     @apply text-zinc-600 dark:text-zinc-400
 }
 
@@ -14,4 +14,4 @@ label {
 
 .form-control-lg {
     @apply py-2 text-lg h-11
-}
+} */

@@ -3,7 +3,8 @@ export default function Label({ value, className = '', children, ...props }) {
         <label
             {...props}
             className={`form-label` + `${className && ` ` + className}`}>
-            {value ? value : children}
+            {children}
+            {value}
         </label>
     );
 }
