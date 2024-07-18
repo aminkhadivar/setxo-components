@@ -1,5 +1,5 @@
 import { forwardRef, useEffect, useRef, useState } from 'react'
-import './Form.css'
+import './FormControl.css'
 
 export default forwardRef(function Input({ as = 'text', type = 'text', className = '', rounded = 'rounded', size = 'default', isFocused = false, placeholder, value, disabled = '', readOnly = '', ...props }, ref) {
 

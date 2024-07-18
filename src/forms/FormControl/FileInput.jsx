@@ -1,7 +1,7 @@
 import { forwardRef, useRef } from 'react'
 import Input from "./Input"
-import Label from "../Label"
-import './Form.css'
+import Label from "./Label"
+import './FormControl.css'
 
 export default forwardRef(function FileInput({ label = '', id, className = '', size = 'default', disabled = '', readOnly = '', ...props }, ref) {
 

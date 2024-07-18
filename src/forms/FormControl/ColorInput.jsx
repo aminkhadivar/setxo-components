@@ -1,6 +1,6 @@
 import { forwardRef, useRef, useState } from 'react'
-import Label from "../Label"
-import './Form.css'
+import Label from "./Label"
+import './FormControl.css'
 
 export default forwardRef(function ColorInput({ label = '', id, className = '', value, disabled, ...props }, ref) {
 

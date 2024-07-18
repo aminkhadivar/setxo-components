@@ -1,5 +1,5 @@
 import { forwardRef, useEffect, useRef, useState } from 'react'
-import './Form.css'
+import './FormControl.css'
 
 export default forwardRef(function Textarea({ type = 'text', className = '', rounded = 'rounded', rows = '3', resizeabled = false, isFocused = false, placeholder, value, disabled = '', ...props }, ref) {
 

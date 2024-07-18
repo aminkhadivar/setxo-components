@@ -1,0 +1,25 @@
+/* ------------- Select ------------- */
+
+select {
+    @apply py-1
+}
+
+.form-select {
+    @apply w-full block px-2 bg-transparent border-black/10 dark:border-white/20 focus:bg-white dark:focus:bg-black/20 focus:border-setxo-300 dark:focus:border-zinc-300/60 focus:ring focus:ring-setxo-200 dark:focus:ring-white/20 focus:ring-opacity-50 duration-300 focus:outline-none outline-none resize-none
+}
+
+.form-select-sm {
+    @apply text-sm h-8
+}
+
+.form-select-default {
+    @apply text-base h-10
+}
+
+.form-select-lg {
+    @apply text-lg h-12
+}
+
+.form-select.disabled {
+    @apply pointer-events-none opacity-60 bg-gray-200 dark:bg-gray-700
+}
