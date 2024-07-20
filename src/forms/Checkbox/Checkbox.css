@@ -1,9 +1,11 @@
+/* ------------- Check ------------- */
+
 .form-check {
     @apply flex items-center
 }
 
 .form-check-input {
-    @apply bg-transparent rounded-sm border-zinc-300 dark:border-zinc-600 text-blue-600 dark:text-blue-600 focus:ring-transparent
+    @apply bg-transparent rounded-sm focus:ring-transparent ring-offset-0 dark:ring-offset-0 duration-300
 }
 
 .form-check .form-label {

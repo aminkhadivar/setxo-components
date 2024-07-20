@@ -1,0 +1,13 @@
+/* ------------- Radio ------------- */
+
+.form-check {
+    @apply flex items-center
+}
+
+.form-radio-input {
+    @apply bg-transparent focus:ring-transparent ring-offset-0 dark:ring-offset-0 duration-300 text-blue-600
+}
+
+.form-check .form-label {
+    @apply mb-0 gap-2 cursor-pointer
+}
