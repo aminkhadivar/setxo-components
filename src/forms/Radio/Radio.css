@@ -5,7 +5,7 @@
 }
 
 .form-radio-input {
-    @apply bg-transparent focus:ring-transparent ring-offset-0 dark:ring-offset-0 duration-300 text-blue-600 border-2 h-5 w-5
+    @apply bg-transparent focus:ring-transparent ring-offset-0 dark:ring-offset-0 duration-300 border-2 h-5 w-5
 }
 
 .form-radio .form-label {

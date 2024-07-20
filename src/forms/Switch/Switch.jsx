@@ -3,6 +3,7 @@ import './Switch.css'
 export default function Switch({ id, className = '', color = '', label, disabled = '', size = '', defaultChecked, reverse = '', ...props }) {
 
     const colorClass = {
+        default: 'switch-default',
         light: 'switch-light',
         gray: 'switch-gray',
         dark: 'switch-dark',
@@ -12,6 +13,7 @@ export default function Switch({ id, className = '', color = '', label, disabled
         warning: 'switch-warning',
         info: 'switch-info',
         purple: 'switch-purple',
+        custom: ''
     }[color]
 
     const sizeClass = {
@@ -26,12 +28,12 @@ export default function Switch({ id, className = '', color = '', label, disabled
                     {...props}
                     type="checkbox"
                     id={id}
-                    className={`form-switch-input peer` + `${className && ` ` + className}`}
+                    className={`form-switch-input peer`}
                     role="switch"
                     defaultChecked={defaultChecked}
                     disabled={disabled}
                 />
-                <span className={`toggle-switch` + `${color && ` ` + colorClass}` + `${size && ` ` + sizeClass}`}></span>
+                <span className={`toggle-switch` + `${className && ` ` + className}` + `${color ? ` ` + colorClass : ' switch-default'}` + `${size && ` ` + sizeClass}`}></span>
             </Label>
         </div>
     )
