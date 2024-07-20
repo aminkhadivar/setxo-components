@@ -5,9 +5,53 @@
 }
 
 .form-radio-input {
-    @apply bg-transparent focus:ring-transparent ring-offset-0 dark:ring-offset-0 duration-300 text-blue-600
+    @apply bg-transparent focus:ring-transparent ring-offset-0 dark:ring-offset-0 duration-300 text-blue-600 border-2 h-5 w-5
 }
 
 .form-check .form-label {
     @apply mb-0 gap-2 cursor-pointer
+}
+
+.radio-light {
+    @apply text-gray-300
+}
+
+.radio-gray {
+    @apply text-gray-500
+}
+
+.radio-dark {
+    @apply text-gray-700
+}
+
+.radio-primary {
+    @apply text-blue-500
+}
+
+.radio-success {
+    @apply text-green-500
+}
+
+.radio-danger {
+    @apply text-red-500
+}
+
+.radio-warning {
+    @apply text-amber-500
+}
+
+.radio-info {
+    @apply text-cyan-500
+}
+
+.radio-purple {
+    @apply text-setxo-500
+}
+
+.radio-sm {
+    @apply h-4 w-4
+}
+
+.radio-lg {
+    @apply h-6 w-6
 }
