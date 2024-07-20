@@ -1,0 +1,61 @@
+/* ------------- Switch ------------- */
+
+.form-switch {
+    @apply flex items-center
+}
+
+.form-switch-input {
+    @apply appearance-none hidden
+}
+
+.form-switch .form-label {
+    @apply mb-0 gap-2
+}
+
+.toggle-switch {
+    @apply w-10 h-6 flex items-center flex-shrink-0 p-1 bg-gray-300 rounded-full duration-300 ease-in-out peer-checked:bg-blue-600 after:w-4 after:h-4 after:bg-white after:rounded-full after:duration-300 peer-checked:after:translate-x-4
+}
+
+.switch-light {
+    @apply peer-checked:bg-gray-300
+}
+
+.switch-gray {
+    @apply peer-checked:bg-gray-500
+}
+
+.switch-dark {
+    @apply peer-checked:bg-gray-700
+}
+
+.switch-primary {
+    @apply peer-checked:bg-blue-500
+}
+
+.switch-success {
+    @apply peer-checked:bg-green-500
+}
+
+.switch-danger {
+    @apply peer-checked:bg-red-500
+}
+
+.switch-warning {
+    @apply peer-checked:bg-amber-500
+}
+
+.switch-info {
+    @apply peer-checked:bg-cyan-500
+}
+
+.switch-purple {
+    @apply peer-checked:bg-setxo-500
+}
+
+.switch-sm {
+    @apply w-8 h-5 after:w-3 after:h-3  peer-checked:after:translate-x-3
+}
+
+.switch-lg {
+    @apply w-12 h-7 after:w-5 after:h-5  peer-checked:after:translate-x-5
+}

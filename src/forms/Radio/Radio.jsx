@@ -20,7 +20,7 @@ export default function Checkbox({ id, className = '', color = '', size = '', la
     }[size]
 
     return (
-        <div className="form-check">
+        <div className="form-radio">
             <Label htmlFor={id} value={label} className={`${disabled ? ' pointer-events-none opacity-50' : ' cursor-pointer'}`}>
                 <input
                     {...props}
