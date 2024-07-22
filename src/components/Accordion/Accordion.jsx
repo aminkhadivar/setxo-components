@@ -14,7 +14,7 @@ const Accordion = ({ children, className = '', data = [], multiple = false }) =>
             items.map((d) =>
                 d.id === id ? { ...d, show: !d.show } : { ...d, show: false }
             )
-        );
+        )
     }
 
     return (
@@ -44,21 +44,21 @@ const Accordion = ({ children, className = '', data = [], multiple = false }) =>
                             </div>
                         </button>
                         <Transition
-                            as="div"
                             show={show}
                             id={id}
                             key={id}
-                            className="transition-all"
-                            enter="transition-[max-height] duration-500 ease-in"
-                            enterFrom="transform max-h-0 opacity-0"
-                            enterTo="transform max-h-screen opacity-100"
-                            leave="transition-[max-height] duration-300 ease-out"
-                            leaveFrom="transform max-h-screen opacity-100"
-                            leaveTo="transform max-h-0 opacity-0"
+                            enter="transition-all duration-700 ease-in"
+                            enterFrom="transform max-h-0 h-0"
+                            enterTo="transform max-h-screen h-auto"
+                            leave="transition-all duration-300 ease-out"
+                            leaveFrom="transform max-h-screen h-auto"
+                            leaveTo="transform max-h-0 h-0"
                         >
-                            <p className="accordion-content">
-                                {content}
-                            </p>
+                            <div className="overflow-hidden">
+                                <div className="accordion-content">
+                                    {content}
+                                </div>
+                            </div>
                         </Transition>
                     </div>
                 ))}
@@ -109,18 +109,18 @@ const AccordionItem = ({ children, title, id, alwaysOpen }) => {
                 </button>
 
                 <Transition
-                    as="div"
                     show={open}
-                    className="transition-all duration-300"
-                    enter="transition-[max-height] duration-300 ease-in"
-                    enterFrom="transform max-h-0 opacity-0"
-                    enterTo="transform max-h-screen opacity-100"
-                    leave="transition-[max-height] duration-300 ease-out"
-                    leaveFrom="transform max-h-screen opacity-100"
-                    leaveTo="transform max-h-0 opacity-0"
+                    enter="transition-all duration-700 ease-in"
+                    enterFrom="transform max-h-0 h-0"
+                    enterTo="transform max-h-screen h-auto"
+                    leave="transition-all duration-300 ease-out"
+                    leaveFrom="transform max-h-screen h-auto"
+                    leaveTo="transform max-h-0 h-0"
                 >
                     <div className="overflow-hidden">
-                        {children}
+                        <div className="accordion-content">
+                            {children}
+                        </div>
                     </div>
                 </Transition>
             </div>
