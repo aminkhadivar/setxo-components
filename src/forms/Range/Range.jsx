@@ -10,7 +10,8 @@ export default function Range({ max = '100', min = '0', step, value, className =
         setInputValue(e.target.value)
     }
 
-    const percent = (inputValue / max) * 100
+    const percent = ((inputValue - min) * 100) / (max - min)
+    console.log(percent)
 
     const colorClass = {
         default: 'range-default',
