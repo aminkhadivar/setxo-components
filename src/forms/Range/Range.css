@@ -1,0 +1,105 @@
+/* ------------- Range ------------- */
+
+.form-range {
+    @apply flex items-center
+}
+
+.form-range-slider {
+    @apply flex items-center relative w-full
+}
+
+.range-box {
+    @apply absolute left-0 right-0 h-2.5 bg-gray-100 dark:bg-gray-600 rounded-full overflow-hidden
+}
+
+.range-box-track {
+    @apply absolute bg-[repeating-linear-gradient(to_right,transparent,transparent_calc(25%-1px),theme(colors.black/.2)_calc(25%-1px),theme(colors.black/.2)_calc(25%+1px))] dark:bg-[repeating-linear-gradient(to_right,transparent,transparent_calc(25%-1px),theme(colors.white/.2)_calc(25%-1px),theme(colors.white/.2)_calc(25%+1px))]
+}
+
+.form-range .form-label {
+    @apply flex gap-2 w-full flex-col-reverse mb-1 items-start
+}
+
+.form-range-input {
+    @apply relative appearance-none cursor-pointer w-full bg-transparent focus:outline-none z-10
+}
+
+.form-range-input::-moz-range-thumb {
+    @apply bg-white hover:bg-gray-100 dark:bg-gray-200 dark:hover:bg-white h-5 w-5 rounded-full shadow dark:shadow-none border-inherit focus-visible:ring focus-visible:ring-gray-300 duration-300
+}
+
+.form-range-input::-webkit-slider-thumb {
+    @apply bg-white hover:bg-gray-100 dark:bg-gray-200 dark:hover:bg-white appearance-none h-5 w-5 rounded-full shadow dark:shadow-none border-inherit focus-visible:ring focus-visible:ring-gray-300 duration-300
+}
+
+.form-range-fill {
+    @apply absolute h-2.5 left-0 rounded-full right-0 overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r
+}
+
+.form-range-fill.range-default {
+    @apply before:from-blue-500 before:to-blue-900
+}
+
+.form-range-fill.range-light {
+    @apply before:from-gray-200 before:to-gray-400
+}
+
+.form-range-fill.range-gray {
+    @apply before:from-gray-400 before:to-gray-600
+}
+
+.form-range-fill.range-dark {
+    @apply before:from-gray-600 before:to-gray-800
+}
+
+.form-range-fill.range-primary {
+    @apply before:from-blue-400 before:to-blue-600
+}
+
+.form-range-fill.range-success {
+    @apply before:from-green-400 before:to-green-600
+}
+
+.form-range-fill.range-danger {
+    @apply before:from-red-400 before:to-red-600
+}
+
+.form-range-fill.range-warning {
+    @apply before:from-amber-400 before:to-amber-600
+}
+
+.form-range-fill.range-info {
+    @apply before:from-cyan-400 before:to-cyan-600
+}
+
+.form-range-fill.range-purple {
+    @apply before:from-setxo-400 before:to-setxo-600
+}
+
+.range-sm .range-box, .range-sm .form-range-fill {
+    @apply h-1.5
+}
+
+.range-lg .range-box, .range-lg .form-range-fill {
+    @apply h-3.5
+}
+
+.range-sm .form-range-input::-moz-range-thumb {
+    @apply h-4 w-4
+}
+
+.range-lg .form-range-input::-webkit-slider-thumb {
+    @apply h-6 w-6
+}
+
+.range-lg .form-range-input::-moz-range-thumb {
+    @apply h-6 w-6
+}
+
+.range-sm .form-range-input::-webkit-slider-thumb {
+    @apply h-4 w-4
+}
+
+.form-range .disabled {
+    @apply pointer-events-none opacity-50
+}

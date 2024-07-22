@@ -23,7 +23,7 @@ export default function Switch({ id, className = '', color = '', label, disabled
 
     return (
         <div className="form-switch">
-            <Label htmlFor={id} value={label} className={`${reverse && ` flex-row-reverse`}` + `${disabled ? ' pointer-events-none opacity-50' : ' cursor-pointer'}`}>
+            <Label htmlFor={id} value={label} className={`${reverse && ` switch-reverse`}` + `${disabled ? ' pointer-events-none opacity-50' : ' cursor-pointer'}`}>
                 <input
                     {...props}
                     type="checkbox"
