@@ -69,9 +69,7 @@ const Accordion = ({ children, className = '', data = [], multiple = false }) =>
 
 const AccordionItem = ({ children, title, id, alwaysOpen }) => {
 
-    const multiple = useContext(AccordionContext)
-
-    let multipleValue = multiple.multiple
+    const { multiple } = useContext(AccordionContext)
 
     const [open, setOpen] = useState(false)
 
@@ -82,7 +80,7 @@ const AccordionItem = ({ children, title, id, alwaysOpen }) => {
     }, [])
 
     const toggleOpen = () => {
-        if (multipleValue) {
+        if (multiple) {
             setOpen((previousState) => !previousState)
         } else {
             handleClick()
