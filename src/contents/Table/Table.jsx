@@ -3,7 +3,7 @@ import './Table.css'
 
 const TableContext = createContext()
 
-const Table = ({ children, className = '', color = '', striped = '', divided = '', hoverable = '' , rounded = '', ...props }) => {
+const Table = ({ children, className = '', color = '', striped = '', divided = '', hoverable = '', rounded = '', ...props }) => {
 
     const colorClass = {
         light: 'table-light',
@@ -19,11 +19,9 @@ const Table = ({ children, className = '', color = '', striped = '', divided = '
 
     return (
         <TableContext.Provider value={{ className, children, striped, color, divided, hoverable }}>
-            {/* <div className="flex flex-wrap overflow-x-auto"> */}
-                <table {...props} className={`table` + `${color && ` ` + colorClass}` + `${color ? (striped && ` table-striped`) : (striped && ` table-striped-default`)}` + `${hoverable && ` table-hover`}` + `${rounded && ` rounded-lg`}`}>
-                    {children}
-                </table>
-            {/* </div> */}
+            <table {...props} className={`table` + `${color && ` ` + colorClass}` + `${color ? (striped && ` table-striped`) : (striped && ` table-striped-default`)}` + `${hoverable && ` table-hover`}` + `${rounded && ` rounded-lg`}`}>
+                {children}
+            </table>
         </TableContext.Provider>
     )
 }
@@ -41,11 +39,7 @@ const TableHead = ({ children, key }) => {
 
 const TableHeadCell = ({ children, key }) => {
 
-    const color = useContext(TableContext)
-    let colorValue = color.color
-
-    const divided = useContext(TableContext)
-    let dividedValue = divided.divided
+    const { color, divided } = useContext(TableContext)
 
     const colorHeadClass = {
         light: 'table-head-light',
@@ -57,10 +51,10 @@ const TableHeadCell = ({ children, key }) => {
         warning: 'table-head-warning',
         info: 'table-head-info',
         purple: 'table-head-purple',
-    }[colorValue]
+    }[color]
 
     return (
-        <th className={`table-head` + `${colorValue && ` ` + colorHeadClass}` + ` ${!colorValue && dividedValue && ' table-head-defualt'}`} key={key}>
+        <th className={`table-head` + `${color && ` ` + colorHeadClass}` + ` ${!color && divided && ' table-head-defualt'}`} key={key}>
             {children}
         </th>
     )
@@ -68,11 +62,7 @@ const TableHeadCell = ({ children, key }) => {
 
 const TableBody = ({ children }) => {
 
-    const color = useContext(TableContext)
-    let colorValue = color.color
-
-    const divided = useContext(TableContext)
-    let dividedValue = divided.divided
+    const { color, divided } = useContext(TableContext)
 
     const colorDivideClass = {
         default: 'table-divided-default',
@@ -85,10 +75,10 @@ const TableBody = ({ children }) => {
         warning: 'table-divided-warning',
         info: 'table-divided-info',
         purple: 'table-divided-purple',
-    }[color.color]
+    }[color]
 
     return (
-        <tbody className={`table-body group/body` + `${colorValue ? (dividedValue && ` ` + colorDivideClass) : (dividedValue && ` table-divided-default`)}`}>
+        <tbody className={`table-body group/body` + `${color ? (divided && ` ` + colorDivideClass) : (divided && ` table-divided-default`)}`}>
             {children}
         </tbody>
     )
