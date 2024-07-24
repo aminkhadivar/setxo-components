@@ -1,0 +1,121 @@
+/* ------------- Spinner ------------- */
+
+.spinner-border {
+    @apply h-8 w-8 animate-spin rounded-full border-4
+}
+
+.spinner-border.spinner-default {
+    @apply border-x-current border-y-gray-100 dark:border-x-current dark:border-y-gray-200/20
+}
+
+.spinner-border.spinner-light {
+    @apply border-x-gray-100 border-y-gray-300 dark:border-x-gray-100 dark:border-y-gray-200/20
+}
+
+.spinner-border.spinner-gray {
+    @apply border-x-gray-100 border-y-gray-500 dark:border-x-gray-400 dark:border-y-gray-400/20
+}
+
+.spinner-border.spinner-dark {
+    @apply border-x-gray-100 border-y-gray-800 dark:border-x-gray-600 dark:border-y-gray-600/20
+}
+
+.spinner-border.spinner-primary {
+    @apply border-x-blue-100 border-y-blue-400 dark:border-x-blue-400 dark:border-y-blue-400/20
+}
+
+.spinner-border.spinner-success {
+    @apply border-x-green-100 border-y-green-400 dark:border-x-green-400 dark:border-y-green-400/20
+}
+
+.spinner-border.spinner-danger {
+    @apply border-x-red-100 border-y-red-400 dark:border-x-red-400 dark:border-y-red-400/20
+}
+
+.spinner-border.spinner-warning {
+    @apply border-x-amber-100 border-y-amber-400 dark:border-x-amber-400 dark:border-y-amber-400/20
+}
+
+.spinner-border.spinner-info {
+    @apply 
+    border-x-cyan-100 border-y-cyan-400 dark:border-x-cyan-400 dark:border-y-cyan-400/20
+}
+
+.spinner-border.spinner-purple {
+    @apply border-x-setxo-100 border-y-setxo-400 dark:border-x-setxo-400 dark:border-y-setxo-400/20
+}
+
+.spinner-border.spinner-sm {
+    @apply h-4 w-4 border-[3px]
+}
+
+.spinner-border.spinner-lg {
+    @apply h-10 w-10 border-[5px]
+}
+
+.spinner-grow {
+    @apply h-8 w-8 rounded-full animate-pulse border-gray-200;
+    animation-duration: 1s;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        scale: 1;
+    }
+
+    50% {
+        opacity: 0;
+        scale: 0;
+    }
+}
+
+.spinner-grow.spinner-default {
+    @apply  bg-current
+}
+
+.spinner-grow.spinner-light {
+    @apply bg-gray-200
+}
+
+.spinner-grow.spinner-gray {
+    @apply bg-gray-400
+}
+
+.spinner-grow.spinner-dark {
+    @apply bg-gray-700
+}
+
+.spinner-grow.spinner-primary {
+    @apply bg-blue-500
+}
+
+.spinner-grow.spinner-success {
+    @apply bg-green-500
+}
+
+.spinner-grow.spinner-danger {
+    @apply bg-red-500
+}
+
+.spinner-grow.spinner-warning {
+    @apply bg-amber-500
+}
+
+.spinner-grow.spinner-info {
+    @apply bg-cyan-500
+}
+
+.spinner-grow.spinner-purple {
+    @apply bg-setxo-500
+}
+
+.spinner-grow.spinner-sm {
+    @apply h-4 w-4
+}
+
+.spinner-grow.spinner-lg {
+    @apply h-10 w-10
+}
