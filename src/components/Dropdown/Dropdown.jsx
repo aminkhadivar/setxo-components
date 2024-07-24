@@ -57,7 +57,7 @@ const Dropdown = ({ children, autoClose = true, dropdownBgColor = 'light' }) => 
 
 const Trigger = ({ className = '', children, ...props }) => {
 
-    const { open, setOpen, toggleOpen, showDropdownOnHover, hideDropdownOnHover } = useContext(DropDownContext)
+    const { toggleOpen } = useContext(DropDownContext)
 
     const autoClose = useContext(DropDownContext)
 
@@ -74,11 +74,7 @@ const Trigger = ({ className = '', children, ...props }) => {
 
 const Content = ({ align = 'left', width = '48', placement = 'bottom', contentClasses = 'bg-white', children }) => {
 
-    const autoClose = useContext(DropDownContext)
-
-    let autoClosed = autoClose.autoClose
-
-    const { open, setOpen } = useContext(DropDownContext)
+    const { open, setOpen , autoClose } = useContext(DropDownContext)
 
     const alignmentClasses = {
         right: 'dropdown-menu-end',
@@ -120,15 +116,15 @@ const Content = ({ align = 'left', width = '48', placement = 'bottom', contentCl
             as={Fragment}
             show={open}
             enter="ease-in-out duration-200"
-            enterFrom={`opacity-0 sm:scale-95 ${autoClosed == 'hover' ? '' : translateClass}`}
+            enterFrom={`opacity-0 sm:scale-95 ${autoClose == 'hover' ? '' : translateClass}`}
             enterTo="opacity-100 scale-100 translate-y-0"
             leave="ease-in-out duration-100"
             leaveFrom="opacity-100 scale-100 translate-y-0"
-            leaveTo={`opacity-0 sm:scale-95 ${autoClosed == 'hover' ? '' : translateClass}`}
+            leaveTo={`opacity-0 sm:scale-95 ${autoClose == 'hover' ? '' : translateClass}`}
         >
             <div
                 className={`dropdown ${placementClass} ${(placement == 'right') ? '' : (placement == 'left') ? '' : alignmentClasses} ${widthClasses} ${(dropdownBgColor.dropdownBgColor == 'dark') ? 'border border-transparent dark:border-zinc-700' : 'border border-zinc-200 dark:border-zinc-700 '}`}
-                onClick={(autoClosed == true || autoClosed == 'inside' || autoClosed == 'hover') ? () => setOpen(false) : () => null}
+                onClick={(autoClose == true || autoClose == 'inside' || autoClose == 'hover') ? () => setOpen(false) : () => null}
             >
                 <div className={`dropdown-content ${dropdownBgcolorClass} ` + contentClasses}>{children}</div>
             </div>
@@ -138,14 +134,10 @@ const Content = ({ align = 'left', width = '48', placement = 'bottom', contentCl
 
 const DropdownLink = ({ className = '', children, ...props }) => {
 
-    const { setOpen } = useContext(DropDownContext)
-
-    const autoClose = useContext(DropDownContext)
-
-    let autoClosed = autoClose.autoClose
+    const { setOpen , autoClose } = useContext(DropDownContext)
 
     return (
-        <div onClick={(autoClosed == true || autoClosed == 'inside' || autoClosed == 'hover') ? () => setOpen(false) : () => null}>
+        <div onClick={(autoClose == true || autoClose == 'inside' || autoClose == 'hover') ? () => setOpen(false) : () => null}>
             <Link
                 preserveState
                 preserveScroll
@@ -161,8 +153,8 @@ const DropdownLink = ({ className = '', children, ...props }) => {
     )
 }
 
-Dropdown.Trigger = Trigger;
-Dropdown.Content = Content;
-Dropdown.Link = DropdownLink;
+Dropdown.Trigger = Trigger
+Dropdown.Content = Content
+Dropdown.Link = DropdownLink
 
-export default Dropdown;
+export default Dropdown
