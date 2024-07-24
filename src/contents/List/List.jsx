@@ -15,9 +15,7 @@ const List = ({ className = '', children, separator = ' ' }) => {
 };
 
 const ListItem = ({ children, className = '', active = '', href, ...props }) => {
-    const separator = useContext(ListContext)
-
-    let separatorValue = separator.separator
+    const { separator } = useContext(ListContext)
 
     return (
         <li
@@ -25,7 +23,7 @@ const ListItem = ({ children, className = '', active = '', href, ...props }) => 
             className={'list-item'}
         >
             <>
-                {separatorValue && <div className="list-separator">{separatorValue}</div>}
+                {separator && <div className="list-separator">{separator}</div>}
                 <div>
                     {children}
                 </div>
