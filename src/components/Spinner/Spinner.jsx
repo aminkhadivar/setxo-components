@@ -1,4 +1,3 @@
-
 import './Spinner.css'
 
 export default function Spinner({ as = 'border', className = '', color = '', size = '', ...props }) {

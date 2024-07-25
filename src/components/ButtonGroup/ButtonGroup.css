@@ -3,25 +3,17 @@
 }
 
 .btn-group button:not(:last-child) {
-    @apply rounded-r-none border-r-0
+    @apply rounded-r-none
 }
 
 .btn-group button:not(:first-child) {
     @apply rounded-l-none
 }
 
-.btn-group div button:last-child {
-    @apply rounded-l-none border-l-0
-}
-
 .btn-group a:not(:last-child) {
-    @apply rounded-r-none border-r-0
+    @apply rounded-r-none
 }
 
 .btn-group a:not(:first-child) {
     @apply rounded-l-none
 }
-
-/* .btn-group div button:last-child {
-    @apply rounded-r-none border-r-0
-} */

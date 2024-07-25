@@ -13,43 +13,43 @@ button {
 }
 
 .btn-default {
-    @apply btn bg-transparent dark:bg-transparent hover:bg-gray-100 dark:hover:bg-gray-700 active:bg-gray-200 focus:bg-gray-200 text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200;
-}
-
-.btn-primary {
-    @apply bg-blue-600 dark:bg-blue-600 hover:bg-blue-700 dark:hover:bg-blue-700 active:bg-blue-800 focus:bg-blue-800 !text-white;
-}
-
-.btn-gray {
-    @apply bg-gray-500 dark:bg-gray-500 hover:bg-gray-600 dark:hover:bg-gray-600 active:bg-gray-700 focus:bg-gray-700 !text-white;
-}
-
-.btn-success {
-    @apply bg-green-600 dark:bg-green-600 hover:bg-green-700 dark:hover:bg-green-700 active:bg-green-800 focus:bg-green-800 !text-white;
-}
-
-.btn-dark {
-    @apply bg-gray-800 dark:bg-gray-700 hover:bg-gray-950 dark:hover:bg-gray-800 active:bg-gray-900 focus:bg-gray-900 !text-white;
+    @apply btn bg-transparent dark:bg-transparent hover:bg-gray-100 dark:hover:bg-gray-700 [&.active]:bg-gray-200 dark:[&.active]:bg-gray-700 active:bg-gray-200 focus:bg-gray-200 text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 dark:[&.active]:text-gray-200;
 }
 
 .btn-light {
-    @apply bg-gray-100 dark:bg-gray-200 hover:bg-gray-200 dark:hover:bg-gray-300 active:bg-gray-300 focus:bg-gray-300 !text-gray-600;
+    @apply bg-gray-100 dark:bg-gray-200 hover:bg-gray-200 dark:hover:bg-gray-300 [&.active]:bg-gray-300 dark:[&.active]:bg-gray-300 active:bg-gray-300 focus:bg-gray-300 !text-gray-600;
+}
+
+.btn-gray {
+    @apply bg-gray-500 dark:bg-gray-500 hover:bg-gray-600 dark:hover:bg-gray-600 [&.active]:bg-gray-600 dark:[&.active]:bg-gray-500 active:bg-gray-700 focus:bg-gray-700 !text-white;
+}
+
+.btn-dark {
+    @apply bg-gray-800 dark:bg-gray-700 hover:bg-gray-950 dark:hover:bg-gray-800 [&.active]:bg-gray-950 dark:[&.active]:bg-gray-800 active:bg-gray-900 focus:bg-gray-900 !text-white;
+}
+
+.btn-primary {
+    @apply bg-blue-600 dark:bg-blue-600 hover:bg-blue-700 dark:hover:bg-blue-700 [&.active]:bg-blue-700 dark:[&.active]:bg-blue-700 active:bg-blue-800 focus:bg-blue-800 !text-white;
+}
+
+.btn-success {
+    @apply bg-green-600 dark:bg-green-600 hover:bg-green-700 dark:hover:bg-green-700 [&.active]:bg-green-700 dark:[&.active]:bg-green-700 active:bg-green-800 focus:bg-green-800 !text-white;
 }
 
 .btn-danger {
-    @apply bg-red-600 dark:bg-red-700 hover:bg-red-700 dark:hover:bg-red-800 active:bg-red-800 focus:bg-red-800 !text-white;
+    @apply bg-red-600 dark:bg-red-700 hover:bg-red-700 dark:hover:bg-red-800 [&.active]:bg-red-700 dark:[&.active]:bg-red-700 active:bg-red-800 focus:bg-red-800 !text-white;
 }
 
 .btn-warning {
-    @apply bg-amber-500 dark:bg-amber-600 hover:bg-amber-600 dark:hover:bg-amber-700 active:bg-amber-700 focus:bg-amber-700 !text-white;
+    @apply bg-amber-500 dark:bg-amber-600 hover:bg-amber-600 dark:hover:bg-amber-700 [&.active]:bg-amber-600 dark:[&.active]:bg-amber-700 active:bg-amber-700 focus:bg-amber-700 !text-white;
 }
 
 .btn-info {
-    @apply bg-cyan-500 dark:bg-cyan-600 hover:bg-cyan-600 dark:hover:bg-cyan-700 active:bg-cyan-700 focus:bg-cyan-700 !text-white;
+    @apply bg-cyan-500 dark:bg-cyan-600 hover:bg-cyan-600 dark:hover:bg-cyan-700 [&.active]:bg-cyan-600 dark:[&.active]:bg-cyan-700 active:bg-cyan-700 focus:bg-cyan-700 !text-white;
 }
 
 .btn-purple {
-    @apply btn bg-setxo-600 dark:bg-setxo-500 hover:bg-setxo-700 dark:hover:bg-setxo-600 active:bg-setxo-800 focus:bg-setxo-800 !text-white;
+    @apply btn bg-setxo-600 dark:bg-setxo-500 hover:bg-setxo-700 dark:hover:bg-setxo-600 [&.active]:bg-setxo-700 dark:[&.active]:bg-setxo-600 active:bg-setxo-800 focus:bg-setxo-800 !text-white;
 }
 
 .btn-gradient {

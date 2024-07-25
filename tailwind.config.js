@@ -2,12 +2,12 @@ import defaultTheme from 'tailwindcss/defaultTheme'
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-    "./src/**/*.{css}",
-  ],
-  theme: {
+    content: [
+        "./index.html",
+        "./src/**/*.{js,ts,jsx,tsx}",
+        "./src/**/*.{css}",
+    ],
+    theme: {
         extend: {
             borderRadius: {
                 'none': '0',
@@ -34,23 +34,9 @@ export default {
                     900: '#402290',
                     950: '#261362',
                 },
-                'primaryBlue': {
-                    50: '#f2f4fc',
-                    100: '#e1e7f8',
-                    200: '#cad5f3',
-                    300: '#a5bbeb',
-                    400: '#7a97e0',
-                    500: '#5b76d6',
-                    600: '#4c5fcb',
-                    700: '#3d49b8',
-                    800: '#373d96',
-                    900: '#303778',
-                    950: '#21244a',
-                },
             },
         },
-        
-    },
-  plugins: [],
-}
 
+    },
+    plugins: [],
+}
