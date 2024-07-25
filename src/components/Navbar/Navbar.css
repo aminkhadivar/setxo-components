@@ -43,7 +43,7 @@
 }
 
 .navbar-toggle {
-    @apply inline-flex items-center rounded-lg p-2 text-sm text-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden order-1
+    @apply inline-flex items-center p-2 text-sm text-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden order-1
 }
 
 .navbar-light .navbar-toggle {
@@ -98,14 +98,14 @@
     @apply bg-setxo-800/90 dark:bg-setxo-700/90
 }
 
-.rounded-32 {
-    @apply rounded-[32px]
+.rounded-xl {
+    @apply sm:rounded-[32px] rounded-[28px]
 }
 
-.rounded-t-32 {
-    @apply rounded-t-[32px]
+.rounded-t-xl {
+    @apply sm:rounded-t-[32px] rounded-t-[28px]
 }
 
-.rounded-b-32 {
-    @apply rounded-b-[32px]
+.rounded-b-xl {
+    @apply sm:rounded-b-[32px] rounded-b-[28px]
 }

@@ -39,16 +39,16 @@ const Navbar = ({ children, position = 'relative', navbarTheme = '', className =
         rounded: 'rounded',
         md: 'rounded-md',
         lg: 'rounded-lg',
-        xl: 'rounded-32',
+        xl: 'rounded-xl',
     }[rounded]
 
     const roundedTopClass = {
         none: 'rounded-none',
-        sm: 'rounded-sm',
-        rounded: 'rounded',
+        sm: 'rounded-t-sm',
+        rounded: 'rounded-t',
         md: 'rounded-t-md',
-        lg: 'rounded-lg',
-        xl: 'rounded-t-32',
+        lg: 'rounded-t-lg',
+        xl: 'rounded-t-xl',
     }[rounded]
 
     const roundedBottomClass = {
@@ -57,7 +57,7 @@ const Navbar = ({ children, position = 'relative', navbarTheme = '', className =
         rounded: 'rounded-b',
         md: 'rounded-b-md',
         lg: 'rounded-b-lg',
-        xl: 'rounded-b-32',
+        xl: 'rounded-b-xl',
     }[rounded]
 
     const positionClass = {
@@ -68,7 +68,7 @@ const Navbar = ({ children, position = 'relative', navbarTheme = '', className =
     }[position]
 
     return (
-        <NavbarContext.Provider value={{ className, children, color, open, toggleOpen, colorClass, rounded, roundedBottomClass }}>
+        <NavbarContext.Provider value={{ className, children, color, open, toggleOpen, colorClass, rounded, roundedBottomClass, roundedClass }}>
             <nav {...props} className={`navbar` + `${open ? ' z-50 backdrop-filter backdrop-blur-md' : ' z-auto'}` + `${color && ` ` + colorClass}` + ` ${open ? ` rounded-b-none ` + roundedTopClass : ` ` + roundedClass}` + `${className && ` ` + className}` + `${navbarTheme && ` ` + navbarThemeClass}` + ` ${position}`}>
                 <div className="navbar-container">
                     {children}
@@ -93,10 +93,10 @@ const NavbarBrand = ({ children, href, className = '', ...props }) => {
 
 const NavbarToggle = ({ children, className = '', ...props }) => {
 
-    const { open, toggleOpen } = useContext(NavbarContext)
+    const { open, toggleOpen, rounded, roundedClass } = useContext(NavbarContext)
 
     return (
-        <button onClick={toggleOpen} className="navbar-toggle order-2" type="button" aria-expanded={`${open ? true : false}`} aria-label="Toggle navigation">
+        <button onClick={toggleOpen} className={`navbar-toggle order-2` + `${rounded && ` ` + roundedClass}`} type="button" aria-expanded={`${open ? true : false}`} aria-label="Toggle navigation">
             <span className="sr-only">Open main menu</span>
             {open ?
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
