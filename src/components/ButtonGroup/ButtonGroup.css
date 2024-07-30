@@ -7,7 +7,7 @@
 }
 
 .btn-group button:not(:first-child) {
-    @apply rounded-l-none
+    @apply rounded-l-none border-l-0
 }
 
 .btn-group a:not(:last-child) {
@@ -16,4 +16,40 @@
 
 .btn-group a:not(:first-child) {
     @apply rounded-l-none
+}
+
+.btn-group-vertical {
+    @apply flex flex-col max-w-max
+}
+
+.btn-group-vertical button:not(:last-child) {
+    @apply rounded-b-none
+}
+
+.btn-group-vertical button:not(:first-child) {
+    @apply rounded-t-none border-t-0
+}
+
+.btn-group-vertical a:not(:last-child) {
+    @apply rounded-b-none
+}
+
+.btn-group-vertical a:not(:first-child) {
+    @apply rounded-t-none
+}
+
+.btn-group-sm .btn {
+    @apply text-sm h-8
+}
+
+.btn-group-md .btn {
+    @apply h-9
+}
+
+.btn-group-lg .btn {
+    @apply text-lg h-11
+}
+
+.btn-group-xl .btn {
+    @apply text-xl h-12
 }

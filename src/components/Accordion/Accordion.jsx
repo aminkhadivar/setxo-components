@@ -3,22 +3,42 @@ import { Transition } from '@headlessui/react'
 import { ArrowDown2 } from 'iconsax-react'
 import './Accordion.css'
 
-const AccordionContext = createContext()
+export const AccordionContext = createContext()
 
-const Accordion = ({ children, className = '', data = [], multiple = false }) => {
+const Accordion = ({ children, color = 'lightPrimary', className = '', data = [], multiple = '' }) => {
+
+    const colorClass = {
+        light: 'accordion-light',
+        gray: 'accordion-gray',
+        dark: 'accordion-dark',
+        primary: 'accordion-primary',
+        success: 'accordion-success',
+        danger: 'accordion-danger',
+        warning: 'accordion-warning',
+        info: 'accordion-info',
+        purple: 'accordion-purple',
+        lightPrimary: 'accordion-light-primary',
+        lightSuccess: 'accordion-light-success',
+        lightDanger: 'accordion-light-danger',
+        lightWarning: 'accordion-light-warning',
+        lightInfo: 'accordion-light-info',
+        lightPurple: 'accordion-light-purple',
+    }[color];
 
     const [items, setItems] = useState(data)
 
     const handleClick = (id) => {
         setItems(
-            items.map((d) =>
-                d.id === id ? { ...d, show: !d.show } : { ...d, show: false }
+            items.map((item) =>
+                item.id === id ? { ...item, show: !item.show } : { ...item, show: false }
             )
         )
     }
 
+    console.log(items)
+
     return (
-        <AccordionContext.Provider value={{ className, children, multiple }}>
+        <AccordionContext.Provider value={{ className, children, multiple, colorClass }}>
             <div className={'accordion' + (className && ` ${className}`)}>
 
                 {children}
@@ -32,14 +52,14 @@ const Accordion = ({ children, className = '', data = [], multiple = false }) =>
                         onClick={() => handleClick(id)}
                     >
                         <button
-                            className={`accordion-button ${show ? 'bg-blue-100 dark:bg-gray-600 text-blue-900 dark:text-gray-200' : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-400'}`}
+                            className={`accordion-button ${show ? colorClass : 'accordion-default'}`}
                             type="button"
                             aria-expanded={show ? 'true' : 'false'}
                         >
-                            <h6 className="font-medium text-inherit">{title}</h6>
+                            <div className="font-medium text-base">{title}</div>
                             <div className="flex items-center ml-2">
                                 <ArrowDown2
-                                    className={`h-5 w-5 ${show ? 'rotate-180 text-blue-600 dark:text-gray-200' : 'text-gray-500 dark:text-gray-400'} transform duration-300`}
+                                    className={`h-5 w-5 ${show ? 'rotate-180' : 'text-gray-500 dark:text-gray-400'} transform duration-300`}
                                 />
                             </div>
                         </button>
@@ -55,7 +75,7 @@ const Accordion = ({ children, className = '', data = [], multiple = false }) =>
                             leaveTo="transform max-h-0 h-0"
                         >
                             <div className="overflow-hidden">
-                                <div className="accordion-content">
+                                <div className="accordion-body">
                                     {content}
                                 </div>
                             </div>
@@ -69,8 +89,8 @@ const Accordion = ({ children, className = '', data = [], multiple = false }) =>
 
 const AccordionItem = ({ children, title, id, alwaysOpen }) => {
 
-    const { multiple } = useContext(AccordionContext)
-
+    const { multiple, colorClass } = useContext(AccordionContext)
+    
     const [open, setOpen] = useState(false)
 
     useEffect(() => {
@@ -95,14 +115,14 @@ const AccordionItem = ({ children, title, id, alwaysOpen }) => {
                 id={id}
                 key={id}>
                 <button
-                    className={`accordion-button ${open ? 'bg-blue-100 dark:bg-gray-600 text-blue-900 dark:text-gray-200' : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-400'}`}
+                    className={`accordion-button ${open ? colorClass : 'accordion-default'}`}
                     type="button"
                     aria-expanded={open ? 'true' : 'false'}
                     onClick={toggleOpen}
                 >
-                    <h6 className="font-medium text-inherit">{title}</h6>
+                    <div className="font-medium text-base">{title}</div>
                     <ArrowDown2
-                        className={`h-5 w-5 ${open ? 'rotate-180 text-blue-600 dark:text-gray-200' : 'text-gray-500 dark:text-gray-400'} transform duration-300`}
+                        className={`h-5 w-5 ${open ? 'rotate-180' : 'text-gray-500 dark:text-gray-400'} transform duration-300`}
                     />
                 </button>
 
@@ -116,7 +136,7 @@ const AccordionItem = ({ children, title, id, alwaysOpen }) => {
                     leaveTo="transform max-h-0 h-0"
                 >
                     <div className="overflow-hidden">
-                        <div className="accordion-content">
+                        <div className="accordion-body">
                             {children}
                         </div>
                     </div>

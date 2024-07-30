@@ -2,13 +2,13 @@ import { useEffect, useState } from "react"
 import { Link } from "@inertiajs/react"
 import './Button.css'
 
-export default function Button({ href, as = 'Link', type = 'button', className = '', active = '', disabled = '', size = 'default', color = 'base', borderColor = '', children, rounded = 'rounded', shadow = '', ...props }) {
+export default function Button({ href, as = 'Link', type = 'button', className = '', active = '', disabled = '', size = '', color = 'base', borderColor = '', children, rounded = 'rounded', shadow = '', ...props }) {
 
     const [activeButton, setActiveButton] = useState('')
 
     useEffect(() => {
         setActiveButton(
-            active && ' active'
+            active ? ' active' : ''
         )
     }, [active])
 
@@ -41,11 +41,10 @@ export default function Button({ href, as = 'Link', type = 'button', className =
     }[borderColor];
 
     const sizeClass = {
-        sm: 'text-sm h-8',
-        md: 'h-9',
-        default: 'h-10',
-        lg: 'text-lg h-11',
-        xl: 'text-xl h-12',
+        sm: 'btn-sm',
+        md: 'btn-md',
+        lg: 'btn-lg',
+        xl: 'btn-xl',
     }[size];
 
     const roundedClass = {
@@ -95,7 +94,7 @@ export default function Button({ href, as = 'Link', type = 'button', className =
                         href={href}
                         role="button"
                         className={`${colorClass} px-2 ` + className + `${disabled && ' pointer-events-none opacity-50'
-                            }` + ` ${rounded && roundedClass}` + ` ${shadow && color ? shodowClass : ''}` + ` ${(shadow && borderColor) ? shodowBorderClass : ''}` + ` ${sizeClass}` + `${borderColor ? borderColorClass : ''}` + activeButton}
+                            }` + ` ${rounded && roundedClass}` + ` ${shadow && color ? shodowClass : ''}` + ` ${(shadow && borderColor) ? shodowBorderClass : ''}` + `${size && ` ` + sizeClass}` + `${borderColor ? borderColorClass : ''}` + `${active && activeButton}`}
                     >
                         {children}
                     </Link>
@@ -106,10 +105,9 @@ export default function Button({ href, as = 'Link', type = 'button', className =
                         href={href}
                         role="button"
                         target="_blank"
-
                         rel="noreferrer"
-                        className={`${colorClass} px-2 ` + className + `${disabled && ' pointer-events-none opacity-50'
-                            }` + ` ${rounded && roundedClass}` + ` ${shadow && color ? shodowClass : ''}` + ` ${(shadow && borderColor) ? shodowBorderClass : ''}` + ` ${sizeClass}` + `${borderColor ? borderColorClass : ''}` + activeButton}
+                        className={`${colorClass} px-2 ` + className + `${disabled && ' disabled'
+                            }` + ` ${rounded && roundedClass}` + ` ${shadow && color ? shodowClass : ''}` + ` ${(shadow && borderColor) ? shodowBorderClass : ''}` + `${size && ` ` + sizeClass}` + `${borderColor ? borderColorClass : ''}` + `${active && activeButton}`}
                     >
                         {children}
                     </a>
@@ -119,8 +117,8 @@ export default function Button({ href, as = 'Link', type = 'button', className =
             <button
                 {...props}
                 type={type}
-                className={`${colorClass} px-2 ` + className + `${disabled && ' pointer-events-none opacity-50'
-                    }` + ` ${rounded && roundedClass}` + ` ${shadow && color ? shodowClass : ''}` + ` ${(shadow && borderColor) ? shodowBorderClass : ''}` + ` ${sizeClass}` + `${borderColor ? borderColorClass : ''}` + activeButton}
+                className={`${colorClass} px-2 ` + className + `${disabled && ' disabled'
+                    }` + ` ${rounded && roundedClass}` + `${shadow && color ? ` ` + shodowClass : ''}` + `${(shadow && borderColor) ? ` ` + shodowBorderClass : ''}` + `${size && ` ` + sizeClass}` + `${borderColor ? borderColorClass : ''}` + `${active && activeButton}`}
             >
                 {children}
             </button>
