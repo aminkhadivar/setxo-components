@@ -23,6 +23,7 @@ const Accordion = ({ children, color = 'lightPrimary', className = '', data = []
         lightWarning: 'accordion-light-warning',
         lightInfo: 'accordion-light-info',
         lightPurple: 'accordion-light-purple',
+        custom: '',
     }[color];
 
     const [items, setItems] = useState(data)
@@ -35,53 +36,52 @@ const Accordion = ({ children, color = 'lightPrimary', className = '', data = []
         )
     }
 
-    console.log(items)
-
     return (
         <AccordionContext.Provider value={{ className, children, multiple, colorClass }}>
-            <div className={'accordion' + (className && ` ${className}`)}>
-
-                {children}
-
-                {/* Use data array from another components */}
-                {items.map(({ title, id, show, content }) => (
-                    <div className="accordion-item"
-                        id={id}
-                        key={id}
-                        show={show.toString()}
-                        onClick={() => handleClick(id)}
-                    >
-                        <button
-                            className={`accordion-button ${show ? colorClass : 'accordion-default'}`}
-                            type="button"
-                            aria-expanded={show ? 'true' : 'false'}
-                        >
-                            <div className="font-medium text-base">{title}</div>
-                            <div className="flex items-center ml-2">
-                                <ArrowDown2
-                                    className={`h-5 w-5 ${show ? 'rotate-180' : 'text-gray-500 dark:text-gray-400'} transform duration-300`}
-                                />
+            <div className={'accordion'}>
+                {children ? children :
+                    <>
+                        {/* Use data array */}
+                        {items.map(({ title, id, show, content }) => (
+                            <div className="accordion-item"
+                                id={id}
+                                key={id}
+                                show={show.toString()}
+                                onClick={() => handleClick(id)}
+                            >
+                                <button
+                                    className={`accordion-button ${show ? (colorClass + (className && ` ${className}`)) : 'accordion-default'}`}
+                                    type="button"
+                                    aria-expanded={show ? 'true' : 'false'}
+                                >
+                                    <div className="font-medium text-base">{title}</div>
+                                    <div className="flex items-center ml-2">
+                                        <ArrowDown2
+                                            className={`h-5 w-5 ${show ? 'rotate-180' : 'text-gray-500 dark:text-gray-400'} transform duration-300`}
+                                        />
+                                    </div>
+                                </button>
+                                <Transition
+                                    show={show}
+                                    id={id}
+                                    key={id}
+                                    enter="transition-all duration-700 ease-in"
+                                    enterFrom="transform max-h-0 h-0"
+                                    enterTo="transform max-h-screen h-auto"
+                                    leave="transition-all duration-300 ease-out"
+                                    leaveFrom="transform max-h-screen h-auto"
+                                    leaveTo="transform max-h-0 h-0"
+                                >
+                                    <div className="overflow-hidden">
+                                        <div className="accordion-body">
+                                            {content}
+                                        </div>
+                                    </div>
+                                </Transition>
                             </div>
-                        </button>
-                        <Transition
-                            show={show}
-                            id={id}
-                            key={id}
-                            enter="transition-all duration-700 ease-in"
-                            enterFrom="transform max-h-0 h-0"
-                            enterTo="transform max-h-screen h-auto"
-                            leave="transition-all duration-300 ease-out"
-                            leaveFrom="transform max-h-screen h-auto"
-                            leaveTo="transform max-h-0 h-0"
-                        >
-                            <div className="overflow-hidden">
-                                <div className="accordion-body">
-                                    {content}
-                                </div>
-                            </div>
-                        </Transition>
-                    </div>
-                ))}
+                        ))}
+                    </>
+                }
             </div>
         </AccordionContext.Provider>
     )
@@ -89,8 +89,8 @@ const Accordion = ({ children, color = 'lightPrimary', className = '', data = []
 
 const AccordionItem = ({ children, title, id, alwaysOpen }) => {
 
-    const { multiple, colorClass } = useContext(AccordionContext)
-    
+    const { multiple, colorClass, className } = useContext(AccordionContext)
+
     const [open, setOpen] = useState(false)
 
     useEffect(() => {
@@ -115,7 +115,7 @@ const AccordionItem = ({ children, title, id, alwaysOpen }) => {
                 id={id}
                 key={id}>
                 <button
-                    className={`accordion-button ${open ? colorClass : 'accordion-default'}`}
+                    className={`accordion-button ${open ? (colorClass + (className && ` ${className}`)) : 'accordion-default'}`}
                     type="button"
                     aria-expanded={open ? 'true' : 'false'}
                     onClick={toggleOpen}
