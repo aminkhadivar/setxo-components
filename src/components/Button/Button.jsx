@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Link } from "@inertiajs/react"
 import './Button.css'
 
-export default function Button({ href, as = 'Link', type = 'button', className = '', active = '', disabled = '', size = '', color = 'base', borderColor = '', children, rounded = 'rounded', shadow = '', ...props }) {
+export default function Button({ href, as = 'Link', type = 'button', className = '', active = '', disabled = '', size = 'default', color = 'base', borderColor = '', children, rounded = 'rounded', shadow = '', ...props }) {
 
     const [activeButton, setActiveButton] = useState('')
 
@@ -43,6 +43,7 @@ export default function Button({ href, as = 'Link', type = 'button', className =
     const sizeClass = {
         sm: 'btn-sm',
         md: 'btn-md',
+        default: 'h-10',
         lg: 'btn-lg',
         xl: 'btn-xl',
     }[size];
@@ -93,7 +94,7 @@ export default function Button({ href, as = 'Link', type = 'button', className =
                         {...props}
                         href={href}
                         role="button"
-                        className={`${colorClass} px-2 ` + className + `${disabled && ' pointer-events-none opacity-50'
+                        className={`${colorClass} ` + className + `${disabled && ' disabled'
                             }` + ` ${rounded && roundedClass}` + ` ${shadow && color ? shodowClass : ''}` + ` ${(shadow && borderColor) ? shodowBorderClass : ''}` + `${size && ` ` + sizeClass}` + `${borderColor ? borderColorClass : ''}` + `${active && activeButton}`}
                     >
                         {children}
@@ -106,7 +107,7 @@ export default function Button({ href, as = 'Link', type = 'button', className =
                         role="button"
                         target="_blank"
                         rel="noreferrer"
-                        className={`${colorClass} px-2 ` + className + `${disabled && ' disabled'
+                        className={`${colorClass} ` + className + `${disabled && ' disabled'
                             }` + ` ${rounded && roundedClass}` + ` ${shadow && color ? shodowClass : ''}` + ` ${(shadow && borderColor) ? shodowBorderClass : ''}` + `${size && ` ` + sizeClass}` + `${borderColor ? borderColorClass : ''}` + `${active && activeButton}`}
                     >
                         {children}
@@ -117,7 +118,7 @@ export default function Button({ href, as = 'Link', type = 'button', className =
             <button
                 {...props}
                 type={type}
-                className={`${colorClass} px-2 ` + className + `${disabled && ' disabled'
+                className={`${colorClass} ` + className + `${disabled && ' disabled'
                     }` + ` ${rounded && roundedClass}` + `${shadow && color ? ` ` + shodowClass : ''}` + `${(shadow && borderColor) ? ` ` + shodowBorderClass : ''}` + `${size && ` ` + sizeClass}` + `${borderColor ? borderColorClass : ''}` + `${active && activeButton}`}
             >
                 {children}

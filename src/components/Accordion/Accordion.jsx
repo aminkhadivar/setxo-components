@@ -5,7 +5,9 @@ import './Accordion.css'
 
 export const AccordionContext = createContext()
 
-const Accordion = ({ children, color = 'lightPrimary', className = '', data = [], multiple = '' }) => {
+const Accordion = ({ children, color = 'lightPrimary', className = '', data = [{}], multiple = '' }) => {
+
+    // const datas = {...data}
 
     const colorClass = {
         light: 'accordion-light',
@@ -36,8 +38,10 @@ const Accordion = ({ children, color = 'lightPrimary', className = '', data = []
         )
     }
 
+    // console.log(items)
+
     return (
-        <AccordionContext.Provider value={{ className, children, multiple, colorClass }}>
+        <AccordionContext.Provider value={{ className, children, multiple, colorClass, data: items }}>
             <div className={'accordion'}>
                 {children ? children :
                     <>
@@ -55,7 +59,7 @@ const Accordion = ({ children, color = 'lightPrimary', className = '', data = []
                                     aria-expanded={show ? 'true' : 'false'}
                                 >
                                     <div className="font-medium text-base">{title}</div>
-                                    <div className="flex items-center ml-2">
+                                    <div className="flex items-center ml-2 w-10">
                                         <ArrowDown2
                                             className={`h-5 w-5 ${show ? 'rotate-180' : 'text-gray-500 dark:text-gray-400'} transform duration-300`}
                                         />
@@ -89,7 +93,9 @@ const Accordion = ({ children, color = 'lightPrimary', className = '', data = []
 
 const AccordionItem = ({ children, title, id, alwaysOpen }) => {
 
-    const { multiple, colorClass, className } = useContext(AccordionContext)
+    const { multiple, colorClass, className, items } = useContext(AccordionContext)
+
+    console.log(items)
 
     const [open, setOpen] = useState(false)
 
@@ -121,9 +127,11 @@ const AccordionItem = ({ children, title, id, alwaysOpen }) => {
                     onClick={toggleOpen}
                 >
                     <div className="font-medium text-base">{title}</div>
-                    <ArrowDown2
-                        className={`h-5 w-5 ${open ? 'rotate-180' : 'text-gray-500 dark:text-gray-400'} transform duration-300`}
-                    />
+                    <div className="flex items-center ml-2">
+                        <ArrowDown2
+                            className={`h-5 w-5 ${open ? 'rotate-180' : 'text-gray-500 dark:text-gray-400'} transform duration-300`}
+                        />
+                    </div>
                 </button>
 
                 <Transition
