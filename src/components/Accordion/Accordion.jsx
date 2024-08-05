@@ -7,8 +7,6 @@ export const AccordionContext = createContext()
 
 const Accordion = ({ children, color = 'lightPrimary', className = '', data = [{}], multiple = '' }) => {
 
-    // const datas = {...data}
-
     const colorClass = {
         light: 'accordion-light',
         gray: 'accordion-gray',
@@ -38,10 +36,8 @@ const Accordion = ({ children, color = 'lightPrimary', className = '', data = [{
         )
     }
 
-    // console.log(items)
-
     return (
-        <AccordionContext.Provider value={{ className, children, multiple, colorClass, data: items }}>
+        <AccordionContext.Provider value={{ className, children, multiple, colorClass }}>
             <div className={'accordion'}>
                 {children ? children :
                     <>
@@ -93,9 +89,7 @@ const Accordion = ({ children, color = 'lightPrimary', className = '', data = [{
 
 const AccordionItem = ({ children, title, id, alwaysOpen }) => {
 
-    const { multiple, colorClass, className, items } = useContext(AccordionContext)
-
-    console.log(items)
+    const { multiple, colorClass, className } = useContext(AccordionContext)
 
     const [open, setOpen] = useState(false)
 
