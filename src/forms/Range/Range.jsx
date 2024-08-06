@@ -11,7 +11,6 @@ export default function Range({ max = '100', min = '0', step, value, className =
     }
 
     const percent = ((inputValue - min) * 100) / (max - min)
-    console.log(percent)
 
     const colorClass = {
         default: 'range-default',
@@ -47,7 +46,8 @@ export default function Range({ max = '100', min = '0', step, value, className =
                         onChange={onChangeInput}
                         className={`form-range-input`}
                     />
-                    <div className={`form-range-fill` + `${className && ` ` + className}` + `${color ? ` ` + colorClass : ' range-default'}`} style={{ width: ` ${percent}%` }}></div>
+                    
+                    <div className={`form-range-fill` + `${className && ` ` + className}` + `${color ? ` ` + colorClass : ' range-default'}`} style={{ width: `${percent}%` }}></div>
                 </div>
             </Label>
         </div>
