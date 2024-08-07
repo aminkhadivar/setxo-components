@@ -10,27 +10,47 @@ export default function Typography({ href, as = 'p', variant = '', className = '
         h5: 'h5',
         h6: 'h6',
         lead: 'lead',
-    }[variant];
+    }[variant]
 
-    const CustomTag = `${variant}`;
+    const CustomTag = `${variant}`
 
     return (
         <>
             {as === 'heading' &&
-                <CustomTag
-                    {...props}
-                    className={className}
-                >
-                    {children}
-                </CustomTag>
+                <>
+                    {className ?
+                        <CustomTag
+                            {...props}
+                            className={className}
+                        >
+                            {children}
+                        </CustomTag>
+                        :
+                        <CustomTag
+                            {...props}
+                        >
+                            {children}
+                        </CustomTag>
+                    }
+                </>
             }
             {as === 'p' &&
-                <p
-                    {...props}
-                    className={`${variant && variantClass}` + className}
-                >
-                    {children}
-                </p>
+                <>
+                    {variant || className ?
+                        <p
+                            {...props}
+                            className={`${variant && variantClass}` + className}
+                        >
+                            {children}
+                        </p>
+                        :
+                        <p
+                            {...props}
+                        >
+                            {children}
+                        </p>
+                    }
+                </>
             }
         </>
     )
