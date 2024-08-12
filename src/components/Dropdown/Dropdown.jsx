@@ -64,7 +64,7 @@ const Trigger = ({ className = '', children, ...props }) => {
     return (
         <div
             {...props}
-            className={className}
+            className={`${className && className}`}
             onClick={autoClose.autoClose == 'hover' ? null : toggleOpen}
         >
             {children}
@@ -72,9 +72,9 @@ const Trigger = ({ className = '', children, ...props }) => {
     )
 }
 
-const Content = ({ align = 'left', width = '48', placement = 'bottom', contentClasses = 'bg-white', children }) => {
+const Content = ({ align = 'left', width = '192', placement = 'bottom', contentClasses = 'bg-white', children }) => {
 
-    const { open, setOpen , autoClose } = useContext(DropDownContext)
+    const { open, setOpen, autoClose, dropdownBgColor } = useContext(DropDownContext)
 
     const alignmentClasses = {
         right: 'dropdown-menu-end',
@@ -83,19 +83,18 @@ const Content = ({ align = 'left', width = '48', placement = 'bottom', contentCl
     }[align]
 
     let widthClasses = ''
+    const customWidth = `${width}px`
 
     if (width === '48') {
         widthClasses = 'w-48'
     } else {
-        widthClasses = `w-${width}`
+        widthClasses = customWidth
     }
-
-    const dropdownBgColor = useContext(DropDownContext)
 
     const dropdownBgcolorClass = {
         light: 'bg-white dark:bg-zinc-800',
         dark: 'bg-zinc-800 dark',
-    }[dropdownBgColor.dropdownBgColor]
+    }[dropdownBgColor]
 
     const placementClass = {
         top: 'dropdown-top',
@@ -123,8 +122,9 @@ const Content = ({ align = 'left', width = '48', placement = 'bottom', contentCl
             leaveTo={`opacity-0 sm:scale-95 ${autoClose == 'hover' ? '' : translateClass}`}
         >
             <div
-                className={`dropdown ${placementClass} ${(placement == 'right') ? '' : (placement == 'left') ? '' : alignmentClasses} ${widthClasses} ${(dropdownBgColor.dropdownBgColor == 'dark') ? 'border border-transparent dark:border-zinc-700' : 'border border-zinc-200 dark:border-zinc-700 '}`}
+                className={`dropdown ${placementClass} ${(placement == 'right') ? '' : (placement == 'left') ? '' : alignmentClasses} ${(dropdownBgColor == 'dark') ? 'border border-transparent dark:border-zinc-700' : 'border border-zinc-300 dark:border-zinc-700 '}`}
                 onClick={(autoClose == true || autoClose == 'inside' || autoClose == 'hover') ? () => setOpen(false) : () => null}
+                style={{ width: customWidth }}
             >
                 <div className={`dropdown-content ${dropdownBgcolorClass} ` + contentClasses}>{children}</div>
             </div>
@@ -134,7 +134,7 @@ const Content = ({ align = 'left', width = '48', placement = 'bottom', contentCl
 
 const DropdownLink = ({ className = '', children, ...props }) => {
 
-    const { setOpen , autoClose } = useContext(DropDownContext)
+    const { setOpen, autoClose } = useContext(DropDownContext)
 
     return (
         <div onClick={(autoClose == true || autoClose == 'inside' || autoClose == 'hover') ? () => setOpen(false) : () => null}>
@@ -143,8 +143,7 @@ const DropdownLink = ({ className = '', children, ...props }) => {
                 preserveScroll
                 {...props}
                 className={
-                    'dropdown-link ' +
-                    className
+                    'dropdown-link' + `${className && ' ' + className}`
                 }
             >
                 {children}

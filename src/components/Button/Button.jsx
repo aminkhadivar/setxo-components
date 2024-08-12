@@ -28,16 +28,16 @@ export default function Button({ href, as = 'Link', type = 'button', className =
 
     const borderColorClass = {
         base: '',
-        default: 'btn-outline-default',
-        light: 'btn-outline-light',
-        gray: 'btn-outline-gray',
-        dark: 'btn-outline-dark',
-        primary: 'btn-outline-primary',
-        success: 'btn-outline-success',
-        danger: 'btn-outline-danger',
-        warning: 'btn-outline-warning',
-        info: 'btn-outline-info',
-        purple: 'btn-outline-purple',
+        default: 'btn btn-outline-default',
+        light: 'btn btn-outline-light',
+        gray: 'btn btn-outline-gray',
+        dark: 'btn btn-outline-dark',
+        primary: 'btn btn-outline-primary',
+        success: 'btn btn-outline-success',
+        danger: 'btn btn-outline-danger',
+        warning: 'btn btn-outline-warning',
+        info: 'btn btn-outline-info',
+        purple: 'btn btn-outline-purple',
     }[borderColor];
 
     const sizeClass = {
@@ -93,7 +93,7 @@ export default function Button({ href, as = 'Link', type = 'button', className =
                         {...props}
                         href={href}
                         role="button"
-                        className={`${colorClass}` + `${className && ` ` + className}` + `${disabled && ' disabled'}` + `${rounded && ` ` + roundedClass}` + `${shadow && color && ` ` + shodowClass}` + `${(shadow && borderColor) && ` ` + shodowBorderClass}` + `${size && ` ` + sizeClass}` + `${borderColor && ` ` + borderColorClass}` + `${active && activeButton}`}
+                        className={`${colorClass} px-2` + `${className && ` ` + className}` + `${disabled && ' disabled'}` + `${rounded && ` ` + roundedClass}` + `${shadow && color && ` ` + shodowClass}` + `${(shadow && borderColor) && ` ` + shodowBorderClass}` + `${size && ` ` + sizeClass}` + `${borderColor && ` ` + borderColorClass}` + `${active && activeButton}`}
                     >
                         {children}
                     </Link>
@@ -105,7 +105,7 @@ export default function Button({ href, as = 'Link', type = 'button', className =
                         role="button"
                         target="_blank"
                         rel="noreferrer"
-                        className={`${colorClass}` + `${className && ` ` + className}` + `${disabled && ' disabled'}` + `${rounded && ` ` + roundedClass}` + `${shadow && color && ` ` + shodowClass}` + `${(shadow && borderColor) && ` ` + shodowBorderClass}` + `${size && ` ` + sizeClass}` + `${borderColor && ` ` + borderColorClass}` + `${active && activeButton}`}
+                        className={`${colorClass} px-2` + `${className && ` ` + className}` + `${disabled && ' disabled'}` + `${rounded && ` ` + roundedClass}` + `${shadow && color && ` ` + shodowClass}` + `${(shadow && borderColor) && ` ` + shodowBorderClass}` + `${size && ` ` + sizeClass}` + `${borderColor && ` ` + borderColorClass}` + `${active && activeButton}`}
                     >
                         {children}
                     </a>
@@ -115,7 +115,7 @@ export default function Button({ href, as = 'Link', type = 'button', className =
             <button
                 {...props}
                 type={type}
-                className={`${colorClass}` + `${className && ` ` + className}` + `${disabled && ' disabled'}` + `${rounded && ` ` + roundedClass}` + `${shadow && color && ` ` + shodowClass}` + `${(shadow && borderColor) && ` ` + shodowBorderClass}` + `${size && ` ` + sizeClass}` + `${borderColor && ` ` + borderColorClass}` + `${active && activeButton}`}
+                className={`${colorClass} px-2` + `${className && ` ` + className}` + `${disabled && ' disabled'}` + `${rounded && ` ` + roundedClass}` + `${shadow && color && ` ` + shodowClass}` + `${(shadow && borderColor) && ` ` + shodowBorderClass}` + `${size && ` ` + sizeClass}` + `${borderColor && ` ` + borderColorClass}` + `${active && activeButton}`}
             >
                 {children}
             </button>

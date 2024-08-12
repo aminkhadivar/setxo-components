@@ -5,12 +5,3 @@
   padding: 2rem;
   text-align: center;
 }
-
-.logo {
-  height: 6rem;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
