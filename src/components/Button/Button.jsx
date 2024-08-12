@@ -24,6 +24,14 @@ export default function Button({ href, as = 'Link', type = 'button', className =
         warning: 'btn btn-warning',
         info: 'btn btn-info',
         purple: 'btn btn-purple',
+        lightGray: 'btn btn-light-gray',
+        lightDark: 'btn btn-light-dark',
+        lightPrimary: 'btn btn-light-primary',
+        lightSuccess: 'btn btn-light-success',
+        lightDanger: 'btn btn-light-danger',
+        lightWarning: 'btn btn-light-warning',
+        lightInfo: 'btn btn-light-info',
+        lightPurple: 'btn btn-light-purple',
     }[color];
 
     const borderColorClass = {
