@@ -1,6 +1,6 @@
 import Label from "../FormControl/Label"
 import './Switch.css'
-export default function Switch({ id, className = '', color = '', label, disabled = '', size = '', defaultChecked, reverse = '', ...props }) {
+export default function Switch({ children, id, className = '', color = '', label, disabled = '', size = '', defaultChecked = false, reverse = '', ...props }) {
 
     const colorClass = {
         default: 'switch-default',
@@ -35,6 +35,7 @@ export default function Switch({ id, className = '', color = '', label, disabled
                 />
                 <span className={`toggle-switch` + `${className && ` ` + className}` + `${color ? ` ` + colorClass : ' switch-default'}` + `${size && ` ` + sizeClass}`}></span>
             </Label>
+            {children}
         </div>
     )
 }

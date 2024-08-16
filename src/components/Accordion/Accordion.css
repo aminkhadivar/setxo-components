@@ -9,7 +9,7 @@
 }
 
 .accordion-body {
-    @apply overflow-hidden mt-2 p-4 border border-gray-300 dark:border-gray-600 rounded-lg
+    @apply overflow-hidden mt-2 p-4 border border-gray-300 dark:border-gray-600 rounded-lg text-zinc-700 dark:text-zinc-400
 }
 
 .accordion-default {
