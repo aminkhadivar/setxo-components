@@ -7,7 +7,7 @@ export default function Collapse({ children, title, className, show }) {
 
     const defaultToggleOpen = () => {
         setOpenDefaultCollapse((previousState) => !previousState)
-    };
+    }
 
     let MyCustomButton = forwardRef(function (props, ref) {
         return <button className={className} ref={ref} {...props} />
@@ -24,11 +24,11 @@ export default function Collapse({ children, title, className, show }) {
                         show={title ? openDefaultCollapse : show}
                         className="transition-all duration-300"
                         enter="transition-[max-height] duration-500 ease-in"
-                        enterFrom="transform max-h-0 h-0"
-                        enterTo="transform max-h-screen h-auto"
+                        enterFrom="transform max-h-0"
+                        enterTo="transform max-h-screen"
                         leave="transition-[max-height] duration-300 ease-out"
-                        leaveFrom="transform max-h-screen h-auto"
-                        leaveTo="transform max-h-0 h-0"
+                        leaveFrom="transform max-h-screen"
+                        leaveTo="transform max-h-0"
                     >
                         <div className="overflow-hidden">
                             {children}
