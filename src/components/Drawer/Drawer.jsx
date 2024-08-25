@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
+import { Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/react'
 import CloseButton from "../CloseButton/CloseButton"
 import './Drawer.css'
 
@@ -23,48 +23,46 @@ export default function Drawer({ children, title, content, footer, show = false,
 
     const alignClass = {
         default: {
-            enter: "ease-out duration-200",
+            enter: "ease-out duration-300",
             enterFrom: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95",
             enterTo: "opacity-100 translate-y-0 sm:scale-100",
-            leave: "ease-in duration-200",
+            leave: "ease-in duration-300",
             leaveFrom: "opacity-100 translate-y-0 sm:scale-100",
             leaveTo: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
         },
         top: {
-            enter: "ease-out duration-200",
-            enterFrom: "opacity-0 -translate-y-full",
-            enterTo: "opacity-100 translate-y-0",
-            leave: "ease-in duration-200",
-            leaveFrom: "opacity-100 translate-y-0",
-            leaveTo: "opacity-0 -translate-y-full"
+            enter: "ease-out duration-300",
+            enterFrom: "-translate-y-full",
+            enterTo: "translate-y-0",
+            leave: "ease-in duration-300",
+            leaveFrom: "translate-y-0",
+            leaveTo: "-translate-y-full"
         }
         ,
         bottom: {
-            enter: "ease-out duration-200",
-            enterFrom: "opacity-0 translate-y-full",
-            enterTo: "opacity-100 translate-y-0",
-            leave: "ease-in duration-200",
-            leaveFrom: "opacity-100 translate-y-0",
-            leaveTo: "opacity-0 translate-y-full"
+            enter: "ease-out duration-300",
+            enterFrom: "translate-y-full",
+            enterTo: "translate-y-0",
+            leave: "ease-in duration-300",
+            leaveFrom: "translate-y-0",
+            leaveTo: "translate-y-full"
         },
         left: {
-            enter: "ease-out duration-200",
-            enterFrom: "opacity-0 -translate-x-full",
-            enterTo: "opacity-100 translate-x-0",
-            leave: "ease-in duration-200",
-            leaveFrom: "opacity-100 translate-x-0",
-            leaveTo: "opacity-0 -translate-x-full"
-        }
-        ,
+            enter: "ease-out duration-300",
+            enterFrom: "-translate-x-full",
+            enterTo: "translate-x-0",
+            leave: "ease-in duration-300",
+            leaveFrom: "translate-x-0",
+            leaveTo: "-translate-x-full"
+        },
         right: {
-            enter: "ease-out duration-200",
-            enterFrom: "opacity-0 translate-x-full",
-            enterTo: "opacity-100 translate-x-0",
-            leave: "ease-in duration-200",
-            leaveFrom: "opacity-100 translate-x-0",
-            leaveTo: "opacity-0 translate-x-full"
-        }
-        ,
+            enter: "ease-out duration-300",
+            enterFrom: "translate-x-full",
+            enterTo: "translate-x-0",
+            leave: "ease-in duration-300",
+            leaveFrom: "translate-x-0",
+            leaveTo: "translate-x-full"
+        },
     }[placement];
 
     return (
@@ -74,7 +72,7 @@ export default function Drawer({ children, title, content, footer, show = false,
                     className="relative z-50"
                     onClose={close}
                 >
-                    <Transition.Child
+                    <TransitionChild
                         as={Fragment}
                         enter="ease-in-out duration-200"
                         enterFrom="opacity-0"
@@ -84,9 +82,9 @@ export default function Drawer({ children, title, content, footer, show = false,
                         leaveTo="opacity-0"
                     >
                         <div className={`fixed inset-0 overflow-hidden bg-gray-800 dark:bg-gray-600 bg-opacity-80 dark:bg-opacity-90 transition-opacity ${closeable && 'cursor-pointer'}`} />
-                    </Transition.Child>
+                    </TransitionChild>
 
-                    <Transition.Child
+                    <TransitionChild
                         as={Fragment}
                         placement={placement}
                         enter={`${alignClass.enter}`}
@@ -96,7 +94,7 @@ export default function Drawer({ children, title, content, footer, show = false,
                         leaveFrom={`${alignClass.leaveFrom}`}
                         leaveTo={`${alignClass.leaveTo}`}
                     >
-                        <Dialog.Panel {...props}
+                        <DialogPanel {...props}
                             className={`drawer-dialog bg-white dark:bg-gray-900 overflow-y-auto shadow-lg transform transition-all rounded-lg ${width} ${props.className}`}
                         >
                             <div className="p-4">
@@ -104,7 +102,7 @@ export default function Drawer({ children, title, content, footer, show = false,
                                     {title &&
                                         <div className="flex items-center justify-between">
                                             <h4>{title}</h4>
-                                            <CloseButton color="transparent" size="md" rounded="full" onClick={closeButton} />
+                                            <CloseButton color="transparent" size="lg" rounded="full" onClick={closeButton} />
                                         </div>
                                     }
                                 </div>
@@ -112,8 +110,8 @@ export default function Drawer({ children, title, content, footer, show = false,
                                     {content}
                                 </div>
                             </div>
-                        </Dialog.Panel>
-                    </Transition.Child>
+                        </DialogPanel>
+                    </TransitionChild>
                 </Dialog>
             </Transition>
     );

@@ -1,5 +1,5 @@
 import { forwardRef, useState } from 'react'
-import { Disclosure, Transition } from '@headlessui/react'
+import { Disclosure, DisclosureButton, Transition } from '@headlessui/react'
 
 export default function Collapse({ children, title, className, show }) {
 
@@ -18,7 +18,7 @@ export default function Collapse({ children, title, className, show }) {
             <Disclosure>
                 <>
                     {title &&
-                        <Disclosure.Button as={MyCustomButton} onClick={defaultToggleOpen}>{title}</Disclosure.Button>
+                        <DisclosureButton as={MyCustomButton} onClick={defaultToggleOpen}>{title}</DisclosureButton>
                     }
                     <Transition
                         show={title ? openDefaultCollapse : show}
