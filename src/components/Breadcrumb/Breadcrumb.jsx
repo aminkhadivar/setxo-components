@@ -1,10 +1,10 @@
-import { Children, Fragment , createContext } from "react"
-import { Link } from "@inertiajs/react"
+import { Children, Fragment, createContext, useContext } from "react"
+import A from "../../contents/Links/Links"
 import './Breadcrumb.css'
 
 const BreadcrumbContext = createContext()
 
-const Breadcrumb = ({ active = '', href, className = '', children, separator = ' ' }) => {
+const Breadcrumb = ({ active = '', href, className = '', children, color = 'primary', separator = ' ' }) => {
 
     const childrenArray = Children.toArray(children);
 
@@ -18,18 +18,21 @@ const Breadcrumb = ({ active = '', href, className = '', children, separator = '
             );
         }
         return child
-    });
+    })
 
     return (
-        <BreadcrumbContext.Provider value={{ className, children, active, href }}>
+        <BreadcrumbContext.Provider value={{ className, children, active, href, color }}>
             <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">{childrenWtihSeperator}</ol>
             </nav>
         </BreadcrumbContext.Provider>
-    );
-};
+    )
+}
 
 const BreadcrumbItem = ({ children, className = '', active = '', href, ...props }) => {
+
+    const { color } = useContext(BreadcrumbContext)
+
     return (
         <li
             {...props}
@@ -37,25 +40,22 @@ const BreadcrumbItem = ({ children, className = '', active = '', href, ...props 
         >
             {href
                 ?
-                <>
-                    <Link
-                        className={'breadcrumb-link ' + className}
-                        href={href}
-                    >
-                        {children}
-                    </Link>
-                </>
+                <A
+                    className={className}
+                    href={href}
+                    color={color}
+                >
+                    {children}
+                </A>
                 :
-                <>
-                    <div className={className}>
-                        {children}
-                    </div>
-                </>
+                <div className={className}>
+                    {children}
+                </div>
             }
         </li>
     );
 };
 
-Breadcrumb.Item = BreadcrumbItem;
+Breadcrumb.Item = BreadcrumbItem
 
-export default Breadcrumb;
+export default Breadcrumb

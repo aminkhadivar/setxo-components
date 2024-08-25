@@ -5,15 +5,11 @@
 }
 
 .breadcrumb-item {
-    @apply flex items-center
+    @apply flex items-center font-medium
 }
 
 .breadcrumb-item.active {
     @apply text-gray-600 dark:text-gray-300
-}
-
-.breadcrumb-link {
-    @apply font-medium text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-500 disabled:text-gray-500 border-b-transparent duration-300
 }
 
 .breadcrumb-separator {
