@@ -24,7 +24,7 @@ const Accordion = ({ children, color = 'lightPrimary', className = '', data = [{
         lightInfo: 'accordion-light-info',
         lightPurple: 'accordion-light-purple',
         custom: '',
-    }[color];
+    }[color]
 
     const [items, setItems] = useState(data)
 
@@ -55,7 +55,7 @@ const Accordion = ({ children, color = 'lightPrimary', className = '', data = [{
                                     aria-expanded={show ? 'true' : 'false'}
                                 >
                                     <div className="font-medium text-base">{title}</div>
-                                    <div className="flex items-center ml-2 w-10">
+                                    <div className="flex items-center ml-2">
                                         <ArrowDown2
                                             className={`h-5 w-5 ${show ? 'rotate-180' : 'text-gray-500 dark:text-gray-400'} transform duration-300`}
                                         />
@@ -66,11 +66,11 @@ const Accordion = ({ children, color = 'lightPrimary', className = '', data = [{
                                     id={id}
                                     key={id}
                                     enter="transition-all duration-700 ease-in"
-                                    enterFrom="transform max-h-0 h-0"
-                                    enterTo="transform max-h-screen h-auto"
+                                    enterFrom="transform max-h-0"
+                                    enterTo="transform max-h-screen"
                                     leave="transition-all duration-300 ease-out"
-                                    leaveFrom="transform max-h-screen h-auto"
-                                    leaveTo="transform max-h-0 h-0"
+                                    leaveFrom="transform max-h-screen"
+                                    leaveTo="transform max-h-0"
                                 >
                                     <div className="overflow-hidden">
                                         <div className="accordion-body">
@@ -131,11 +131,11 @@ const AccordionItem = ({ children, title, id, alwaysOpen }) => {
                 <Transition
                     show={open}
                     enter="transition-all duration-700 ease-in"
-                    enterFrom="transform max-h-0 h-0"
-                    enterTo="transform max-h-screen h-auto"
+                    enterFrom="transform max-h-0"
+                    enterTo="transform max-h-screen"
                     leave="transition-all duration-300 ease-out"
-                    leaveFrom="transform max-h-screen h-auto"
-                    leaveTo="transform max-h-0 h-0"
+                    leaveFrom="transform max-h-screen"
+                    leaveTo="transform max-h-0"
                 >
                     <div className="overflow-hidden">
                         <div className="accordion-body">

@@ -37,11 +37,11 @@
 }
 
 .accordion-danger {
-    @apply bg-red-600/80 dark:bg-red-500/70 text-gray-50 dark:text-gray-100
+    @apply bg-red-600 dark:bg-red-500/80 text-gray-50 dark:text-gray-100
 }
 
 .accordion-warning {
-    @apply bg-amber-600/80 dark:bg-amber-500/80 text-gray-50 dark:text-gray-100
+    @apply bg-amber-600 dark:bg-amber-500/80 text-gray-50 dark:text-gray-100
 }
 
 .accordion-info {
