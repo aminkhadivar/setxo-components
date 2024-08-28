@@ -5,7 +5,7 @@ import './Dropdown.css'
 
 const DropDownContext = createContext()
 
-const Dropdown = ({ children, autoClose = true, dropdownBgColor = 'light' }) => {
+const Dropdown = ({ children, className = '', autoClose = true, dropdownBgColor = 'light' }) => {
 
     const autoCloseClass = {
         true: true,
@@ -49,7 +49,7 @@ const Dropdown = ({ children, autoClose = true, dropdownBgColor = 'light' }) => 
     return (
         <DropDownContext.Provider value={{ open, setOpen, hideDropdownOnHover, showDropdownOnHover, toggleOpen, autoClose, dropdownBgColor }}>
             <div
-                onMouseEnter={autoClose == 'hover' ? showDropdownOnHover : () => null} onMouseLeave={autoClose == 'hover' ? hideDropdownOnHover : () => null} className="relative" ref={ref}
+                onMouseEnter={autoClose == 'hover' ? showDropdownOnHover : () => null} onMouseLeave={autoClose == 'hover' ? hideDropdownOnHover : () => null} className={'relative' + `${className && ` ` + className}`} ref={ref}
             >{children}</div>
         </DropDownContext.Provider>
     )
