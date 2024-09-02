@@ -72,17 +72,21 @@
 }
 
 .badge-position-top-right {
-    @apply absolute -right-[20px] -top-[10px];
+    @apply absolute left-full -top-[10px] -ml-5 z-20;
+    display: ruby
 }
 
 .badge-position-top-left {
-    @apply absolute -left-[20px] -top-[10px];
+    @apply absolute right-full -top-[10px] -mr-5 z-20;
+    display: ruby
 }
 
 .badge-position-bottom-right {
-    @apply absolute -right-[20px] -bottom-[10px];
+    @apply absolute left-full -bottom-[10px] -ml-5 z-20;
+    display: ruby
 }
 
 .badge-position-bottom-left {
-    @apply absolute -left-[20px] -bottom-[10px];
+    @apply absolute right-full -bottom-[10px] -mr-5 z-20;
+    display: ruby
 }
