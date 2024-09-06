@@ -1,12 +1,12 @@
-import { createContext } from 'react'
+import { createContext , useContext } from 'react'
 import { Link } from '@inertiajs/react'
 import './Pagination.css'
 
 const PaginationContext = createContext()
 
-const Pagination = ({ children, className = '' }) => {
+const Pagination = ({ children, className = '' , color ='light' }) => {
     return (
-        <PaginationContext.Provider value={{ className, children }}>
+        <PaginationContext.Provider value={{ className, children ,color}}>
             <nav aria-label="navigation">
                 <ul className={'pagination' + (className && ` ${className}`)}>
                     {children}
@@ -16,7 +16,21 @@ const Pagination = ({ children, className = '' }) => {
     );
 };
 
-const PaginationItem = ({ children, className = '', active = '', rounded = 'rounded', disabled = '', size = 'default', href, ...props }) => {
+const PaginationItem = ({ children, className = '' , active = '', rounded = 'rounded', disabled = '', size = 'default', href, ...props }) => {
+
+    const { color } = useContext(PaginationContext)
+
+    const colorClass = {
+        light: 'page-link-light',
+        gray: 'page-link-gray',
+        dark: 'page-link-dark',
+        primary: 'page-link-primary',
+        success: 'page-link-success',
+        danger: 'page-link-danger',
+        warning: 'page-link-warning',
+        info: 'page-link-info',
+        purple: 'page-link-purple',
+    }[color];
 
     const roundedClass = {
         none: 'rounded-none',
@@ -44,7 +58,7 @@ const PaginationItem = ({ children, className = '', active = '', rounded = 'roun
                 ?
                 <>
                     <Link
-                        className={`page-link ${sizeClass} ` + className + roundedClass}
+                        className={`page-link ${colorClass} ${sizeClass} ` + className + roundedClass}
                         href={href}
                     >
                         {children}
@@ -52,7 +66,7 @@ const PaginationItem = ({ children, className = '', active = '', rounded = 'roun
                 </>
                 :
                 <>
-                    <div className={`page-link ${sizeClass} ` + className + roundedClass}>
+                    <div className={`page-link ${colorClass} ${sizeClass} ` + className + roundedClass}>
                         {children}
                     </div>
                 </>
