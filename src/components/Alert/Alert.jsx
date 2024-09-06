@@ -16,6 +16,7 @@ export default function Alert({ id, className = '', children, closeButton = 'lig
         danger: 'alert-danger',
         warning: 'alert-warning',
         info: 'alert-info',
+        purple: 'alert-purple',
     }[color];
 
     const borderColorClass = {
@@ -27,6 +28,7 @@ export default function Alert({ id, className = '', children, closeButton = 'lig
         danger: 'alert-outline-danger',
         warning: 'alert-outline-warning',
         info: 'alert-outline-info',
+        purple: 'alert-outline-purple',
     }[borderColor];
 
     const roundedClass = {

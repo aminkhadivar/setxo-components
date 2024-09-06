@@ -43,3 +43,7 @@
 .btn-close-info {
     @apply bg-cyan-100 dark:bg-cyan-900 hover:bg-cyan-200 dark:hover:bg-cyan-800 stroke-cyan-500 dark:stroke-cyan-300 dark:hover:stroke-cyan-100
 }
+
+.btn-close-purple {
+    @apply bg-setxo-100 dark:bg-setxo-900 hover:bg-setxo-200 dark:hover:bg-setxo-800 stroke-setxo-500 dark:stroke-setxo-300 dark:hover:stroke-setxo-100
+}

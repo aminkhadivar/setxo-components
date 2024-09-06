@@ -41,6 +41,10 @@
     @apply text-cyan-600 bg-cyan-50 dark:bg-cyan-950 dark:text-cyan-200 border-cyan-400;
 }
 
+.alert-purple {
+    @apply text-setxo-600 bg-setxo-50 dark:bg-setxo-950 dark:text-setxo-200 border-setxo-400;
+}
+
 .btn-alert-close {
     @apply !h-6 w-6 !px-0 !rounded-full ml-auto;
 }
@@ -75,6 +79,10 @@
 
 .alert-outline-info {
     @apply text-cyan-600 border border-cyan-300 dark:border-cyan-900 dark:text-cyan-300;
+}
+
+.alert-outline-purple {
+    @apply text-setxo-600 border border-setxo-300 dark:border-setxo-900 dark:text-setxo-300;
 }
 
 .alert-dismissible {

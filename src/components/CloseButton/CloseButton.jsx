@@ -14,6 +14,7 @@ export default function CloseButton({ type = 'button', className = '', disabled 
         danger: 'btn-close-danger',
         warning: 'btn-close-warning',
         info: 'btn-close-info',
+        purple: 'btn-close-purple',
     }[color];
 
     const roundedClass = {
