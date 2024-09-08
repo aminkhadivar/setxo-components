@@ -3,14 +3,14 @@ import { Transition } from '@headlessui/react'
 import Nav from "../Nav/Nav"
 import './Tab.css'
 
-const Tab = ({ className = '', tabs, as = 'nav', rounded = 'rounded' }) => {
+const Tab = ({ className = '', tabs, as = 'nav', rounded }) => {
 
     const [items, setItems] = useState(tabs)
 
     const handleClick = (id) => {
         setItems(
-            items.map((d) =>
-                d.id === id ? { ...d, show: !d.show } : { ...d, show: false }
+            items.map((item) =>
+                item.id === id ? { ...item, show: !item.show } : { ...item, show: false }
             )
         )
     }
@@ -18,13 +18,12 @@ const Tab = ({ className = '', tabs, as = 'nav', rounded = 'rounded' }) => {
     return (
         <div className="tab">
             <div className="tab-title">
-                <Nav as={as} className={(className && ` ${className}`)} rounded={rounded}>
+                <Nav as={as} className={(className && ` ${className}`)} rounded={rounded} role="tablist">
                     {items.map(({ title, show, id, disabled }) => (
                         <Nav.Tab
                             onClick={disabled || show ? null : (() => handleClick(id))}
                             active={show ? 'true' : 'false'}
                             aria-selected={show ? 'true' : 'false'}
-                            role="tab"
                             disabled={disabled ? 'true' : ''}
                             id={id}
                             key={id}

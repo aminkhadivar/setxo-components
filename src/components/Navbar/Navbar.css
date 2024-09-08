@@ -79,11 +79,11 @@
 }
 
 .bg-success {
-    @apply bg-emerald-600/90 dark:bg-emerald-600/90
+    @apply bg-green-600/90 dark:bg-green-600/90
 }
 
 .bg-danger {
-    @apply bg-rose-700/90 dark:bg-rose-700/90
+    @apply bg-red-600/90 dark:bg-rose-700/90
 }
 
 .bg-warning {
@@ -91,7 +91,7 @@
 }
 
 .bg-info {
-    @apply bg-cyan-500/90 dark:bg-cyan-500/90
+    @apply bg-cyan-600/90 dark:bg-cyan-500/90
 }
 
 .bg-purple {
@@ -109,3 +109,7 @@
 .rounded-b-xl {
     @apply sm:rounded-b-[32px] rounded-b-[28px]
 }
+
+.navbar-dark .nav .nav-link:not(.nav-link.active) {
+    @apply text-gray-600 hover:text-gray-800 
+} 
