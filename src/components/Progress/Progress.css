@@ -1,7 +1,7 @@
 /* ------------- Progress ------------- */
 
 .progress {
-    @apply flex items-center w-full bg-gray-100 dark:bg-gray-700
+    @apply flex items-center w-full bg-gray-100 dark:bg-gray-500/20
 }
 
 .progress-bar {
@@ -14,10 +14,10 @@
 }
 
 .progress-bar-animated {
-    animation: 1s linear infinite progress-bar-stripes;
+    @apply animate-[progress-bar-stripes_1s_linear_infinite]
 }
 
-.progress-lable {
+.progress-label {
     @apply text-sm font-medium text-white dark:text-black
 }
 
@@ -30,7 +30,7 @@
 }
 
 .progress-bar-dark {
-    @apply bg-gray-700 dark:bg-gray-800
+    @apply bg-gray-700 dark:bg-gray-600
 }
 
 .progress-bar-primary {
@@ -46,7 +46,7 @@
 }
 
 .progress-bar-warning {
-    @apply bg-amber-400 dark:bg-amber-400
+    @apply bg-amber-500 dark:bg-amber-400
 }
 
 .progress-bar-info {
@@ -75,15 +75,44 @@
     50% {
         background-position-x: -100%;
     }
+
     100% {
         background-position-x: 0%;
     }
 }
 
-.progress-indeterminate {
-    --progress-color: #3b82f6;
-    background-image: repeating-linear-gradient(90deg,var(--progress-color) -1%,var(--progress-color) 10%,transparent 10%,transparent 90%);
-    background-size: 200%;
-    background-position-x: 15%;
-    animation: progress-bar-indeterminate 5s ease-in-out infinite;
-  }
+.progress-indeterminate-light {
+    @apply bg-[length:167%] bg-gradient-to-r from-gray-300 dark:from-gray-200 from-20% to-transparent dark:to-transparent to-0% animate-[progress-bar-indeterminate_3s_ease-in-out_infinite]
+}
+
+.progress-indeterminate-gray {
+    @apply bg-[length:167%] bg-gradient-to-r from-gray-500 dark:from-gray-400 from-20% to-transparent dark:to-transparent to-0% animate-[progress-bar-indeterminate_3s_ease-in-out_infinite]
+}
+
+.progress-indeterminate-dark {
+    @apply bg-[length:167%] bg-gradient-to-r from-gray-700 dark:from-gray-600 from-20% to-transparent dark:to-transparent to-0% animate-[progress-bar-indeterminate_3s_ease-in-out_infinite]
+}
+
+.progress-indeterminate-primary {
+    @apply bg-[length:167%] bg-gradient-to-r from-blue-500 dark:from-blue-400 from-20% to-transparent dark:to-transparent to-0% animate-[progress-bar-indeterminate_3s_ease-in-out_infinite]
+}
+
+.progress-indeterminate-success {
+    @apply bg-[length:167%] bg-gradient-to-r from-green-500 dark:from-green-400 from-20% to-transparent dark:to-transparent to-0% animate-[progress-bar-indeterminate_3s_ease-in-out_infinite]
+}
+
+.progress-indeterminate-danger {
+    @apply bg-[length:167%] bg-gradient-to-r from-red-500 dark:from-red-400 from-20% to-transparent dark:to-transparent to-0% animate-[progress-bar-indeterminate_3s_ease-in-out_infinite]
+}
+
+.progress-indeterminate-warning {
+    @apply bg-[length:167%] bg-gradient-to-r from-amber-500 dark:from-amber-400 from-20% to-transparent dark:to-transparent to-0% animate-[progress-bar-indeterminate_3s_ease-in-out_infinite]
+}
+
+.progress-indeterminate-info {
+    @apply bg-[length:167%] bg-gradient-to-r from-cyan-500 dark:from-cyan-400 from-20% to-transparent dark:to-transparent to-0% animate-[progress-bar-indeterminate_3s_ease-in-out_infinite]
+}
+
+.progress-indeterminate-purple {
+    @apply bg-[length:170%] bg-gradient-to-r from-setxo-500 dark:from-setxo-400 from-20% to-transparent dark:to-transparent to-0% animate-[progress-bar-indeterminate_3s_ease-in-out_infinite]
+}

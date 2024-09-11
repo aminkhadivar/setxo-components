@@ -23,20 +23,32 @@ export default function Progress({ className = '', disabled = '', height = '16',
         full: 'rounded-full',
     }[rounded];
 
+    const indeterminateClass = {
+        light: 'progress-indeterminate-light',
+        gray: 'progress-indeterminate-gray',
+        dark: 'progress-indeterminate-dark',
+        primary: 'progress-indeterminate-primary',
+        success: 'progress-indeterminate-success',
+        danger: 'progress-indeterminate-danger',
+        warning: 'progress-indeterminate-warning',
+        info: 'progress-indeterminate-info',
+        purple: 'progress-indeterminate-purple',
+    }[color];
+
     return (
-        <div className={`progress ${value == null ? 'progress-indeterminate' : ''}` + ` ${roundedClass}`}
+        <div className={`progress ${value == null ? `${indeterminateClass}` : ''}` + ` ${roundedClass}`}
             style={{ height: `${height}px` }}
         >
             <div
                 {...props}
                 className={
-                    className + `progress-bar ${color && colorClass} ${striped && 'progress-bar-striped'} ${animated && 'progress-bar-animated'}` + ` ${roundedClass} `
+                    `progress-bar ${color && colorClass} ${striped && 'progress-bar-striped'} ${animated && 'progress-bar-animated'}` + ` ${roundedClass}` + `${className && ` ` + className}`
                 }
                 style={{ width: `${value}%`, height: `${height}px`, maxWidth: '100%' }}
                 role="progressbar"
             >
                 {withLable &&
-                    <div className="progress-lable">
+                    <div className="progress-label">
                         {`${value}%`}
                     </div>
                 }
