@@ -65,7 +65,7 @@
 }
 
 .btn-light-gray {
-    @apply bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 [&.active]:bg-gray-300 active:bg-gray-300 focus:bg-gray-300 text-gray-600 dark:text-gray-200 dark:hover:text-gray-100
+    @apply bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 [&.active]:bg-gray-300 active:bg-gray-300 focus:bg-gray-300 text-gray-600 dark:text-gray-200 dark:hover:text-gray-100
 }
 
 .btn-light-dark {
@@ -93,7 +93,7 @@
 }
 
 .btn-light-purple {
-    @apply bg-setxo-50 dark:bg-indigo-950 hover:bg-setxo-100 dark:hover:bg-indigo-900 [&.active]:bg-setxo-200 active:bg-setxo-200 focus:bg-setxo-200 text-setxo-500 dark:text-setxo-300 hover:text-setxo-600 dark:hover:text-setxo-200
+    @apply bg-setxo-50 dark:bg-indigo-900 hover:bg-setxo-100 dark:hover:bg-indigo-800 [&.active]:bg-setxo-200 active:bg-setxo-200 focus:bg-setxo-200 text-setxo-500 dark:text-setxo-300 hover:text-setxo-600 dark:hover:text-setxo-200
 }
 
 .btn-gradient {
