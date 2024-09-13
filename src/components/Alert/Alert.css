@@ -9,40 +9,40 @@
 }
 
 .alert-light {
-    @apply text-gray-800 bg-gray-100 dark:bg-gray-300 dark:text-gray-800 border-gray-200;
+    @apply text-gray-800 bg-gray-100 dark:bg-gray-300 dark:text-gray-800 border-gray-200 dark:border-gray-100;
 }
 
 .alert-gray {
-    @apply text-gray-800 bg-gray-300 dark:bg-gray-500 dark:text-gray-200 border-gray-400;
+    @apply text-gray-800 bg-gray-300 dark:bg-gray-500 dark:text-gray-200 border-gray-400 dark:border-gray-400;
 }
 
 .alert-dark {
-    @apply text-gray-100 bg-gray-500 dark:bg-gray-700 dark:text-gray-300 border-gray-900;
+    @apply text-gray-100 bg-gray-500 dark:bg-gray-700 dark:text-gray-300 border-gray-900 dark:border-gray-600;
 }
 
 .alert-primary {
-    @apply text-blue-600 bg-blue-50 dark:bg-blue-950 dark:text-blue-200 border-blue-400;
+    @apply text-blue-600 bg-blue-50 dark:bg-blue-950 dark:text-blue-200 border-blue-400 dark:border-blue-800;
 }
 
 
 .alert-success {
-    @apply text-green-600 bg-green-50 dark:bg-green-950 dark:text-green-200 border-green-400;
+    @apply text-green-600 bg-green-50 dark:bg-green-950 dark:text-green-200 border-green-400 dark:border-green-800;
 }
 
 .alert-danger {
-    @apply text-red-600 bg-red-50 dark:bg-red-950 dark:text-red-200 border-red-400;
+    @apply text-red-600 bg-red-50 dark:bg-red-950 dark:text-red-200 border-red-400 dark:border-red-800;
 }
 
 .alert-warning {
-    @apply text-yellow-600 bg-yellow-50 dark:bg-yellow-950 dark:text-yellow-200 border-yellow-400;
+    @apply text-yellow-600 bg-yellow-50 dark:bg-yellow-950 dark:text-yellow-200 border-yellow-400 dark:border-yellow-800;
 }
 
 .alert-info {
-    @apply text-cyan-600 bg-cyan-50 dark:bg-cyan-950 dark:text-cyan-200 border-cyan-400;
+    @apply text-cyan-600 bg-cyan-50 dark:bg-cyan-950 dark:text-cyan-200 border-cyan-400 dark:border-cyan-800;
 }
 
 .alert-purple {
-    @apply text-setxo-600 bg-setxo-50 dark:bg-setxo-950 dark:text-setxo-200 border-setxo-400;
+    @apply text-setxo-600 bg-setxo-50 dark:bg-indigo-950 dark:text-setxo-200 border-setxo-400 dark:border-indigo-800;
 }
 
 .btn-alert-close {
@@ -82,7 +82,7 @@
 }
 
 .alert-outline-purple {
-    @apply text-setxo-600 border border-setxo-300 dark:border-setxo-900 dark:text-setxo-300;
+    @apply text-setxo-600 border border-setxo-300 dark:border-indigo-800 dark:text-setxo-300;
 }
 
 .alert-dismissible {
