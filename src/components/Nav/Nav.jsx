@@ -1,12 +1,11 @@
 import { createContext, useContext } from 'react'
 import { Link } from '@inertiajs/react'
 import { useEffect, useState } from "react"
-import A from "../../contents/Links/Links"
 import './Nav.css'
 
 const NavContext = createContext()
 
-const Nav = ({ children, rounded = 'rounded', className = '', as = 'nav', color = 'primary', theme = 'light', ...props }) => {
+const Nav = ({ children, rounded = 'rounded', className = '', as = 'nav', color = 'primary', theme = '', ...props }) => {
 
     const asClasses = {
         nav: 'nav',
@@ -35,12 +34,13 @@ const Nav = ({ children, rounded = 'rounded', className = '', as = 'nav', color 
         warning: 'nav-link-warning',
         info: 'nav-link-info',
         purple: 'nav-link-purple',
+        custom: '',
     }[color]
 
     return (
         <NavContext.Provider value={{ className, children, rounded, roundedClass, as, color, colorClass }}>
             <nav aria-label="nav">
-                <ul className={(as && `${asClasses}`) + (className && ` ${className}`) + (theme == 'dark' ? ` nav-dark` : ' nav-light')} {...props}>
+                <ul className={(as && `${asClasses}`) + (className && ` ${className}`) + (theme == 'dark' ? ` nav-dark` : '')} {...props}>
                     {children}
                 </ul>
             </nav>
@@ -50,24 +50,23 @@ const Nav = ({ children, rounded = 'rounded', className = '', as = 'nav', color 
 
 const NavLink = ({ active, disabled = '', className = '', href, children, ...props }) => {
 
-    const { rounded, roundedClass, as, color, colorClass } = useContext(NavContext)
+    const { rounded, roundedClass, as, colorClass } = useContext(NavContext)
 
     return (
         <li className="nav-item">
             {href ?
                 <>
                     {active ?
-                        <A
+                        <Link
                             {...props}
                             href={href}
                             className={
                                 'nav-link active' + (className && ` ${className}`) + (rounded && (as == 'pills' || as == 'fillPills') ? ` ${roundedClass}` : '') + (disabled && ' disabled') + ` ${colorClass}`
                             }
                             aria-current="page"
-                            color={color}
                         >
                             {children}
-                        </A>
+                        </Link>
                         :
                         <Link
                             {...props}

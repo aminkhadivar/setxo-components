@@ -1,37 +1,37 @@
 .navbar {
-    @apply w-full px-2 py-2 sm:px-4 sm:py-3 duration-300
+    @apply w-full px-2 py-2 sm:px-4 sm:py-3 flex flex-wrap items-center justify-between gap-x-4 mx-auto duration-300
 }
 
-.navbar-light {
+/* .navbar-container {
+    @apply mx-auto flex flex-wrap items-center justify-between gap-x-4
+} */
+
+.navbar-brand {
+    @apply flex items-center justify-center gap-2 whitespace-nowrap text-2xl font-semibold dark:text-white
+}
+
+.navbar-light .navbar-brand {
     @apply text-gray-200 dark:text-gray-200
 }
 
-.navbar-light a {
+.navbar-light .navbar-brand a {
     @apply text-gray-200 dark:text-gray-200
 }
 
-.navbar-light a:hover {
+.navbar-light .navbar-brand a:hover {
     @apply text-white dark:text-white
 }
 
-.navbar-dark {
+.navbar-dark .navbar-brand {
     @apply text-gray-600 dark:text-gray-600
 }
 
-.navbar-dark a {
+.navbar-dark .navbar-brand a {
     @apply text-gray-600 dark:text-gray-600
 }
 
-.navbar-dark a:hover {
+.navbar-dark .navbar-brand a:hover {
     @apply text-gray-900 dark:text-gray-900
-}
-
-.navbar-container {
-    @apply mx-auto flex flex-wrap items-center justify-between gap-x-4
-}
-
-.navbar-brand {
-    @apply flex items-center gap-2 whitespace-nowrap text-2xl font-semibold dark:text-white
 }
 
 .navbar-collapse {
@@ -43,7 +43,7 @@
 }
 
 .navbar-toggle {
-    @apply inline-flex items-center p-2 text-sm text-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden order-1
+    @apply inline-flex items-center p-2 text-sm  md:hidden order-1
 }
 
 .navbar-light .navbar-toggle {
@@ -52,6 +52,30 @@
 
 .navbar-dark .navbar-toggle {
     @apply hover:bg-gray-500/20 text-gray-500 hover:text-gray-700
+}
+
+.navbar-light .nav-link-primary.active {
+    @apply text-blue-400 hover:text-blue-400
+}
+
+.navbar-light .nav-link-success.active {
+    @apply text-green-400 hover:text-green-400
+}
+
+.navbar-light .nav-link-danger.active {
+    @apply text-red-400 hover:text-red-400
+}
+
+.navbar-light .nav-link-warning.active {
+    @apply text-amber-400 hover:text-amber-400
+}
+
+.navbar-light .nav-link-info.active {
+    @apply text-cyan-400 hover:text-cyan-400
+}
+
+.navbar-light .nav-link-purple.active {
+    @apply text-setxo-400 hover:text-setxo-400
 }
 
 .bg-default {

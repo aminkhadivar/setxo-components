@@ -6,7 +6,7 @@ import { Transition } from '@headlessui/react'
 
 const NavbarContext = createContext()
 
-const Navbar = ({ children, position = 'relative', navbarTheme = '', className = '', color = 'default', customColor = '', striped = '', divided = '', hoverable = '', rounded = 'md', placement = 'top', ...props }) => {
+const Navbar = ({ children, position = 'relative', theme = 'auto', className = '', color = '', striped = '', divided = '', hoverable = '', rounded = 'md', placement = 'top', ...props }) => {
 
     const [open, setOpen] = useState(false)
 
@@ -14,10 +14,11 @@ const Navbar = ({ children, position = 'relative', navbarTheme = '', className =
         setOpen((previousState) => !previousState)
     }
 
-    const navbarThemeClass = {
+    const themeClass = {
         light: 'navbar-dark',
         dark: 'navbar-light',
-    }[navbarTheme]
+        auto: '',
+    }[theme]
 
     const colorClass = {
         default: 'bg-default',
@@ -30,7 +31,6 @@ const Navbar = ({ children, position = 'relative', navbarTheme = '', className =
         warning: 'bg-warning',
         info: 'bg-info',
         purple: 'bg-purple',
-        custom: customColor,
     }[color]
 
     const roundedClass = {
@@ -69,10 +69,10 @@ const Navbar = ({ children, position = 'relative', navbarTheme = '', className =
 
     return (
         <NavbarContext.Provider value={{ className, children, color, open, toggleOpen, colorClass, rounded, roundedBottomClass, roundedClass }}>
-            <nav {...props} className={`navbar` + `${open ? ' z-50 backdrop-filter backdrop-blur-md' : ' z-auto'}` + `${color && ` ` + colorClass}` + ` ${open ? ` rounded-b-none ` + roundedTopClass : ` ` + roundedClass}` + `${className && ` ` + className}` + `${navbarTheme && ` ` + navbarThemeClass}` + ` ${position}`}>
-                <div className="navbar-container">
-                    {children}
-                </div>
+            <nav {...props} className={`navbar` + `${open ? ' z-50 backdrop-filter backdrop-blur-md' : ' z-auto'}` + `${color && ` ` + colorClass}` + ` ${open ? ` rounded-b-none ` + roundedTopClass : ` ` + roundedClass}` + `${className && ` ` + className}` + `${theme && ` ` + themeClass}` + ` ${position}`}>
+                {/* <div className="navbar-container"> */}
+                {children}
+                {/* </div> */}
             </nav>
         </NavbarContext.Provider>
     )
@@ -103,7 +103,11 @@ const NavbarToggle = ({ children, className = '', ...props }) => {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
                 :
-                <HambergerMenu />
+                // <HambergerMenu />
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-6 w-6" fill="none">
+                    <path d="M4 8.5L20 8.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M4 15.5L20 15.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
             }
         </button>
     )

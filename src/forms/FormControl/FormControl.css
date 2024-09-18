@@ -1,7 +1,27 @@
 /* ------------- Form Control ------------- */
 
 .form-control {
-    @apply w-full block px-2 bg-transparent border-black/10 dark:border-white/20 focus:bg-white dark:focus:bg-black/20 focus:border-setxo-300 dark:focus:border-zinc-300/60 focus:ring focus:ring-setxo-200 dark:focus:ring-white/20 focus:ring-opacity-50 duration-300 focus:outline-none outline-none resize-none
+    @apply w-full block px-2 bg-white dark:bg-black/10 border-black/10 dark:border-white/20 focus:bg-white dark:focus:bg-black/20 focus:border-setxo-300 dark:focus:border-zinc-300/60 focus:ring focus:ring-setxo-200 dark:focus:ring-white/20 focus:ring-opacity-50 duration-300 focus:outline-none outline-none resize-none text-gray-700 dark:text-gray-200
+}
+
+.form-control-dark {
+    @apply w-full block px-2 bg-black/80 dark:bg-black/80 border-white/40 dark:border-white/30 focus:bg-black dark:focus:bg-black focus:border-zinc-100/60 dark:focus:border-zinc-100/60 focus:ring focus:ring-gray-400/30 dark:focus:ring-white/20 focus:ring-opacity-50 duration-300 focus:outline-none outline-none resize-none text-gray-200
+}
+
+.form-control-light {
+    @apply w-full block px-2 bg-white dark:bg-white/80 border-white/20 dark:border-white/20 focus:bg-white dark:focus:bg-white focus:border-zinc-100/60 dark:focus:border-zinc-100/60 focus:ring focus:ring-gray-400/30 dark:focus:ring-white/20 focus:ring-opacity-50 duration-300 focus:outline-none outline-none resize-none text-gray-700 dark:text-gray-800
+}
+
+.form-control::placeholder {
+    @apply text-gray-400 focus:text-gray-500 dark:focus:text-gray-300
+}
+
+.form-control-dark::placeholder {
+    @apply text-gray-400 focus:text-gray-300
+}
+
+.form-control-light::placeholder {
+    @apply text-gray-700 focus:text-gray-800 dark:focus:text-gray-800
 }
 
 .form-label {

@@ -1,7 +1,7 @@
 import { forwardRef, useEffect, useRef, useState } from 'react'
 import './FormControl.css'
 
-export default forwardRef(function Input({ as = 'text', type = 'text', className = '', rounded = 'rounded', size = 'default', isFocused = false, placeholder, value, disabled = '', readOnly = '', ...props }, ref) {
+export default forwardRef(function Input({ as = 'text', type = 'text', className = '', rounded = 'rounded', size = 'default', color = '', isFocused = false, placeholder, value, disabled = '', readOnly = '', ...props }, ref) {
 
     const asClass = {
         text: 'form-control',
@@ -39,11 +39,16 @@ export default forwardRef(function Input({ as = 'text', type = 'text', className
         lg: 'form-control-lg',
     }[size]
 
+    const colorClass = {
+        dark: 'form-control-dark',
+        light: 'form-control-light',
+    }[color]
+
     return (
         <input
             {...props}
             type={type}
-            className={`${asClass}` + `${size && ` ` + sizeClass}` +
+            className={`${asClass}` + `${color && ` ` + colorClass}` + `${size && ` ` + sizeClass}` +
                 `${className && ` ` + className}` + ` ${roundedClass}` + `${disabled && `${readOnly ? ' disabled-readonly' : ' disabled'}`}`
             }
             ref={input}
