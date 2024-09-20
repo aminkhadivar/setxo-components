@@ -109,7 +109,7 @@
 }
 
 .btn-outline-light {
-    @apply bg-transparent dark:bg-transparent hover:bg-gray-200 dark:hover:bg-gray-300 active:bg-gray-200 focus:bg-gray-200 text-gray-600 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-800 border border-gray-200 hover:border-gray-200 dark:border-gray-300 dark:hover:border-gray-300 stroke-gray-200 hover:stroke-gray-800 dark:[&.active]:text-black dark:[&.active]:hover:text-black [&.active]:bg-gray-200 dark:[&.active]:bg-gray-300 [&.active]:border-gray-200 dark:[&.active]:border-gray-300
+    @apply bg-transparent dark:bg-transparent hover:bg-gray-200 dark:hover:bg-gray-300 active:bg-gray-200 focus:bg-gray-200 text-gray-200 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-800 border border-gray-200 hover:border-gray-200 dark:border-gray-300 dark:hover:border-gray-300 stroke-gray-200 hover:stroke-gray-800 dark:[&.active]:text-black dark:[&.active]:hover:text-black [&.active]:bg-gray-200 dark:[&.active]:bg-gray-300 [&.active]:border-gray-200 dark:[&.active]:border-gray-300
 }
 
 .btn-outline-gray {

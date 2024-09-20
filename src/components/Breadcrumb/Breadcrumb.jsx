@@ -23,7 +23,7 @@ const Breadcrumb = ({ active = '', href, className = '', children, color = 'prim
     return (
         <BreadcrumbContext.Provider value={{ className, children, active, href, color }}>
             <nav aria-label="breadcrumb">
-                <ol className="breadcrumb">{childrenWtihSeperator}</ol>
+                <ol className={'breadcrumb'+ `${className && ' ' + className}`}>{childrenWtihSeperator}</ol>
             </nav>
         </BreadcrumbContext.Provider>
     )

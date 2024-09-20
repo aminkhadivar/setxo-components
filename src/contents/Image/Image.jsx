@@ -1,6 +1,6 @@
 import './Image.css'
 
-export default function Image({ children ,url, alt , as = 'image', height = '196', width = '196', thumbnailSize = '196', className = '', rounded = 'md', ...props }) {
+export default function Image({ children ,url, alt , as = 'image', height = '', width = '', thumbnailSize = '196', className = '', rounded = '', ...props }) {
 
     const roundedClass = {
         none: 'rounded-none',
@@ -18,7 +18,7 @@ export default function Image({ children ,url, alt , as = 'image', height = '196
                     {...props}
                     src={url}
                     className={` ${rounded && roundedClass}` + `${className && ` ` + className}`}
-                    style={{ height: `${height}px` }}
+                    style={{ height: `${height && `${height}px`}` ,  width: `${width && `${width}px`}`}}
                     alt={alt}
                 />
             }
@@ -28,7 +28,7 @@ export default function Image({ children ,url, alt , as = 'image', height = '196
                     src={url}
                     height={height}
                     className={`img-fluid` + ` ${rounded && roundedClass}` + `${className && ` ` + className}`}
-                    style={{ height: `${height}px` }}
+                    style={{ height: `${height && `${height}px`}` , width: `${width && `${width}px`}`}}
                     alt={alt} />
             }
             {as === 'thumbnail' &&

@@ -6,7 +6,7 @@ import { Transition } from '@headlessui/react'
 
 const NavbarContext = createContext()
 
-const Navbar = ({ children, position = 'relative', theme = 'auto', className = '', color = '', striped = '', divided = '', hoverable = '', rounded = 'md', placement = 'top', ...props }) => {
+const Navbar = ({ children, position = 'relative', theme = 'auto', className = '', color = '', striped = '', divided = '', hoverable = '', rounded = '', placement = 'top', ...props }) => {
 
     const [open, setOpen] = useState(false)
 
@@ -69,7 +69,7 @@ const Navbar = ({ children, position = 'relative', theme = 'auto', className = '
 
     return (
         <NavbarContext.Provider value={{ className, children, color, open, toggleOpen, colorClass, rounded, roundedBottomClass, roundedClass }}>
-            <nav {...props} className={`navbar` + `${open ? ' z-50 backdrop-filter backdrop-blur-md' : ' z-auto'}` + `${color && ` ` + colorClass}` + ` ${open ? ` rounded-b-none ` + roundedTopClass : ` ` + roundedClass}` + `${className && ` ` + className}` + `${theme && ` ` + themeClass}` + ` ${position}`}>
+            <nav {...props} className={`navbar` + `${open ? ' z-50 backdrop-filter backdrop-blur-md' : ' z-auto'}` + `${color && ` ` + colorClass}` + ` ${open ? ` ` + roundedTopClass : (rounded && ` ` + roundedClass)}` + `${className && ` ` + className}` + `${theme && ` ` + themeClass}` + ` ${position}`}>
                 {/* <div className="navbar-container"> */}
                 {children}
                 {/* </div> */}
