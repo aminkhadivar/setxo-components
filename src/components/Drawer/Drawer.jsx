@@ -3,7 +3,7 @@ import { Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/re
 import CloseButton from "../CloseButton/CloseButton"
 import './Drawer.css'
 
-export default function Drawer({ children, title, content, footer, show = false, width, placement, closeable = true, onClose = () => { }, ...props }) {
+export default function Drawer({ children, title, content, footer, show = false, width, placement = 'default', closeable = true, onClose = () => { }, ...props }) {
 
     const close = () => {
         if (closeable) {
@@ -66,53 +66,53 @@ export default function Drawer({ children, title, content, footer, show = false,
     }[placement];
 
     return (
-            <Transition show={show} as={Fragment}>
-                <Dialog
-                    as="div"
-                    className="relative z-50"
-                    onClose={close}
+        <Transition show={show} as={Fragment}>
+            <Dialog
+                as="div"
+                className="relative z-50"
+                onClose={close}
+            >
+                <TransitionChild
+                    as={Fragment}
+                    enter="ease-in-out duration-200"
+                    enterFrom="opacity-0"
+                    enterTo="opacity-100"
+                    leave="ease-in-out duration-100"
+                    leaveFrom="opacity-100"
+                    leaveTo="opacity-0"
                 >
-                    <TransitionChild
-                        as={Fragment}
-                        enter="ease-in-out duration-200"
-                        enterFrom="opacity-0"
-                        enterTo="opacity-100"
-                        leave="ease-in-out duration-100"
-                        leaveFrom="opacity-100"
-                        leaveTo="opacity-0"
-                    >
-                        <div className={`fixed inset-0 overflow-hidden bg-gray-800 dark:bg-gray-600 bg-opacity-80 dark:bg-opacity-90 transition-opacity ${closeable && 'cursor-pointer'}`} />
-                    </TransitionChild>
+                    <div className={`fixed inset-0 overflow-hidden bg-gray-800 dark:bg-gray-600 bg-opacity-80 dark:bg-opacity-90 transition-opacity ${closeable && 'cursor-pointer'}`} />
+                </TransitionChild>
 
-                    <TransitionChild
-                        as={Fragment}
-                        placement={placement}
-                        enter={`${alignClass.enter}`}
-                        enterFrom={`${alignClass.enterFrom}`}
-                        enterTo={`${alignClass.enterTo}`}
-                        leave={`${alignClass.leave}`}
-                        leaveFrom={`${alignClass.leaveFrom}`}
-                        leaveTo={`${alignClass.leaveTo}`}
+                <TransitionChild
+                    as={Fragment}
+                    placement={placement}
+                    enter={`${alignClass.enter}`}
+                    enterFrom={`${alignClass.enterFrom}`}
+                    enterTo={`${alignClass.enterTo}`}
+                    leave={`${alignClass.leave}`}
+                    leaveFrom={`${alignClass.leaveFrom}`}
+                    leaveTo={`${alignClass.leaveTo}`}
+                >
+                    <DialogPanel {...props}
+                        className={`drawer-dialog bg-white dark:bg-gray-900 overflow-y-auto shadow-lg transform transition-all rounded-lg ${width} ${props.className}`}
                     >
-                        <DialogPanel {...props}
-                            className={`drawer-dialog bg-white dark:bg-gray-900 overflow-y-auto shadow-lg transform transition-all rounded-lg ${width} ${props.className}`}
-                        >
-                            <div className="p-4">
-                                <div className="text-lg">
-                                    {title &&
-                                        <div className="flex items-center justify-between">
-                                            <h4>{title}</h4>
-                                            <CloseButton color="transparent" size="lg" rounded="full" onClick={closeButton} />
-                                        </div>
-                                    }
-                                </div>
-                                <div className="mt-6">
-                                    {content}
-                                </div>
+                        <div className="p-4">
+                            <div className="text-lg">
+                                {title &&
+                                    <div className="flex items-center justify-between">
+                                        <h4>{title}</h4>
+                                        <CloseButton color="transparent" size="lg" rounded="full" onClick={closeButton} />
+                                    </div>
+                                }
                             </div>
-                        </DialogPanel>
-                    </TransitionChild>
-                </Dialog>
-            </Transition>
+                            <div className="mt-6">
+                                {content}
+                            </div>
+                        </div>
+                    </DialogPanel>
+                </TransitionChild>
+            </Dialog>
+        </Transition>
     );
 }
