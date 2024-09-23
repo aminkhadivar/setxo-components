@@ -3,9 +3,9 @@ import { Transition } from '@headlessui/react'
 import CloseButton from "../CloseButton/CloseButton"
 import './Alert.css'
 
-export default function Alert({ id, className = '', children, closeButton = 'light', dimissable = '', rounded = 'md', color = '', borderColor = '', accentBorder = '', ...props }) {
+export default function Alert({ id, className = '', children, closeButton = 'light', dimissable = '', rounded = 'rounded', color = '', borderColor = '', accentBorder = '', ...props }) {
 
-    const [show, setShow] = useState(true);
+    const [show, setShow] = useState(true)
 
     const colorClass = {
         light: 'alert-light',
@@ -17,7 +17,13 @@ export default function Alert({ id, className = '', children, closeButton = 'lig
         warning: 'alert-warning',
         info: 'alert-info',
         purple: 'alert-purple',
-    }[color];
+        lightPrimary: 'alert-light-primary',
+        lightSuccess: 'alert-light-success',
+        lightDanger: 'alert-light-danger',
+        lightWarning: 'alert-light-warning',
+        lightInfo: 'alert-light-info',
+        lightPurple: 'alert-light-purple',
+    }[color]
 
     const borderColorClass = {
         light: 'alert-outline-light',
@@ -29,22 +35,23 @@ export default function Alert({ id, className = '', children, closeButton = 'lig
         warning: 'alert-outline-warning',
         info: 'alert-outline-info',
         purple: 'alert-outline-purple',
-    }[borderColor];
+    }[borderColor]
 
     const roundedClass = {
-        none: ' rounded-none',
-        sm: ' rounded-sm',
-        md: ' rounded-md',
-        lg: ' rounded-lg',
-        full: ' rounded-full',
-    }[rounded];
+        none: 'rounded-none',
+        sm: 'rounded-sm',
+        rounded: 'rounded',
+        md: 'rounded-md',
+        lg: 'rounded-lg',
+        full: 'rounded-full',
+    }[rounded]
 
     const accentBorderClass = {
-        top: ' border-t-4',
-        right: ' border-r-4',
-        bottom: ' border-b-4',
-        left: ' border-l-4',
-    }[accentBorder];
+        top: 'border-t-4',
+        right: 'border-r-4',
+        bottom: 'border-b-4',
+        left: 'border-l-4',
+    }[accentBorder]
 
     return (
         <Transition
@@ -60,18 +67,15 @@ export default function Alert({ id, className = '', children, closeButton = 'lig
             <div
                 {...props}
                 id={id}
-                className={`alert ${color && colorClass} ` + className + `${borderColor && borderColorClass}` + `${rounded && roundedClass}` +
-                    `${accentBorder && accentBorderClass}`
+                className={`alert ${color && colorClass} ` + className + `${borderColor && borderColorClass}` + `${rounded && ` ` + roundedClass}` + `${accentBorder && ` ` + accentBorderClass}`
                 }
                 role="alert"
             >
                 <div className="alert-content">
-                    <div>
-                        {children}
-                    </div>
+                    {children}
                 </div>
                 {dimissable &&
-                    <CloseButton className="ml-2" color={`${color}`} onClick={() => { setShow(false) }} />
+                    <CloseButton rounded={rounded} color={`${(color || borderColor) ? (color || borderColor) : 'light'}`} onClick={() => { setShow(false) }} />
                 }
             </div>
         </Transition>

@@ -15,7 +15,8 @@ export default function CloseButton({ type = 'button', className = '', disabled 
         warning: 'btn-close-warning',
         info: 'btn-close-info',
         purple: 'btn-close-purple',
-    }[color];
+        white: 'btn-close-white',
+    }[color]
 
     const roundedClass = {
         none: 'rounded-none',
@@ -24,7 +25,7 @@ export default function CloseButton({ type = 'button', className = '', disabled 
         md: 'rounded-md',
         lg: 'rounded-lg',
         full: 'rounded-full',
-    }[rounded];
+    }[rounded]
 
     const sizeClass = {
         sm: 'text-sm h-6 w-6',
@@ -32,7 +33,7 @@ export default function CloseButton({ type = 'button', className = '', disabled 
         md: 'h-8 w-8',
         lg: 'text-lg h-9 w-9',
         xl: 'text-xl h-10 w-10',
-    }[size];
+    }[size]
 
     return (
         <button
