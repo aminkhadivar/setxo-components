@@ -21,16 +21,16 @@
 }
 
 .alert-primary {
-    @apply text-blue-50 bg-blue-500 dark:bg-blue-500 dark:text-white border-blue-400 dark:border-blue-400
+    @apply text-blue-50 bg-blue-600 dark:bg-blue-500 dark:text-white border-blue-400 dark:border-blue-400
 }
 
 
 .alert-success {
-    @apply text-green-50 bg-green-500 dark:bg-green-500 dark:text-white border-green-400 dark:border-green-400
+    @apply text-green-50 bg-green-600 dark:bg-green-500 dark:text-white border-green-400 dark:border-green-400
 }
 
 .alert-danger {
-    @apply text-red-50 bg-red-500 dark:bg-red-500 dark:text-white border-red-400 dark:border-red-400
+    @apply text-red-50 bg-red-600 dark:bg-red-500 dark:text-white border-red-400 dark:border-red-400
 }
 
 .alert-warning {
@@ -38,11 +38,11 @@
 }
 
 .alert-info {
-    @apply text-cyan-50 bg-cyan-500 dark:bg-cyan-500 dark:text-white border-cyan-400 dark:border-cyan-400
+    @apply text-cyan-50 bg-cyan-600 dark:bg-cyan-500 dark:text-white border-cyan-400 dark:border-cyan-400
 }
 
 .alert-purple {
-    @apply text-setxo-50 bg-setxo-500 dark:bg-setxo-500 dark:text-white border-setxo-400 dark:border-setxo-400
+    @apply text-setxo-50 bg-setxo-600 dark:bg-setxo-500 dark:text-white border-setxo-400 dark:border-setxo-400
 }
 
 .alert-light-primary {
