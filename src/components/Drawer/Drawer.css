@@ -1,8 +1,35 @@
 /* ------------- Drawer ------------- */
 
-.setxo-drawer h4 {
-    @apply text-xl font-semibold text-zinc-900 dark:text-zinc-200;
-    letter-spacing: 0.01rem;
+.drawer {
+    @apply relative z-50
+}
+
+.drawer-dialog {
+    @apply flex flex-col gap-4 bg-white dark:bg-gray-900 overflow-y-auto shadow-lg transform transition-all rounded-lg p-4
+}
+
+.drawer-dialog-top {
+    @apply fixed max-h-screen left-0 top-0 rounded-t-none
+}
+
+.drawer-dialog-bottom {
+    @apply fixed max-h-screen bottom-0 rounded-b-none
+}
+
+.drawer-dialog-left {
+    @apply fixed h-full left-0 top-0 rounded-l-none
+}
+
+.drawer-dialog-right {
+    @apply fixed h-full right-0 top-0 rounded-r-none
+}
+
+.drawer-backdrop {
+    @apply fixed inset-0 overflow-hidden bg-gray-800 bg-opacity-80 transition-opacity
+}
+
+.drawer-title {
+    @apply flex items-center justify-between
 }
 
 .backdrop-effect {

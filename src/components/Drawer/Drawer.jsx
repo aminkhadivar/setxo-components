@@ -3,7 +3,7 @@ import { Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/re
 import CloseButton from "../CloseButton/CloseButton"
 import './Drawer.css'
 
-export default function Drawer({ children, title, content, footer, show = false, width, placement = 'default', closeable = true, onClose = () => { }, ...props }) {
+export default function Drawer({ children, title, content, footer, show = false, width, placement = 'top', closeable = true, onClose = () => { }, ...props }) {
 
     const close = () => {
         if (closeable) {
@@ -63,25 +63,32 @@ export default function Drawer({ children, title, content, footer, show = false,
             leaveFrom: "translate-x-0",
             leaveTo: "translate-x-full"
         },
-    }[placement];
+    }[placement]
+
+    const placementClass = {
+        top: 'drawer-dialog-top',
+        bottom: 'drawer-dialog-bottom',
+        left: 'drawer-dialog-left',
+        right: 'drawer-dialog-right',
+    }[placement]
 
     return (
-        <Transition show={show} as={Fragment}>
+        <Transition show={show} as={Fragment} onClose={close}>
             <Dialog
                 as="div"
-                className="relative z-50"
+                className="drawer"
                 onClose={close}
             >
                 <TransitionChild
                     as={Fragment}
-                    enter="ease-in-out duration-200"
+                    enter="ease-in-out duration-300"
                     enterFrom="opacity-0"
                     enterTo="opacity-100"
                     leave="ease-in-out duration-100"
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                 >
-                    <div className={`fixed inset-0 overflow-hidden bg-gray-800 dark:bg-gray-600 bg-opacity-80 dark:bg-opacity-90 transition-opacity ${closeable && 'cursor-pointer'}`} />
+                    <div className={`drawer-backdrop ${closeable && ' cursor-pointer'}`} />
                 </TransitionChild>
 
                 <TransitionChild
@@ -95,24 +102,18 @@ export default function Drawer({ children, title, content, footer, show = false,
                     leaveTo={`${alignClass.leaveTo}`}
                 >
                     <DialogPanel {...props}
-                        className={`drawer-dialog bg-white dark:bg-gray-900 overflow-y-auto shadow-lg transform transition-all rounded-lg ${width} ${props.className}`}
+                        className={`drawer-dialog ${placementClass} ${width} ${props.className}`}
                     >
-                        <div className="p-4">
-                            <div className="text-lg">
-                                {title &&
-                                    <div className="flex items-center justify-between">
-                                        <h4>{title}</h4>
-                                        <CloseButton color="transparent" size="lg" rounded="full" onClick={closeButton} />
-                                    </div>
-                                }
+                        {title &&
+                            <div className="drawer-title">
+                                <h4>{title}</h4>
+                                <CloseButton color="transparent" size="lg" rounded="full" onClick={closeButton} />
                             </div>
-                            <div className="mt-6">
-                                {content}
-                            </div>
-                        </div>
+                        }
+                        {content}
                     </DialogPanel>
                 </TransitionChild>
             </Dialog>
         </Transition>
-    );
+    )
 }
