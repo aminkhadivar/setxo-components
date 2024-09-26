@@ -73,7 +73,7 @@ export default function Drawer({ children, title, content, footer, show = false,
     }[placement]
 
     return (
-        <Transition show={show} as={Fragment} onClose={close}>
+        <Transition show={show} as={Fragment}>
             <Dialog
                 as="div"
                 className="drawer"
