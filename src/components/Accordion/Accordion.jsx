@@ -5,7 +5,7 @@ import './Accordion.css'
 
 export const AccordionContext = createContext()
 
-const Accordion = ({ children, color = 'lightPrimary', className = '', data = [{}], multiple = '' }) => {
+const Accordion = ({ children, color = 'lightPrimary', className = '', data = [], multiple = '' }) => {
 
     const colorClass = {
         light: 'accordion-light',
@@ -46,13 +46,13 @@ const Accordion = ({ children, color = 'lightPrimary', className = '', data = [{
                             <div className="accordion-item"
                                 id={id}
                                 key={id}
-                                show={show.toString()}
-                                onClick={() => handleClick(id)}
                             >
                                 <button
                                     className={`accordion-button ${show ? (colorClass + (className && ` ${className}`)) : 'accordion-default'}`}
                                     type="button"
                                     aria-expanded={show ? 'true' : 'false'}
+                                    show={show.toString()}
+                                    onClick={() => handleClick(id)}
                                 >
                                     <div className="font-medium text-base">{title}</div>
                                     <div className="flex items-center ml-2">
@@ -63,8 +63,6 @@ const Accordion = ({ children, color = 'lightPrimary', className = '', data = [{
                                 </button>
                                 <Transition
                                     show={show}
-                                    id={id}
-                                    key={id}
                                     enter="transition-all duration-700 ease-in"
                                     enterFrom="transform max-h-0"
                                     enterTo="transform max-h-screen"
@@ -127,7 +125,6 @@ const AccordionItem = ({ children, title, id, alwaysOpen }) => {
                         />
                     </div>
                 </button>
-
                 <Transition
                     show={open}
                     enter="transition-all duration-700 ease-in"
