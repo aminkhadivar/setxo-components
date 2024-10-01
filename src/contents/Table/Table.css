@@ -207,3 +207,7 @@
 .table.table-hover.table-purple .table-row:hover {
     @apply bg-setxo-200/50
 }
+
+.table-responsive {
+    @apply overflow-x-auto pb-2
+}
