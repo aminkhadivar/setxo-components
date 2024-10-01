@@ -1,11 +1,16 @@
 /* ------------- Drawer ------------- */
 
 .drawer {
-    @apply relative z-50
+    @apply relative z-50;
+    overflow: unset !important;
 }
 
 .drawer-dialog {
     @apply flex flex-col gap-4 bg-white dark:bg-gray-900 overflow-y-auto shadow-lg transform transition-all rounded-lg p-4
+}
+
+.drawer-content {
+    @apply flex flex-col gap-4
 }
 
 .drawer-dialog-top {
@@ -13,7 +18,7 @@
 }
 
 .drawer-dialog-bottom {
-    @apply fixed max-h-screen bottom-0 rounded-b-none
+    @apply fixed max-h-screen left-0 bottom-0 rounded-b-none
 }
 
 .drawer-dialog-left {
@@ -36,13 +41,25 @@
     animation: zoom 250ms ease-in-out;
 }
 
+.backdrop-motion {
+    @apply ease-in-out duration-300
+}
+
+.enter-motion {
+    @apply ease-in-out duration-300
+}
+
+.leave-motion {
+    @apply ease-in-out duration-300
+}
+
 @keyframes zoom {
     0% {
         transform: scale(1);
     }
 
     50% {
-        transform: scale(1.02);
+        transform: scale(1.01);
     }
 
     100% {
