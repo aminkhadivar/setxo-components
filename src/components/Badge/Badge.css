@@ -71,6 +71,30 @@
     @apply bg-setxo-100 text-setxo-600 hover:text-setxo-600;
 }
 
+.badge-dark-primary {
+    @apply bg-blue-900 text-blue-300 hover:text-blue-300;
+}
+
+.badge-dark-success {
+    @apply bg-green-900 text-green-300 hover:text-green-300;
+}
+
+.badge-dark-danger {
+    @apply bg-red-900 text-red-300 hover:text-red-300;
+}
+
+.badge-dark-warning {
+    @apply bg-amber-900 text-amber-300 hover:text-amber-300;
+}
+
+.badge-dark-info {
+    @apply bg-cyan-900 text-cyan-300 hover:text-cyan-300;
+}
+
+.badge-dark-purple {
+    @apply bg-setxo-900 text-setxo-300 hover:text-setxo-300;
+}
+
 .badge-position-top-right {
     @apply absolute left-full -top-[10px] -ml-5 z-20;
     display: ruby
