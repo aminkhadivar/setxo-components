@@ -1,8 +1,9 @@
 import { ArrowLeft2, ArrowRight2 } from 'iconsax-react'
 import { useState, useEffect } from 'react'
+import Image from "../../contents/Image/Image"
 import './Carousel.css'
 
-const Carousel = ({ slides, height = '384', autoSlide = false, indicators = false, controls = true, autoSlideInterval = 5000 }) => {
+export default function Carousel({ slides, color = '', height = '384', rounded = '', autoSlide = false, indicators = false, caption = '', controls = true, autoSlideInterval = 5000, className = '', ...props }) {
 
     const [current, setCurrent] = useState(0)
 
@@ -16,36 +17,71 @@ const Carousel = ({ slides, height = '384', autoSlide = false, indicators = fals
         return () => clearInterval(slideInterval)
     }, [])
 
+    const colorClass = {
+        light: 'carousel-light',
+        gray: 'carousel-gray',
+        dark: 'carousel-dark',
+        primary: 'carousel-primary',
+        success: 'carousel-success',
+        danger: 'carousel-danger',
+        warning: 'carousel-warning',
+        info: 'carousel-info',
+        purple: 'carousel-purple',
+    }[color]
+
+    const roundedClass = {
+        none: 'rounded-none',
+        sm: 'rounded-sm',
+        rounded: 'rounded',
+        md: 'rounded-md',
+        lg: 'rounded-lg',
+        xl: 'rounded-xl',
+        '2xl': 'rounded-2xl',
+    }[rounded]
+
     return (
-        <div className="carousel">
+        <div className={`carousel` + `${className && ` ` + className}` + `${color && ` ` + colorClass}` + `${rounded && ` ` + roundedClass}`} {...props}>
             <div className='carousel-inner' style={{ transform: `translateX(-${current * 100}%)`, height: `${height}px` }}>
-                {slides.map((s, i) => {
-                    return <div className={`carousel-item`} style={{ backgroundImage: `url(${s})` }} key={"slide" + i} />
+                {slides.map((slide, i) => {
+                    return <div className={`carousel-item`} key={"slide" + i}>
+                        <Image className="carousel-image" url={slide.image} as="responsive" />
+                        {caption &&
+                            <div className="carousel-caption">
+                                <div className={`carousel-caption-container` + `${rounded && ` ` + roundedClass}`}>
+                                    <h5 className="carousel-caption-title">{slide.title}</h5>
+                                    <p className="carousel-caption-description">
+                                        {slide.description}
+                                    </p>
+                                </div>
+                            </div>
+                        }
+                    </div>
                 })}
             </div>
             {controls &&
-            <div className="carousel-control">
-                <button onClick={prev} className='carousel-control-prev'>
-                    <ArrowLeft2 size={36} />
-                </button>
-                <button onClick={next} className='carousel-control-next'>
-                    <ArrowRight2 size={36} />
-                </button>
-            </div>
+                <>
+                    <button onClick={prev} className='carousel-control-prev'>
+                        <ArrowLeft2 size={36} />
+                    </button>
+
+                    <button onClick={next} className='carousel-control-next'>
+                        <ArrowRight2 size={36} />
+                    </button>
+                </>
             }
             {indicators &&
                 <div className='carousel-indicators'>
-                    <div className='carousel-indicators-inner'>
-                        {slides.map((s, i) => (
-                            <button key={"circle" + i} onClick={() => {
-                                setCurrent(i);
-                            }} className={`carousel-indicator-item ${current === i ? "bg-white p-2" : "bg-white bg-opacity-50 p-0"}`} />
-                        ))}
+                    <div className='carousel-indicators-container'>
+                        <div className='carousel-indicators-inner'>
+                            {slides.map((slide, i) => (
+                                <button key={"circle" + i} onClick={() => {
+                                    setCurrent(i);
+                                }} className={`carousel-indicator-item` + `${current === i ? " active" : ""}`} />
+                            ))}
+                        </div>
                     </div>
                 </div>
             }
         </div>
     )
 }
-
-export default Carousel
