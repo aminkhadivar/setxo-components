@@ -2,7 +2,7 @@ import { useState, Fragment } from "react"
 import { Transition } from '@headlessui/react'
 import './Tooltip.css'
 
-export default function Tooltip({ content, className = '', children, placement = 'top', rounded = 'md', color = 'gray', ...props }) {
+export default function Tooltip({ content, className = '', children, placement = 'top', rounded = 'rounded', color = 'gray', ...props }) {
 
     const [show, setShow] = useState(false)
 
@@ -22,6 +22,7 @@ export default function Tooltip({ content, className = '', children, placement =
     }[placement]
 
     const colorClass = {
+        white: 'tooltip-white',
         light: 'tooltip-light',
         gray: 'tooltip-gray',
         dark: 'tooltip-dark',

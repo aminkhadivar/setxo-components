@@ -1,11 +1,11 @@
 /* ------------- Tooltip ------------- */
 
 .tooltip {
-    @apply relative inline-block
+    @apply relative inline
 }
 
 .tooltip-content {
-    @apply absolute min-w-max flex flex-wrap px-2 py-0.5 z-30 pointer-events-none
+    @apply absolute w-max flex flex-wrap px-2 py-0.5 z-30 pointer-events-none
 }
 
 .tooltip-top {
@@ -17,7 +17,7 @@
 }
 
 .tooltip-bottom {
-    @apply top-full mt-1 left-1/2 -translate-x-1/2 
+    @apply top-full mt-1 left-1/2 -translate-x-1/2
 }
 
 .tooltip-left {
@@ -25,41 +25,45 @@
 }
 
 .tooltip-link {
-    @apply  px-1
+    @apply px-1 inline-block
+}
+
+.tooltip-white {
+    @apply bg-white/95 text-gray-700 shadow-lg dark:shadow-none
 }
 
 .tooltip-light {
-    @apply bg-gray-200/90 text-gray-700
+    @apply bg-gray-200/95 text-gray-700
 }
 
 .tooltip-gray {
-    @apply bg-gray-600/90 text-gray-100
+    @apply bg-gray-500/95 text-gray-100
 }
 
 .tooltip-dark {
-    @apply bg-gray-800/90 text-gray-100
+    @apply bg-gray-700/95 text-gray-100
 }
 
 .tooltip-primary {
-    @apply bg-blue-800/90 text-gray-100
+    @apply bg-blue-700/90 text-gray-100
 }
 
 .tooltip-success {
-    @apply bg-green-800/90 text-gray-100
+    @apply bg-green-700/95 text-gray-100
 }
 
 .tooltip-warning {
-    @apply bg-amber-600/90 text-gray-100
+    @apply bg-amber-600/95 text-gray-100
 }
 
 .tooltip-danger {
-    @apply bg-red-800/90 text-gray-100
+    @apply bg-red-700/95 text-gray-100
 }
 
 .tooltip-info {
-    @apply bg-cyan-600/90 text-gray-100
+    @apply bg-cyan-600/95 text-gray-100
 }
 
 .tooltip-purple {
-    @apply bg-setxo-600/90 text-gray-100
+    @apply bg-setxo-600/95 text-gray-100
 }
