@@ -1,7 +1,7 @@
 import { Link } from "@inertiajs/react"
 import './Badge.css'
 
-export default function Badge({ href, className = '', color = '', children, size = '', rounded = 'rounded', position = '', ...props }) {
+export default function Badge({ href, className = '', color = 'primary', children, size = '', rounded = 'rounded', position = '', ...props }) {
 
     const colorClass = {
         light: 'badge-light',
@@ -27,7 +27,7 @@ export default function Badge({ href, className = '', color = '', children, size
         darkWarning: 'badge-dark-warning',
         darkInfo: 'badge-dark-info',
         darkPurple: 'badge-dark-purple',
-    }[color];
+    }[color]
 
     const roundedClass = {
         none: 'rounded-none',
@@ -36,7 +36,7 @@ export default function Badge({ href, className = '', color = '', children, size
         md: 'rounded-md',
         lg: 'rounded-lg',
         full: 'rounded-full',
-    }[rounded];
+    }[rounded]
 
     const sizeClass = {
         sm: 'text-sm',
@@ -45,14 +45,14 @@ export default function Badge({ href, className = '', color = '', children, size
         '2xl': 'text-2xl',
         '3xl': 'text-3xl',
         '4xl': 'text-4xl',
-    }[size];
+    }[size]
 
     const positionClass = {
         topRight: 'badge-position-top-right',
         topLeft: 'badge-position-top-left',
         bottomRight: 'badge-position-bottom-right',
         bottomLeft: 'badge-position-bottom-left',
-    }[position];
+    }[position]
 
     return (
         href
@@ -60,16 +60,16 @@ export default function Badge({ href, className = '', color = '', children, size
             <Link
                 {...props}
                 href={href}
-                className={`badge ${colorClass} ` + className + ` ${roundedClass}` + ` ${sizeClass}` + ` ${position && positionClass}`}
+                className={`badge ${colorClass} ` + `${className && ` ` + className}` + ` ${roundedClass}` + `${size && ` ` + sizeClass}` + `${position && ` ` + positionClass}`}
             >
                 {children}
             </Link>
             :
             <div
                 {...props}
-                className={`badge ${colorClass} ` + className + ` ${roundedClass}` + ` ${size && sizeClass}` + ` ${position && positionClass}`}
+                className={`badge ${colorClass} ` + `${className && ` ` + className}` + ` ${roundedClass}` + `${size && ` ` + sizeClass}` + `${position && ` ` + positionClass}`}
             >
                 {children}
             </div>
-    );
+    )
 }
