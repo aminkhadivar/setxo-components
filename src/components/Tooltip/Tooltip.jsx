@@ -2,7 +2,7 @@ import { useState, Fragment } from "react"
 import { Transition } from '@headlessui/react'
 import './Tooltip.css'
 
-export default function Tooltip({ content, className = '', children, placement = 'top', rounded = 'rounded', color = 'gray', ...props }) {
+export default function Tooltip({ content, trigger = 'hover', className = '', children, placement = 'top', rounded = 'rounded', color = 'gray', ...props }) {
 
     const [show, setShow] = useState(false)
 
@@ -16,9 +16,17 @@ export default function Tooltip({ content, className = '', children, placement =
 
     const placementClass = {
         top: 'tooltip-top',
+        'top-start': 'tooltip-top-start',
+        'top-end': 'tooltip-top-end',
         right: 'tooltip-right',
+        'right-start': 'tooltip-right-start',
+        'right-end': 'tooltip-right-end',
         bottom: 'tooltip-bottom',
+        'bottom-start': 'tooltip-bottom-start',
+        'bottom-end': 'tooltip-bottom-end',
         left: 'tooltip-left',
+        'left-start': 'tooltip-left-start',
+        'left-end': 'tooltip-left-end'
     }[placement]
 
     const colorClass = {
@@ -53,8 +61,10 @@ export default function Tooltip({ content, className = '', children, placement =
 
     return (
         <div className="tooltip"
-            onMouseEnter={showTooltip}
-            onMouseLeave={hideTooltip}
+            onMouseEnter={trigger == 'hover' ? showTooltip : null}
+            onMouseLeave={trigger == 'hover' ? hideTooltip : null}
+            onFocus={trigger == 'click' ? showTooltip : null}
+            onBlur={trigger == 'click' ? hideTooltip : null}
         >
             {children}
             <Transition

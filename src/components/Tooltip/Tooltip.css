@@ -12,16 +12,48 @@
     @apply bottom-full mb-1 left-1/2 -translate-x-1/2
 }
 
+.tooltip-top-start {
+    @apply bottom-full mb-1 left-0
+}
+
+.tooltip-top-end {
+    @apply bottom-full mb-1 right-0
+}
+
 .tooltip-right {
     @apply left-full ml-1 top-1/2 -translate-y-1/2
+}
+
+.tooltip-right-start {
+    @apply left-full ml-1 top-0
+}
+
+.tooltip-right-end {
+    @apply left-full ml-1 bottom-0
 }
 
 .tooltip-bottom {
     @apply top-full mt-1 left-1/2 -translate-x-1/2
 }
 
+.tooltip-bottom-start {
+    @apply top-full mt-1 left-0
+}
+
+.tooltip-bottom-end {
+    @apply top-full mt-1 right-0
+}
+
 .tooltip-left {
     @apply right-full mr-1 top-1/2 -translate-y-1/2
+}
+
+.tooltip-left-start {
+    @apply right-full mr-1 top-0
+}
+
+.tooltip-left-end {
+    @apply right-full mr-1 bottom-0
 }
 
 .tooltip-link {
