@@ -11,7 +11,7 @@ export default function Modal({ content, title, footer, id, className = '', show
         } else {
             var element = document.querySelector('.modal-dialog');
             element.classList.add("backdrop-effect");
-            setTimeout(function(){
+            setTimeout(function () {
                 element.classList.remove("backdrop-effect");
             }, 350);
         }
@@ -39,21 +39,21 @@ export default function Modal({ content, title, footer, id, className = '', show
             >
                 <TransitionChild
                     as={Fragment}
-                    enter="ease-out duration-300"
+                    enter="backdrop-motion"
                     enterFrom="opacity-0"
                     enterTo="opacity-100"
-                    leave="ease-in duration-200"
+                    leave="backdrop-motion"
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                 >
-                    <div className={`fixed inset-0 bg-gray-800 dark:bg-gray-600 bg-opacity-80 dark:bg-opacity-90 transition-opacity  ${closeable && 'cursor-pointer'}`} />
+                    <div className={`modal-backdrop ${closeable && 'cursor-pointer'}`} />
                 </TransitionChild>
                 <TransitionChild
                     as={Fragment}
-                    enter="ease-out duration-300"
+                    enter="enter-motion"
                     enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                     enterTo="opacity-100 translate-y-0 sm:scale-100"
-                    leave="ease-in duration-200"
+                    leave="leave-motion"
                     leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                     leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 >
@@ -63,18 +63,16 @@ export default function Modal({ content, title, footer, id, className = '', show
                                 className={`modal-dialog ${size === 'full' ? 'rounded-none' : 'rounded-lg'} ${maxWidthClass}`}
                             >
                                 {title &&
-                                    <div className="p-4 border-b border-gray-100 dark:border-gray-800">
-                                        <div className="flex items-center justify-between">
-                                            <h4>{title}</h4>
-                                            <CloseButton color="transparent" size="md" rounded="full" onClick={closeButton} />
-                                        </div>
+                                    <div className="modal-title">
+                                        <h4>{title}</h4>
+                                        <CloseButton color="transparent" size="md" rounded="full" onClick={closeButton} />
                                     </div>
                                 }
-                                <div {...props} className={`p-4 ${contentScrollable && 'modal-scrollable'} ${className}`}>
+                                <div {...props} className={'modal-content' + `${contentScrollable && ' modal-scrollable'}` + `${className && ` ` + className}`}>
                                     {content}
                                 </div>
                                 {footer &&
-                                    <div className={`${footer && 'p-4 sm:flex sm:flex-row-reverse border-t border-gray-100 dark:border-gray-800'}`}>
+                                    <div className={'modal-footer'}>
                                         {footer}
                                     </div>
                                 }

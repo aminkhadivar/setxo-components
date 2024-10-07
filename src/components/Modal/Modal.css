@@ -7,24 +7,52 @@
     @apply bg-white dark:bg-gray-950 shadow-xl dark:shadow-none transform transition-all sm:w-full sm:mx-auto
 }
 
+.modal-title {
+    @apply flex items-center justify-between p-4 border-b border-gray-100 dark:border-gray-800
+}
+
+.modal-content {
+    @apply p-4
+}
+
 .modal-scrollable {
     @apply max-h-[50vh] overflow-y-auto;
 }
 
+.modal-footer {
+    @apply p-4 sm:flex sm:flex-row-reverse border-t border-gray-100 dark:border-gray-800
+}
+
+.modal-backdrop {
+    @apply fixed inset-0 bg-gray-800 dark:bg-gray-600 bg-opacity-80 dark:bg-opacity-90 transition-opacity
+}
+
+.backdrop-motion {
+    @apply ease-in-out duration-300
+}
+
+.enter-motion {
+    @apply ease-in-out duration-300
+}
+
+.leave-motion {
+    @apply ease-in-out duration-300
+}
+
 .backdrop-effect {
-    animation: zoom 350ms ease-in-out;
+    animation: zoom 250ms ease-in-out
 }
 
 @keyframes zoom {
     0% {
-        transform: scale(1);
+        transform: scale(1)
     }
 
     50% {
-        transform: scale(1.02);
+        transform: scale(1.01)
     }
 
     100% {
-        transform: scale(1);
+        transform: scale(1)
     }
 }

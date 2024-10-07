@@ -118,7 +118,7 @@ export default function Drawer({ children, className = '', title, content, foote
                             {title &&
                                 <div className="drawer-title">
                                     <h4>{title}</h4>
-                                    <CloseButton color="transparent" size="xl" rounded="full" onClick={closeButton} />
+                                    <CloseButton color="transparent" size="md" rounded="full" onClick={closeButton} />
                                 </div>
                             }
                             <div className="drawer-content">
