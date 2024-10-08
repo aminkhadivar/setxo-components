@@ -135,10 +135,29 @@ const NavTab = ({ children, active = false, disabled = '', className = '', ...pr
     )
 }
 
-const NavDropdown = ({ children }) => {
+const NavDropdown = ({ children, className = '', active = '', disabled = '', ...props }) => {
+
+    const [classNames, setClassNames] = useState('')
+
+    useEffect(() => {
+        setClassNames(
+            active
+                ? 'nav-link active'
+                : 'nav-link'
+        )
+    }, [active])
+
+    const { rounded, roundedClass, as, colorClass } = useContext(NavContext)
+
     return (
-        <li className="nav-item">
-            {children}
+        <li {...props} className="nav-item">
+            <div
+                className={
+                    classNames + (className && ` ${className}`) + (rounded && (as == 'pills' || as == 'fillPills') ? ` ${roundedClass}` : '') + (active ? ` ${colorClass}` : '') + (disabled && ' disabled')
+                }
+            >
+                {children}
+            </div>
         </li>
     )
 }
