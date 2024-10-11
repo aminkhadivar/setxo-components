@@ -1,6 +1,13 @@
+import { useState } from 'react'
 import Label from "../FormControl/Label"
 import './Switch.css'
 export default function Switch({ children, id, className = '', color = '', label, disabled = '', size = '', defaultChecked = false, reverse = '', ...props }) {
+
+    const [checked, setChecked] = useState(defaultChecked)
+
+    const toggleSwitch = () => {
+        setChecked(!checked)
+    }
 
     const colorClass = {
         default: 'switch-default',
@@ -30,8 +37,9 @@ export default function Switch({ children, id, className = '', color = '', label
                     id={id}
                     className={`form-switch-input peer`}
                     role="switch"
-                    defaultChecked={defaultChecked}
+                    defaultChecked={checked}
                     disabled={disabled}
+                    onChange={toggleSwitch}
                 />
                 <span className={`toggle-switch` + `${className && ` ` + className}` + `${color ? ` ` + colorClass : ' switch-default'}` + `${size && ` ` + sizeClass}`}></span>
             </Label>

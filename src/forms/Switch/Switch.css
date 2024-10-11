@@ -57,11 +57,11 @@
 }
 
 .switch-sm {
-    @apply w-8 h-5 after:w-3 after:h-3  peer-checked:after:translate-x-3
+    @apply w-8 h-5 after:w-3 after:h-3 peer-checked:after:translate-x-3
 }
 
 .switch-lg {
-    @apply w-12 h-7 after:w-5 after:h-5  peer-checked:after:translate-x-5
+    @apply w-12 h-7 after:w-5 after:h-5 peer-checked:after:translate-x-5
 }
 
 .switch-reverse {
