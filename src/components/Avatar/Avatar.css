@@ -1,5 +1,9 @@
 /* ------------- Avatar ------------- */
 
+.avatar {
+    @apply font-medium text-xl text-gray-600 dark:text-gray-300
+}
+
 .border-avatar {
     @apply ring-2 border-4 border-transparent
 }

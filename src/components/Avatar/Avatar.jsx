@@ -19,7 +19,7 @@ export default function Avatar({ children, url, alt, size, height = '48', classN
         lg: '56',
         xl: '64',
         '2xl': '72',
-    }[size];
+    }[size]
 
     const borderClass = {
         light: 'border-light',
@@ -39,7 +39,7 @@ export default function Avatar({ children, url, alt, size, height = '48', classN
                 <Image
                     {...props}
                     url={url}
-                    className={className + `${border && ` ` + borderClass}`}
+                    className={`avatar` + `${className && ` ` + className}` + `${border && ` ` + borderClass}`}
                     alt={alt || 'User Avatar'}
                     rounded={rounded}
                     as="thumbnail"
@@ -48,7 +48,7 @@ export default function Avatar({ children, url, alt, size, height = '48', classN
                 <Image
                     {...props}
                     children={children ? children : <DefaultAvatar />}
-                    className={className + `${border && ` ` + borderClass}`}
+                    className={`avatar` + `${className && ` ` + className}` + `${border && ` ` + borderClass}`}
                     title={alt || 'User Avatar'}
                     rounded={rounded}
                     as="svg"
