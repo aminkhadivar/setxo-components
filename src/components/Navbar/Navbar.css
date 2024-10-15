@@ -10,6 +10,10 @@
     @apply flex items-center justify-center gap-2 whitespace-nowrap text-2xl font-semibold dark:text-white
 }
 
+.navbar-light * {
+    @apply text-gray-200 dark:text-gray-200
+}
+
 .navbar-light .navbar-brand {
     @apply text-gray-200 dark:text-gray-200
 }
@@ -20,6 +24,10 @@
 
 .navbar-light .navbar-brand a:hover {
     @apply text-white dark:text-white
+}
+
+.navbar-dark * {
+    @apply text-gray-600 dark:text-gray-600
 }
 
 .navbar-dark .navbar-brand {
@@ -43,7 +51,7 @@
 }
 
 .navbar-toggle {
-    @apply inline-flex items-center p-2 text-sm  md:hidden order-1
+    @apply inline-flex items-center p-2 text-sm md:hidden order-1
 }
 
 .navbar-light .navbar-toggle {
@@ -135,5 +143,5 @@
 }
 
 .navbar-dark .nav .nav-link:not(.nav-link.active) {
-    @apply text-gray-600 hover:text-gray-800 
-} 
+    @apply text-gray-600 hover:text-gray-800
+}

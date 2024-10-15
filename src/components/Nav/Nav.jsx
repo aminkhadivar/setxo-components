@@ -7,6 +7,11 @@ const NavContext = createContext()
 
 const Nav = ({ children, rounded = 'rounded', className = '', as = 'nav', color = 'primary', theme = '', ...props }) => {
 
+    const themeClass = {
+        light: 'nav-light',
+        dark: 'nav-dark',
+    }[theme]
+
     const asClasses = {
         nav: 'nav',
         tabs: 'nav nav-tabs',
@@ -40,7 +45,7 @@ const Nav = ({ children, rounded = 'rounded', className = '', as = 'nav', color 
     return (
         <NavContext.Provider value={{ className, children, rounded, roundedClass, as, color, colorClass }}>
             <nav aria-label="nav">
-                <ul className={(as && `${asClasses}`) + (className && ` ${className}`) + (theme == 'dark' ? ` nav-dark` : '')} {...props}>
+                <ul className={(as && `${asClasses}`) + (className && ` ${className}`) + (theme ? ` ` + themeClass : '')} {...props}>
                     {children}
                 </ul>
             </nav>
