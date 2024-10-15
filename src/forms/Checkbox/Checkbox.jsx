@@ -28,7 +28,7 @@ export default function Checkbox({ id, className = '', color = '', label, disabl
 
     return (
         <div className="form-check">
-            <Label htmlFor={id} value={label} className={`${disabled ? ' pointer-events-none opacity-50' : ' cursor-pointer'}`}>
+            <Label htmlFor={id} value={label} className={`${disabled && ' disabled'}`}>
                 <input
                     {...props}
                     type="checkbox"

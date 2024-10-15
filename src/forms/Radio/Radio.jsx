@@ -1,6 +1,13 @@
+import { useState } from 'react'
 import Label from "../FormControl/Label"
 import './Radio.css'
-export default function Checkbox({ id, className = '', color = '', size = '', label, disabled = '', defaultChecked, ...props }) {
+export default function Checkbox({ children , value, id, className = '', color = '', size = '', label, disabled = '', defaultChecked = false, ...props }) {
+
+    const [checked, setChecked] = useState(defaultChecked)
+
+    const toggleCheked = (e) => {
+        setChecked(e.target.value)
+    }
 
     const colorClass = {
         light: 'radio-light',
@@ -21,16 +28,18 @@ export default function Checkbox({ id, className = '', color = '', size = '', la
 
     return (
         <div className="form-radio">
-            <Label htmlFor={id} value={label} className={`${disabled ? ' pointer-events-none opacity-50' : ' cursor-pointer'}`}>
+            <Label className={`${disabled && ' disabled'}`}>
                 <input
                     {...props}
                     type="radio"
-                    id={id}
+                    value={value}
                     className={`form-radio-input` + `${className && ` ` + className}` + `${color && ` ` + colorClass}` + `${size && ` ` + sizeClass}`
                     }
-                    defaultChecked={defaultChecked}
+                    defaultChecked={checked}
                     disabled={disabled}
+                    onChange={toggleCheked}
                 />
+                {children}
             </Label>
         </div>
     )

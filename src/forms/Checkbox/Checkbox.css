@@ -9,7 +9,11 @@
 }
 
 .form-check .form-label {
-    @apply mb-0 gap-2
+    @apply mb-0 gap-2 cursor-pointer
+}
+
+.form-check .form-label.disabled {
+    @apply pointer-events-none opacity-50
 }
 
 .form-tick-black:checked {

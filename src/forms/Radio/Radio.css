@@ -12,6 +12,10 @@
     @apply mb-0 gap-2 cursor-pointer
 }
 
+.form-radio .form-label.disabled {
+    @apply pointer-events-none opacity-50
+}
+
 .radio-light {
     @apply text-gray-300
 }
