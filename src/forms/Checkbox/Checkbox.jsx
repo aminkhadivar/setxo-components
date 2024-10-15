@@ -1,6 +1,13 @@
+import { useState } from 'react'
 import Label from "../FormControl/Label"
 import './Checkbox.css'
-export default function Checkbox({ id, className = '', color = '', label, disabled = '', size = '', defaultChecked, darkTick = '', ...props }) {
+export default function Checkbox({ id, className = '', color = '', label, disabled = '', size = '', defaultChecked = false, darkTick = '', ...props }) {
+
+    const [checked, setChecked] = useState(defaultChecked)
+
+    const toggleCheked = () => {
+        setChecked(!checked)
+    }
 
     const colorClass = {
         light: 'checkbox-light',
@@ -27,8 +34,9 @@ export default function Checkbox({ id, className = '', color = '', label, disabl
                     type="checkbox"
                     id={id}
                     className={`form-check-input` + `${className && ` ` + className}` + `${color && ` ` + colorClass}` + `${size && ` ` + sizeClass}` + `${darkTick && ` form-tick-black`}`}
-                    defaultChecked={defaultChecked}
+                    defaultChecked={checked}
                     disabled={disabled}
+                    onChange={toggleCheked}
                 />
             </Label>
         </div>
