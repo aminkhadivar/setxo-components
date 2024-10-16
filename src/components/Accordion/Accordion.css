@@ -75,3 +75,11 @@
 .accordion-light-purple {
     @apply bg-setxo-100 dark:bg-setxo-100 text-setxo-900 dark:text-setxo-800
 }
+
+.enter-motion {
+    @apply transition-all duration-700 ease-in
+}
+
+.leave-motion {
+    @apply transition-all duration-300 ease-out
+}

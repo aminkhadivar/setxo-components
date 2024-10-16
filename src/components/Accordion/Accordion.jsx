@@ -36,10 +36,12 @@ const Accordion = ({ children, color = 'lightPrimary', className = '', data = []
         )
     }
 
+
+
     return (
         <AccordionContext.Provider value={{ className, children, multiple, colorClass }}>
             <div className={'accordion'}>
-                {children ? children :
+                {children ||
                     <>
                         {/* Use data array */}
                         {items.map(({ title, id, show, content }) => (
@@ -63,10 +65,10 @@ const Accordion = ({ children, color = 'lightPrimary', className = '', data = []
                                 </button>
                                 <Transition
                                     show={show}
-                                    enter="transition-all duration-700 ease-in"
+                                    enter="enter-motion"
                                     enterFrom="transform max-h-0"
                                     enterTo="transform max-h-screen"
-                                    leave="transition-all duration-300 ease-out"
+                                    leave="leave-motion"
                                     leaveFrom="transform max-h-screen"
                                     leaveTo="transform max-h-0"
                                 >
@@ -127,10 +129,10 @@ const AccordionItem = ({ children, title, id, alwaysOpen }) => {
                 </button>
                 <Transition
                     show={open}
-                    enter="transition-all duration-700 ease-in"
+                    enter="enter-motion"
                     enterFrom="transform max-h-0"
                     enterTo="transform max-h-screen"
-                    leave="transition-all duration-300 ease-out"
+                    leave="leave-motion"
                     leaveFrom="transform max-h-screen"
                     leaveTo="transform max-h-0"
                 >
