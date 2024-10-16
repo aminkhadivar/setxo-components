@@ -3,7 +3,7 @@
   "version": "1.0.2",
   "description": "React Components with Tailwind CSS",
   "type": "module",
-  "main": "components/index.js",
+  "main": "index.js",
   "author": "Amin Khadivar <amin.khadivar@gmail.com>",
   "repository": {
     "type": "git",

@@ -16,7 +16,7 @@ export default defineConfig(() => ({
   ],
   build: {
     lib: {
-      entry: resolve('src', 'components/index.js'),
+      entry: resolve('src', 'index.js'),
       name: 'SetxoComponent',
       formats: ['es', 'cjs', 'umd'],
       fileName: (format) => `index.${format}.js`,
