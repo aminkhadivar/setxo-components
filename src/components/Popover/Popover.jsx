@@ -36,28 +36,26 @@ export default function Popover({
         custom: '',
     }[color]
 
-    const isMobile = () => typeof window !== 'undefined' && window.innerWidth < 1024
-
     const motionVariants = {
         top: {
-            initial: { opacity: 0, y: 10, scale: 0.95, x: isMobile() ? '0' : '-50%' },
-            animate: { opacity: 1, y: 0, scale: 1, x: isMobile() ? '0' : '-50%' },
-            exit: { opacity: 0, y: 10, scale: 0.95, x: isMobile() ? '0' : '-50%' },
+            initial: { opacity: 0, y: 10, scale: 0.95, x: '0' },
+            animate: { opacity: 1, y: 0, scale: 1, x: '0' },
+            exit: { opacity: 0, y: 10, scale: 0.95, x: '0' },
         },
         right: {
-            initial: { opacity: 0, x: -10, scale: 0.95, y: isMobile() ? '0' : '-50%' },
-            animate: { opacity: 1, x: 0, scale: 1, y: isMobile() ? '0' : '-50%' },
-            exit: { opacity: 0, x: -10, scale: 0.95, y: isMobile() ? '0' : '-50%' },
+            initial: { opacity: 0, x: -10, scale: 0.95, y: '0' },
+            animate: { opacity: 1, x: 0, scale: 1, y: '0' },
+            exit: { opacity: 0, x: -10, scale: 0.95, y: '0' },
         },
         bottom: {
-            initial: { opacity: 0, y: -10, scale: 0.95, x: isMobile() ? '0' : '-50%' },
-            animate: { opacity: 1, y: 0, scale: 1, x: isMobile() ? '0' : '-50%' },
-            exit: { opacity: 0, y: -10, scale: 0.95, x: isMobile() ? '0' : '-50%' },
+            initial: { opacity: 0, y: -10, scale: 0.95, x: '0' },
+            animate: { opacity: 1, y: 0, scale: 1, x: '0' },
+            exit: { opacity: 0, y: -10, scale: 0.95, x: '0' },
         },
         left: {
-            initial: { opacity: 0, x: 10, scale: 0.95, y: isMobile() ? '0' : '-50%' },
-            animate: { opacity: 1, x: 0, scale: 1, y: isMobile() ? '0' : '-50%' },
-            exit: { opacity: 0, x: 10, scale: 0.95, y: isMobile() ? '0' : '-50%' },
+            initial: { opacity: 0, x: 10, scale: 0.95, y: '0' },
+            animate: { opacity: 1, x: 0, scale: 1, y: '0' },
+            exit: { opacity: 0, x: 10, scale: 0.95, y: '0' },
         },
     }[placement]
 
