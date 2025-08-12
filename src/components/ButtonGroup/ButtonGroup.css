@@ -6,41 +6,44 @@
     @apply flex
 }
 
-.btn-group button:not(:last-child) {
-    @apply ltr:rounded-r-none rtl:rounded-l-none
-}
+@layer utilities {
+    .btn-group button.btn:not(:last-child) {
+        @apply ltr:!rounded-r-none rtl:!rounded-l-none
+    }
 
-.btn-group button:not(:first-child) {
-    @apply ltr:rounded-l-none ltr:border-l-0 rtl:rounded-r-none rtl:border-r-0
-}
+    .btn-group button.btn:not(:first-child) {
+        @apply ltr:!rounded-l-none ltr:!border-l-0 rtl:!rounded-r-none rtl:!border-r-0
+    }
 
-.btn-group a:not(:last-child) {
-    @apply ltr:rounded-r-none rtl:rounded-l-none
-}
+    .btn-group a:not(:last-child) {
+        @apply ltr:!rounded-r-none rtl:!rounded-l-none
+    }
 
-.btn-group a:not(:first-child) {
-    @apply ltr:rounded-l-none rtl:rounded-r-none
+    .btn-group a:not(:first-child) {
+        @apply ltr:!rounded-l-none rtl:!rounded-r-none
+    }
+
+    .btn-group-vertical button.btn:not(:last-child) {
+        @apply !rounded-b-none
+    }
+
+    .btn-group-vertical button.btn:not(:first-child) {
+        @apply !rounded-t-none !border-t-0
+    }
+
+    .btn-group-vertical a:not(:last-child) {
+        @apply rounded-b-none
+    }
+
+    .btn-group-vertical a:not(:first-child) {
+        @apply rounded-t-none
+    }
 }
 
 .btn-group-vertical {
     @apply flex flex-col max-w-max
 }
 
-.btn-group-vertical button:not(:last-child) {
-    @apply rounded-b-none
-}
-
-.btn-group-vertical button:not(:first-child) {
-    @apply rounded-t-none border-t-0
-}
-
-.btn-group-vertical a:not(:last-child) {
-    @apply rounded-b-none
-}
-
-.btn-group-vertical a:not(:first-child) {
-    @apply rounded-t-none
-}
 
 .btn-group-sm .btn {
     @apply text-sm h-8
