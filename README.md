@@ -9,10 +9,10 @@ React Components with Tailwind CSS , optimized for Laravel and Inertia JS
   npm install
 ```
     
-## Install Setxo Package
+## Install Setxo React Package
 
 ```bash
-  npm install setxo
+  npm install setxo-react
 ```
 ## Run Project
 
@@ -22,7 +22,7 @@ React Components with Tailwind CSS , optimized for Laravel and Inertia JS
 ## Usage/Examples
 
 ```javascript
-import Button from 'setxo'
+import Button from 'setxo-react'
 
 function App() {
   return <Button />
